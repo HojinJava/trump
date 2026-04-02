@@ -1,40 +1,10 @@
-# Secrets
-.env
+# 모든 파일 무시
+*
 
-# Virtual environments
-venv/
-.venv/
-env/
-.env/
-
-# Python artifacts
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.egg-info/
-dist/
-build/
-
-# Test/lint caches
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-
-# yt-dlp output files
-*.vtt
-raw.*
-trump_speech.txt
-parsed_speech.json
-
-# Logs
-*.log
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# IDE
-.idea/
-.vscode/
-config.txt
+# 허용 목록만 추적
+!.gitignore
+!README.md
+!data.json
+!index.html
+!main.js
+!style.css
