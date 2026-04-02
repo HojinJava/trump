@@ -131,24 +131,6 @@
         },
         {
           "rank": 2,
-          "time": "2026-04-02T01:03:00+00:00",
-          "asset": "oil",
-          "window_vol": 4.6002,
-          "video_offset_seconds": 643,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=643",
-          "transcript_segment": "have delivered swift, decisive, overwhelming victories on the",
-          "market_moves": {
-            "nasdaq": -0.24,
-            "oil": 0.83,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 3,
           "time": "2026-04-02T01:08:00+00:00",
           "asset": "oil",
           "window_vol": 4.066,
@@ -166,7 +148,7 @@
           }
         },
         {
-          "rank": 4,
+          "rank": 3,
           "time": "2026-04-02T01:15:00+00:00",
           "asset": "oil",
           "window_vol": 4.0417,
@@ -184,241 +166,7 @@
           }
         },
         {
-          "rank": 5,
-          "time": "2026-04-02T01:16:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.9878,
-          "video_offset_seconds": 1424,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1424",
-          "transcript_segment": "It will resume the flowing and the gas",
-          "market_moves": {
-            "nasdaq": -0.06,
-            "oil": 0.51,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 6,
-          "time": "2026-04-02T01:01:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.9764,
-          "video_offset_seconds": 582,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=582",
-          "transcript_segment": ">> Thank you very much, my fellow",
-          "market_moves": {
-            "nasdaq": 0.02,
-            "oil": -0.11,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 7,
-          "time": "2026-04-02T01:17:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.9613,
-          "video_offset_seconds": 1485,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1485",
-          "transcript_segment": "shortly. Very shortly, we are going to",
-          "market_moves": {
-            "nasdaq": -0.23,
-            "oil": 1.11,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 8,
-          "time": "2026-04-02T01:09:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.8297,
-          "video_offset_seconds": 1004,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1004",
-          "transcript_segment": "bombers performed magnificently.",
-          "market_moves": {
-            "nasdaq": 0.06,
-            "oil": -0.21,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 9,
-          "time": "2026-04-02T01:07:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.8092,
-          "video_offset_seconds": 882,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=882",
-          "transcript_segment": "first and perhaps most importantly, I killed General Casm Solamini",
-          "market_moves": {
-            "nasdaq": 0.01,
-            "oil": -0.35,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 10,
-          "time": "2026-04-02T01:04:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.7967,
-          "video_offset_seconds": 705,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=705",
-          "transcript_segment": "winning bigger than ever before.",
-          "market_moves": {
-            "nasdaq": 0.05,
-            "oil": 0.26,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 11,
-          "time": "2026-04-02T01:14:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.7675,
-          "video_offset_seconds": 1304,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1304",
-          "transcript_segment": "Under my leadership, we are number one",
-          "market_moves": {
-            "nasdaq": -0.02,
-            "oil": -0.16,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 12,
-          "time": "2026-04-02T01:05:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.7405,
-          "video_offset_seconds": 763,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=763",
-          "transcript_segment": "help our allies. Tonight, I want to provide an update on the tremendous",
-          "market_moves": {
-            "nasdaq": -0.16,
-            "oil": 1.13,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 13,
-          "time": "2026-04-02T01:10:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.6409,
-          "video_offset_seconds": 1065,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1065",
-          "transcript_segment": "everyone has said that Iran cannot have",
-          "market_moves": {
-            "nasdaq": 0.18,
-            "oil": -0.71,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 14,
-          "time": "2026-04-02T01:13:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.4415,
-          "video_offset_seconds": 1243,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1243",
-          "transcript_segment": "States has never been better prepared economically to confront this threat.",
-          "market_moves": {
-            "nasdaq": 0.06,
-            "oil": 0.01,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 15,
-          "time": "2026-04-02T01:11:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.3812,
-          "video_offset_seconds": 1123,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1123",
-          "transcript_segment": "build a nuclear bomb. Our armed forces have been extraordinary. There's never",
-          "market_moves": {
-            "nasdaq": -0.06,
-            "oil": 0.34,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 16,
-          "time": "2026-04-02T01:06:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.3353,
-          "video_offset_seconds": 822,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=822",
-          "transcript_segment": "the blood just horrible bloody atrocities of October 7th in Israel.",
-          "market_moves": {
-            "nasdaq": -0.09,
-            "oil": 0.35,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 17,
-          "time": "2026-04-02T01:18:00+00:00",
-          "asset": "oil",
-          "window_vol": 3.2429,
-          "video_offset_seconds": 1543,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1543",
-          "transcript_segment": "gone. And there's not a thing they could do about it. They have no anti-aircraft",
-          "market_moves": {
-            "nasdaq": -0.11,
-            "oil": 0.21,
-            "gold": 0.0,
-            "btc": 0.0,
-            "eth": 0.0,
-            "bonds": 0.0,
-            "kospi": 0.0
-          }
-        },
-        {
-          "rank": 18,
+          "rank": 4,
           "time": "2026-04-02T01:21:00+00:00",
           "asset": "oil",
           "window_vol": 3.1332,
@@ -436,16 +184,268 @@
           }
         },
         {
-          "rank": 19,
-          "time": "2026-04-02T01:20:00+00:00",
+          "rank": 5,
+          "time": "2026-04-02T01:30:00+00:00",
           "asset": "oil",
-          "window_vol": 3.1048,
-          "video_offset_seconds": 1664,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1664",
-          "transcript_segment": "spectre of nuclear blackmail. Because of",
+          "window_vol": 2.4239,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
           "market_moves": {
-            "nasdaq": 0.17,
-            "oil": -0.16,
+            "nasdaq": -0.14,
+            "oil": 0.38,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 6,
+          "time": "2026-04-02T01:35:00+00:00",
+          "asset": "oil",
+          "window_vol": 2.0749,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+          "market_moves": {
+            "nasdaq": 0.07,
+            "oil": -0.05,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 7,
+          "time": "2026-04-02T01:53:00+00:00",
+          "asset": "oil",
+          "window_vol": 1.7727,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+          "market_moves": {
+            "nasdaq": -0.04,
+            "oil": 0.43,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 8,
+          "time": "2026-04-02T01:40:00+00:00",
+          "asset": "oil",
+          "window_vol": 1.6934,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+          "market_moves": {
+            "nasdaq": -0.02,
+            "oil": -0.23,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 9,
+          "time": "2026-04-02T02:07:00+00:00",
+          "asset": "oil",
+          "window_vol": 1.4319,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+          "market_moves": {
+            "nasdaq": 0.02,
+            "oil": -0.02,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 10,
+          "time": "2026-04-02T02:22:00+00:00",
+          "asset": "oil",
+          "window_vol": 1.3822,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+          "market_moves": {
+            "nasdaq": -0.02,
+            "oil": -0.04,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 11,
+          "time": "2026-04-02T01:17:00+00:00",
+          "asset": "nasdaq",
+          "window_vol": 1.2603,
+          "video_offset_seconds": 1485,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1485",
+          "transcript_segment": "shortly. Very shortly, we are going to",
+          "market_moves": {
+            "nasdaq": -0.23,
+            "oil": 1.11,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 12,
+          "time": "2026-04-02T01:46:00+00:00",
+          "asset": "oil",
+          "window_vol": 1.1765,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+          "market_moves": {
+            "nasdaq": 0.03,
+            "oil": 0.04,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 13,
+          "time": "2026-04-02T01:08:00+00:00",
+          "asset": "nasdaq",
+          "window_vol": 1.1395,
+          "video_offset_seconds": 944,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=944",
+          "transcript_segment": "nuclear bomb. His Iran deal would have",
+          "market_moves": {
+            "nasdaq": 0.14,
+            "oil": -0.41,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 14,
+          "time": "2026-04-02T01:03:00+00:00",
+          "asset": "nasdaq",
+          "window_vol": 1.114,
+          "video_offset_seconds": 643,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=643",
+          "transcript_segment": "have delivered swift, decisive, overwhelming victories on the",
+          "market_moves": {
+            "nasdaq": -0.24,
+            "oil": 0.83,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 15,
+          "time": "2026-04-02T02:30:00+00:00",
+          "asset": "oil",
+          "window_vol": 1.1058,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+          "market_moves": {
+            "nasdaq": 0.03,
+            "oil": -0.15,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 16,
+          "time": "2026-04-02T01:58:00+00:00",
+          "asset": "oil",
+          "window_vol": 0.9886,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+          "market_moves": {
+            "nasdaq": -0.01,
+            "oil": -0.12,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 17,
+          "time": "2026-04-02T02:12:00+00:00",
+          "asset": "oil",
+          "window_vol": 0.9096,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+          "market_moves": {
+            "nasdaq": -0.02,
+            "oil": 0.02,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 18,
+          "time": "2026-04-02T02:42:00+00:00",
+          "asset": "oil",
+          "window_vol": 0.7997,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+          "market_moves": {
+            "nasdaq": 0.01,
+            "oil": -0.12,
+            "gold": 0.0,
+            "btc": 0.0,
+            "eth": 0.0,
+            "bonds": 0.0,
+            "kospi": 0.0
+          }
+        },
+        {
+          "rank": 19,
+          "time": "2026-04-02T02:35:00+00:00",
+          "asset": "oil",
+          "window_vol": 0.799,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+          "market_moves": {
+            "nasdaq": 0.01,
+            "oil": 0.04,
             "gold": 0.0,
             "btc": 0.0,
             "eth": 0.0,
@@ -455,15 +455,15 @@
         },
         {
           "rank": 20,
-          "time": "2026-04-02T01:19:00+00:00",
+          "time": "2026-04-02T02:49:00+00:00",
           "asset": "oil",
-          "window_vol": 3.0553,
-          "video_offset_seconds": 1603,
-          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1603",
-          "transcript_segment": "days. The Vietnam War lasted for 19 years, 5 months, and 29 days. Iraq went",
+          "window_vol": 0.7608,
+          "video_offset_seconds": 1720,
+          "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+          "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
           "market_moves": {
-            "nasdaq": -0.06,
-            "oil": 0.3,
+            "nasdaq": 0.02,
+            "oil": 0.07,
             "gold": 0.0,
             "btc": 0.0,
             "eth": 0.0,

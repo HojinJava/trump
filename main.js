@@ -40,6 +40,21 @@ function render(events) {
       }
     });
   });
+
+  document.querySelectorAll('.vol-tabs').forEach(tabGroup => {
+    tabGroup.addEventListener('click', e => {
+      const btn = e.target.closest('.vol-tab');
+      if (!btn) return;
+      tabGroup.querySelectorAll('.vol-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const eventId = tabGroup.dataset.event;
+      const asset = btn.dataset.asset;
+      const event = events.find(ev => ev.id === eventId);
+      const list = document.getElementById(`vol-list-${eventId}`);
+      if (list && event) list.innerHTML = renderVolItems(event.top_volatility || [], asset);
+    });
+  });
 }
 
 function renderDateGroup(date, events) {
@@ -55,6 +70,9 @@ function renderEvent(event) {
   const riskClass = score >= 70 ? 'risk-high' : score >= 40 ? 'risk-mid' : 'risk-low';
   const riskLabel = score >= 70 ? 'HIGH' : score >= 40 ? 'MID' : 'LOW';
 
+  const volItems = event.top_volatility || [];
+  const assets = ['전체', ...new Set(volItems.map(v => v.asset))];
+
   return `
     <div class="event-toggle">
       <div class="toggle-header" data-id="${event.id}">
@@ -67,8 +85,11 @@ function renderEvent(event) {
         <div class="chart-wrap">
           <canvas id="chart-${event.id}"></canvas>
         </div>
-        <ul class="volatility-list">
-          ${(event.top_volatility || []).map(renderVolItem).join('')}
+        <div class="vol-tabs" data-event="${event.id}">
+          ${assets.map((a, i) => `<button class="vol-tab${i === 0 ? ' active' : ''}" data-asset="${a}">${a === '전체' ? '전체' : a.toUpperCase()}</button>`).join('')}
+        </div>
+        <ul class="volatility-list" id="vol-list-${event.id}">
+          ${renderVolItems(volItems, '전체')}
         </ul>
       </div>
     </div>`;
@@ -93,6 +114,12 @@ function renderIndices(indices) {
   </div>`;
 }
 
+function renderVolItems(items, asset) {
+  const filtered = asset === '전체' ? items : items.filter(v => v.asset === asset);
+  const reranked = filtered.map((item, i) => ({ ...item, displayRank: i + 1 }));
+  return reranked.map(renderVolItem).join('');
+}
+
 function renderVolItem(item) {
   const pct = item.market_moves?.[item.asset] ?? 0;
   const pctClass = pct < -0.1 ? 'vol-change-neg' : pct > 0.1 ? 'vol-change-pos' : 'vol-change-neu';
@@ -102,7 +129,7 @@ function renderVolItem(item) {
 
   return `
     <li class="vol-item">
-      <div class="vol-rank">#${item.rank}</div>
+      <div class="vol-rank">#${item.displayRank ?? item.rank}</div>
       <div class="vol-content">
         <div class="vol-meta">
           <span class="vol-asset">${item.asset.toUpperCase()}</span>

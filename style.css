@@ -104,6 +104,26 @@ header .subtitle { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
   padding: 12px;
 }
 
+.vol-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.vol-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.vol-tab.active {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
 .volatility-list { list-style: none; }
 
 .vol-item {
