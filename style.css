@@ -159,3 +159,102 @@ header .subtitle { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
 .vol-source-link:hover { text-decoration: underline; }
 
 .loading { color: var(--muted); text-align: center; padding: 40px; }
+
+/* ── 방법론 섹션 ────────────────────────── */
+.methodology {
+  max-width: 860px;
+  margin: 60px auto 0;
+  padding: 0 16px 60px;
+  border-top: 1px solid var(--border);
+}
+
+.method-title {
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 32px 0 20px;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .method-grid { grid-template-columns: 1fr; }
+}
+
+.method-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.method-card-label {
+  font-size: 0.68rem;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.method-card-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.method-card p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.method-card strong { color: var(--text); }
+
+.method-formula {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  color: var(--yellow);
+  background: #111;
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-top: 8px;
+}
+
+.method-refs {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+.method-refs-title {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.method-refs ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.method-refs li {
+  font-size: 0.78rem;
+  color: #555;
+  line-height: 1.5;
+  padding-left: 12px;
+  border-left: 2px solid var(--border);
+}
+
+.method-refs em { color: #666; font-style: normal; }
