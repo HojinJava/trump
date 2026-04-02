@@ -107,7 +107,7 @@ function renderVolItem(item) {
         <div class="vol-meta">
           <span class="vol-asset">${item.asset.toUpperCase()}</span>
           <span class="${pctClass}">${pctStr}</span>
-          <span style="color:#666">σ${item.volatility.toFixed(2)}%</span>
+          <span style="color:#666">σ${(item.window_vol ?? 0).toFixed(2)}%</span>
         </div>
         <div class="vol-text">
           "${escHtml(item.transcript_segment || '')}"${originLink}
