@@ -13,7 +13,7 @@ _token_cache = {'token': None, 'expires_at': None}
 
 
 def _get_token() -> str:
-    """OAuth 토큰 발급 (24시간 캐시)"""
+    """OAuth 토큰 발급 (23시간 캐시)"""
     now = datetime.now(timezone.utc)
     if _token_cache['token'] and _token_cache['expires_at'] > now:
         return _token_cache['token']
@@ -42,8 +42,8 @@ def _headers(tr_id: str) -> Dict:
 
 def get_nasdaq_candles(start_utc: datetime, end_utc: datetime) -> List[Dict]:
     """나스닥 지수 1분봉 (해외지수분봉조회)"""
-    start_kst = start_utc + timedelta(hours=9)
-    end_kst = end_utc + timedelta(hours=9)
+    start_kst = start_utc.replace(tzinfo=None) + timedelta(hours=9)
+    end_kst = end_utc.replace(tzinfo=None) + timedelta(hours=9)
 
     params = {
         'FID_ETC_CLS_CODE': '',
@@ -65,8 +65,8 @@ def get_nasdaq_candles(start_utc: datetime, end_utc: datetime) -> List[Dict]:
 
 def get_kospi_candles(start_utc: datetime, end_utc: datetime) -> List[Dict]:
     """KOSPI 1분봉 (국내 지수분봉조회)"""
-    start_kst = start_utc + timedelta(hours=9)
-    end_kst = end_utc + timedelta(hours=9)
+    start_kst = start_utc.replace(tzinfo=None) + timedelta(hours=9)
+    end_kst = end_utc.replace(tzinfo=None) + timedelta(hours=9)
 
     params = {
         'FID_COND_MRKT_DIV_CODE': 'U',
