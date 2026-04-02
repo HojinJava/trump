@@ -65,7 +65,7 @@ def _parse_broadcast_time(time_str: str) -> datetime:
     tz_offsets = {'ET': -4, 'EST': -5, 'EDT': -4, 'KST': 9, 'UTC': 0}
     parts = time_str.strip().split()
     tz_str = parts[-1].upper() if parts[-1].upper() in tz_offsets else 'UTC'
-    dt_str = ' '.join(parts[:-1]) if tz_str != 'UTC' else time_str.strip()
+    dt_str = ' '.join(parts[:-1])
 
     dt = datetime.strptime(dt_str, '%Y-%m-%d %H:%M')
     offset = tz_offsets.get(tz_str, 0)
