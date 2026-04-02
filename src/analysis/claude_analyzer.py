@@ -5,7 +5,7 @@ from typing import Dict, List
 import anthropic
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv('config.txt')
 
 _client = None
 

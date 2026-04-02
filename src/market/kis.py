@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 from typing import Dict, List
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv('config.txt')
 
 BASE_URL = "https://openapi.koreainvestment.com:9443"
 
