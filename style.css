@@ -208,7 +208,20 @@ header .subtitle { color: var(--muted); font-size: 0.85rem; margin-top: 4px; }
   font-weight: 600;
   color: var(--text);
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+
+.method-ref-link {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--blue);
+  text-decoration: none;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+.method-ref-link:hover { opacity: 1; text-decoration: underline; }
 
 .method-card p {
   font-size: 0.8rem;

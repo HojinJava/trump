@@ -22,28 +22,36 @@
     <div class="method-grid">
       <div class="method-card">
         <div class="method-card-label">이벤트 스터디</div>
-        <div class="method-card-name">Event Study Methodology</div>
+        <div class="method-card-name">Event Study Methodology
+          <a class="method-ref-link" href="https://www.bu.edu/econ/files/2011/01/MacKinlay-1996-Event-Studies-in-Economics-and-Finance.pdf" target="_blank">원문 →</a>
+        </div>
         <p>맥킨리(MacKinlay, 1997)가 정립한 금융 표준 분석법. 발언 <strong>이전</strong> 구간을 기준선으로 삼아 발언 <strong>중</strong> 비정상적인 가격 반응을 감지한다. 기준선 없이 전체 구간으로 평균을 내면 이상값 자체가 평균을 오염시켜 감지력이 떨어진다.</p>
         <div class="method-formula">AR<sub>t</sub> = R<sub>t</sub> − E(R<sub>t</sub> | 추정 윈도우)</div>
       </div>
 
       <div class="method-card">
         <div class="method-card-label">혼돈 측정 공식</div>
-        <div class="method-card-name">Realized Volatility (RV)</div>
+        <div class="method-card-name">Realized Volatility (RV)
+          <a class="method-ref-link" href="https://en.wikipedia.org/wiki/Realized_variance" target="_blank">원문 →</a>
+        </div>
         <p>고빈도 거래(HFT) 및 퀀트 펀드에서 표준으로 쓰는 실현 변동성. 1분봉 로그 수익률의 제곱합 제곱근으로 계산하며, 단순 고저차 합산보다 통계적으로 견고하다.</p>
         <div class="method-formula">RV = √( Σ (log(종가<sub>i</sub> / 종가<sub>i−1</sub>))² )</div>
       </div>
 
       <div class="method-card">
         <div class="method-card-label">Trump 발언 연구</div>
-        <div class="method-card-name">실증 연구 결과</div>
+        <div class="method-card-name">실증 연구 결과
+          <a class="method-ref-link" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0229931" target="_blank">원문 →</a>
+        </div>
         <p>트럼프 트윗·발언의 시장 영향을 분석한 다수의 논문이 존재한다. 무역·외교 발언이 VIX를 가장 크게 상승시키며, 발언 후 <strong>약 2시간 내</strong> 변동성이 피크에 달한 뒤 되돌림이 나타난다. 통화(FX) 시장 반응이 주식보다 빠르다.</p>
         <div class="method-formula">영향 강도: 무역·외교 &gt; 통화정책 &gt; 재정·보건</div>
       </div>
 
       <div class="method-card">
         <div class="method-card-label">변동성 이상 감지</div>
-        <div class="method-card-name">Z-Score 기반 혼돈 구간</div>
+        <div class="method-card-name">Z-Score 기반 혼돈 구간
+          <a class="method-ref-link" href="https://onlinelibrary.wiley.com/doi/10.1111/1475-6803.00052" target="_blank">원문 →</a>
+        </div>
         <p>발언 전 30분을 기준 구간으로 설정해 평균(μ)과 표준편차(σ)를 계산한다. 발언 중 각 분봉의 RV를 기준선 대비 z-score로 변환하고, 임계값(예: 1.5σ) 이상의 연속 구간을 혼돈 구간으로 정의한다.</p>
         <div class="method-formula">z<sub>t</sub> = (RV<sub>t</sub> − μ<sub>pre</sub>) / σ<sub>pre</sub></div>
       </div>
