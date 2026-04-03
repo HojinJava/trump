@@ -278,13 +278,13 @@ function renderVolItemGlobal(item, rank, eventId, dupeSeg = false) {
   const ko = item.transcript_segment_ko;
   const en = item.transcript_segment;
   let textHtml = '';
-  if (!dupeSeg) {
-    if (ko) {
-      textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
-      if (en) textHtml += `<details class="vol-original"><summary>원문 보기</summary><div class="vol-text-en">${escHtml(en)}</div></details>`;
-    } else if (en) {
-      textHtml = `<details class="vol-original" open><summary>원문 보기</summary><div class="vol-text-en">"${escHtml(en)}"</div></details>`;
-    }
+  if (dupeSeg) {
+    textHtml = `<div style="font-size:0.75rem;color:var(--muted);margin-top:3px">↑ 동일 발언 구간</div>`;
+  } else if (ko) {
+    textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
+    if (en) textHtml += `<details class="vol-original"><summary>원문 보기</summary><div class="vol-text-en">${escHtml(en)}</div></details>`;
+  } else if (en) {
+    textHtml = `<details class="vol-original" open><summary>원문 보기</summary><div class="vol-text-en">"${escHtml(en)}"</div></details>`;
   }
 
   const zoneStart = (item.time || '').slice(11, 16);
