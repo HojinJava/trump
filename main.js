@@ -366,7 +366,7 @@ function initChart(eventId, event) {
   const zoneHighlightPlugin = {
     id: 'zoneHighlight',
     afterDatasetsDraw(chart) {
-      const zone = chart._hoverZone;
+      const zone = chart.canvas._hoverZone;
       if (!zone) return;
       const { startIdx, endIdx } = zone;
       const ctx    = chart.ctx;
