@@ -232,7 +232,6 @@ function renderVolItem(item, eventId) {
         <div class="vol-meta">
           <span class="vol-asset">${escHtml(TICKERS[item.asset]?.label || item.asset.toUpperCase())}</span>
           <span class="${pctClass}">${pctStr}</span>
-          <span class="vol-sigma">σ${(item.window_vol ?? 0).toFixed(2)}</span>
           ${timeRange}
           ${ytLink}
         </div>
