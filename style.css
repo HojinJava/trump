@@ -402,6 +402,12 @@ header .subtitle {
   margin-top: 2px;
 }
 
+.vol-post-speech {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
 .vol-source-link {
   color: var(--accent);
   text-decoration: none;

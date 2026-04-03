@@ -38,6 +38,15 @@
 - **스키마 메타정보는 `schema/` 에 유지한다.** JSON 구조가 바뀔 때마다 `schema/{파일명}.json`도 함께 업데이트한다. DB 마이그레이션 시 참조 목적이다.
 - **한국어는 `data/` 아래 JSON에만 존재한다.** `archiving/`의 원본 데이터는 수집된 그대로(영어) 보관한다. 번역·가공된 값은 `analysis.json` → `step_build` → `event.json` 흐름으로 생성된다.
 
+## price_changes 기준 규칙
+
+- **`pre_time_kst`** = `broadcast_at` KST (방송 시작 시각) — 모든 자산 동일
+- **`post_time_kst`** = `speech_end_kst` (연설 종료 시각) — 모든 자산 동일
+- 해당 시각 **±5분** 이내 캔들이 없는 자산은 `price_changes`에서 제외한다.
+  - 예: 방송이 10:01 KST인데 해당 자산 데이터가 10:50부터 시작하면 제외
+- 실제 사용된 캔들 시각과 기준 시각이 다를 수 있지만 JSON에는 **기준 시각(broadcast_at / speech_end_kst)**을 표기한다.
+- 분봉이 sparse(드문) 자산은 ±5분을 초과해도 방송 시작 전후 10분 이내면 허용한다.
+
 ## 변동성 분석 규칙
 
 - **방법론**: Event Study Methodology (MacKinlay 1997) 기반
@@ -52,6 +61,10 @@
   - ✅ 허용: CME 선물 (NQ, CL, GC, ZB, BTC, ETH 등), 국내 지수 (코스피 등)
   - ❌ 금지: 미국 ETF (IBIT, ETHA, TLT 등), 미국 주식
   - 티커 기준: `tickers.json`의 `desc_ko` 참조
+- **장 마감 후 이벤트의 분봉 데이터 대체**: 이벤트 시간대에 거래가 없는 자산(예: 코스피 지수 — KRX 정규장 09:00~15:45 KST 외 시간 방송)은 분봉 대신 **직전 거래일 종가(closing price)**를 단일 데이터포인트로 사용한다.
+  - `step_fetch`에서 분봉 조회 결과가 0건이면 해당 자산의 직전 종가를 별도 조회하여 저장한다.
+  - `step_build`에서 분봉 없는 자산은 차트·변동성 분석 대상에서 제외하고, `price_changes`의 `pre_price` / `post_price` 모두 종가로 채워 등락률 0%로 표시한다.
+  - `event.json`의 해당 자산 항목에 `"data_type": "closing_price"` 플래그를 추가하여 프론트엔드가 "종가 기준" 배지를 표시할 수 있게 한다.
 
 ## 트랜스크립트 처리 규칙
 
