@@ -389,10 +389,31 @@ function initChart(eventId, event) {
     },
   };
 
+  const crosshairPlugin = {
+    id: 'crosshair',
+    afterDraw(chart) {
+      const active = chart.tooltip?._active;
+      if (!active || !active.length) return;
+      const ctx = chart.ctx;
+      const x = active[0].element.x;
+      const top = chart.chartArea.top;
+      const bottom = chart.chartArea.bottom;
+      ctx.save();
+      ctx.strokeStyle = 'rgba(107, 114, 128, 0.5)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(x, top);
+      ctx.lineTo(x, bottom);
+      ctx.stroke();
+      ctx.restore();
+    },
+  };
+
   const chart = new Chart(canvas, {
     type: 'line',
     data: { labels: allTimes.map(t => t.slice(11, 16)), datasets },
-    plugins: [zoneHighlightPlugin],
+    plugins: [zoneHighlightPlugin, crosshairPlugin],
     options: {
       responsive: true,
       maintainAspectRatio: false,
