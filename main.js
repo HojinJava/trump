@@ -193,14 +193,13 @@ function renderVolItem(item, eventId) {
   }
 
   const zoneStart = (item.time || '').slice(11, 16);
-  const zoneEnd   = (item.end_time || '').slice(11, 16);
-  const peakTime  = item.peak_time || item.time || '';
-  const timeRange = zoneStart && zoneEnd
-    ? `<span class="vol-timerange">${zoneStart}${zoneEnd !== zoneStart ? ` ~ ${zoneEnd}` : ''} KST</span>`
+  const zoneEnd   = (item.end_time || item.time || '').slice(11, 16);
+  const timeRange = zoneStart
+    ? `<span class="vol-timerange">${zoneStart !== zoneEnd ? `${zoneStart} ~ ${zoneEnd}` : zoneStart} KST</span>`
     : '';
 
   return `
-    <li class="vol-item" data-event-id="${escHtml(eventId || '')}" data-peak-time="${escHtml(peakTime)}">
+    <li class="vol-item" data-event-id="${escHtml(eventId || '')}" data-time="${escHtml(item.time || '')}" data-end-time="${escHtml(item.end_time || item.time || '')}">
       <div class="vol-rank">#${item.displayRank ?? item.rank}</div>
       <div class="vol-content">
         <div class="vol-meta">
@@ -220,23 +219,20 @@ function bindVolItemHovers(id) {
   if (!canvas) return;
   document.querySelectorAll(`#vol-list-${id} .vol-item`).forEach(el => {
     el.addEventListener('mouseenter', () => {
-      const peakTime = el.dataset.peakTime;
-      if (!peakTime || !canvas._chart) return;
+      if (!canvas._chart) return;
       const allTimes = canvas._allTimes || [];
-      const idx = allTimes.findIndex(t => t === peakTime || t.slice(0, 16) === peakTime.slice(0, 16));
-      if (idx < 0) return;
-      canvas._hoverLineIndex = idx;
-      const chart = canvas._chart;
-      const activeElements = chart.data.datasets
-        .map((ds, dsIdx) => ds.data[idx] != null ? { datasetIndex: dsIdx, index: idx } : null)
-        .filter(Boolean);
-      chart.tooltip.setActiveElements(activeElements, { x: 0, y: 0 });
-      chart.update('none');
+      const startTime = el.dataset.time || '';
+      const endTime   = el.dataset.endTime || startTime;
+      const startIdx = allTimes.findIndex(t => t.slice(0, 16) === startTime.slice(0, 16));
+      const endIdx   = [...allTimes].reverse().findIndex(t => t.slice(0, 16) === endTime.slice(0, 16));
+      if (startIdx < 0) return;
+      const resolvedEndIdx = endIdx < 0 ? startIdx : allTimes.length - 1 - endIdx;
+      canvas._hoverZone = { startIdx, endIdx: resolvedEndIdx };
+      canvas._chart.update('none');
     });
     el.addEventListener('mouseleave', () => {
       if (!canvas._chart) return;
-      canvas._hoverLineIndex = null;
-      canvas._chart.tooltip.setActiveElements([], { x: 0, y: 0 });
+      canvas._hoverZone = null;
       canvas._chart.update('none');
     });
   });
@@ -270,21 +266,36 @@ function initChart(eventId, event) {
     spanGaps: true,
   }));
 
-  const vertLinePlugin = {
-    id: 'vertLine',
+  const zoneHighlightPlugin = {
+    id: 'zoneHighlight',
     afterDatasetsDraw(chart) {
-      const idx = chart._hoverLineIndex;
-      if (idx == null) return;
-      const ctx = chart.ctx;
-      const x = chart.scales.x.getPixelForValue(idx);
+      const zone = chart._hoverZone;
+      if (!zone) return;
+      const { startIdx, endIdx } = zone;
+      const ctx    = chart.ctx;
+      const xStart = chart.scales.x.getPixelForValue(startIdx);
+      const xEnd   = chart.scales.x.getPixelForValue(endIdx);
+      const top    = chart.chartArea.top;
+      const bottom = chart.chartArea.bottom;
       ctx.save();
-      ctx.strokeStyle = 'rgba(99, 102, 241, 0.45)';
+      // 구간 음영
+      ctx.fillStyle = 'rgba(99, 102, 241, 0.10)';
+      ctx.fillRect(xStart, top, Math.max(xEnd - xStart, 1), bottom - top);
+      // 시작선
+      ctx.strokeStyle = 'rgba(99, 102, 241, 0.55)';
       ctx.lineWidth = 1.5;
       ctx.setLineDash([5, 4]);
       ctx.beginPath();
-      ctx.moveTo(x, chart.chartArea.top);
-      ctx.lineTo(x, chart.chartArea.bottom);
+      ctx.moveTo(xStart, top);
+      ctx.lineTo(xStart, bottom);
       ctx.stroke();
+      // 종료선 (시작과 다를 때만)
+      if (endIdx !== startIdx) {
+        ctx.beginPath();
+        ctx.moveTo(xEnd, top);
+        ctx.lineTo(xEnd, bottom);
+        ctx.stroke();
+      }
       ctx.restore();
     },
   };
@@ -292,7 +303,7 @@ function initChart(eventId, event) {
   const chart = new Chart(canvas, {
     type: 'line',
     data: { labels: allTimes.map(t => t.slice(11, 16)), datasets },
-    plugins: [vertLinePlugin],
+    plugins: [zoneHighlightPlugin],
     options: {
       responsive: true,
       maintainAspectRatio: false,
@@ -348,8 +359,9 @@ function initChart(eventId, event) {
     },
   });
 
-  canvas._chart = chart;
+  canvas._chart    = chart;
   canvas._allTimes = allTimes;
+  canvas._hoverZone = null;
   bindVolItemHovers(eventId);
 }
 
