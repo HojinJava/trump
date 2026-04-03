@@ -349,24 +349,9 @@ function initChart(eventId, event) {
           callbacks: {
             title: items => allTimes[items[0].dataIndex].slice(11, 16) + ' UTC',
             label: item => {
-              const ds = item.dataset;
-              const t16 = allTimes[item.dataIndex].slice(0, 16);
               const currPct = item.parsed.y;
-              const peaks = ds._sortedPeaks;
-              const idx = peaks.indexOf(t16);
-
-              const lines = [`${ds.label}  처음 대비 ${currPct >= 0 ? '+' : ''}${currPct.toFixed(2)}%`];
-
-              if (idx > 0) {
-                const prevT = peaks[idx - 1];
-                const prevFullTime = allTimes.find(at => at.slice(0, 16) === prevT);
-                if (prevFullTime && ds._map[prevFullTime] != null) {
-                  const prevPct = (ds._map[prevFullTime] - ds._first) / ds._first * 100;
-                  const diff = currPct - prevPct;
-                  lines.push(`직전 대비 ${diff >= 0 ? '+' : ''}${diff.toFixed(2)}%`);
-                }
-              }
-              return lines;
+              const sign = currPct >= 0 ? '+' : '';
+              return `${item.dataset.label}  ${sign}${currPct.toFixed(2)}%`;
             },
           },
         },
