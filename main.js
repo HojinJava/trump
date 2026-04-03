@@ -258,40 +258,17 @@ function initChart(eventId, event) {
   const colors  = { nasdaq: '#1d4ed8', oil: '#d97706', gold: '#16a34a', kospi: '#7c3aed', btc: '#f59e0b', eth: '#6366f1', bonds: '#64748b' };
   const assets  = Object.keys(series);
 
-  // chart_markers: { asset: [{time, show, change_pct}] } — 파이프라인 사전 연산
-  const chartMarkers = event.chart_markers || {};
-
-  // 차트에 표시되는 자산의 마커 시각 집합 (x축 라벨 추가용)
-  const markedTimesSet = new Set(
-    assets.flatMap(a => (chartMarkers[a] || []).filter(m => m.show).map(m => m.time))
-  );
-
-  const datasets = assets.map(asset => {
-    // time → marker 객체 맵 (JS 연산 없이 바로 조회)
-    const markerMap = Object.fromEntries(
-      (chartMarkers[asset] || [])
-        .filter(m => m.show)
-        .map(m => [m.time, m])
-    );
-
-    const values         = series[asset]; // 파이프라인 사전 연산 % 배열
-    const pointRadius    = allTimes.map(t => markerMap[t] ? 3 : 0);
-    const pointHitRadius = allTimes.map(t => markerMap[t] ? 8 : 0);
-
-    return {
-      label: asset.toUpperCase(),
-      data: values,
-      borderColor: colors[asset] || '#6b7280',
-      backgroundColor: colors[asset] || '#6b7280',
-      borderWidth: 2,
-      pointRadius,
-      pointHoverRadius: pointRadius.map(r => r > 0 ? r + 3 : 0),
-      pointHitRadius,
-      tension: 0.1,
-      spanGaps: true,
-      _markerMap: markerMap,
-    };
-  });
+  const datasets = assets.map(asset => ({
+    label: asset.toUpperCase(),
+    data: series[asset],
+    borderColor: colors[asset] || '#6b7280',
+    backgroundColor: colors[asset] || '#6b7280',
+    borderWidth: 2,
+    pointRadius: 0,
+    pointHoverRadius: 0,
+    tension: 0.1,
+    spanGaps: true,
+  }));
 
   const vertLinePlugin = {
     id: 'vertLine',
@@ -319,7 +296,7 @@ function initChart(eventId, event) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      interaction: { mode: 'nearest', intersect: true },
+      interaction: { mode: 'index', intersect: false },
       plugins: {
         legend: {
           labels: {
@@ -330,14 +307,13 @@ function initChart(eventId, event) {
           }
         },
         tooltip: {
-          filter: item => !!item.dataset._markerMap?.[allTimes[item.dataIndex]],
           callbacks: {
             title: items => allTimes[items[0].dataIndex].slice(11, 16) + ' KST',
             label: item => {
-              const marker = item.dataset._markerMap?.[allTimes[item.dataIndex]];
-              if (!marker) return '';
-              const sign = (marker.change_pct ?? 0) >= 0 ? '+' : '';
-              return `${item.dataset.label}  ${sign}${(marker.change_pct ?? 0).toFixed(2)}%`;
+              const v = item.parsed.y;
+              if (v == null) return null;
+              const sign = v >= 0 ? '+' : '';
+              return `${item.dataset.label}  ${sign}${v.toFixed(2)}%`;
             },
           },
         },
@@ -350,10 +326,8 @@ function initChart(eventId, event) {
             maxTicksLimit: 100,
             autoSkip: false,
             callback: (_, idx) => {
-              const t = allTimes[idx];
-              if (!t) return null;
-              const hhmm = t.slice(11, 16);
-              if (markedTimesSet.has(t)) return hhmm;
+              const hhmm = allTimes[idx]?.slice(11, 16);
+              if (!hhmm) return null;
               const [h, m] = hhmm.split(':').map(Number);
               return (h * 60 + m) % stepMin === 0 ? hhmm : null;
             },
