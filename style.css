@@ -609,8 +609,9 @@ header .subtitle {
   margin-bottom: 12px;
 }
 
-.method-refs ul {
-  list-style: none;
+.method-refs ol {
+  list-style: decimal;
+  padding-left: 18px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -620,11 +621,14 @@ header .subtitle {
   font-size: 0.78rem;
   color: var(--muted);
   line-height: 1.5;
-  padding-left: 12px;
-  border-left: 2px solid var(--border);
 }
 
-.method-refs em {
+.method-refs a {
   color: var(--text);
-  font-style: italic;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.method-refs a:hover {
+  color: #6366f1;
 }
