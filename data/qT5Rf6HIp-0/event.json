@@ -109,7 +109,43 @@
       "summary": "Again threatened obliteration; operation to conclude in 2-3 weeks; God bless America"
     }
   ],
-  "speech_summary": null,
+  "speech_summary": {
+    "broadcast_start_kst": "10:01",
+    "transcript_duration_min": 51.1,
+    "full_summary": "트럼프 대통령이 이란 전쟁(Operation Epic Fury) 개시 1개월 성과를 국민에게 보고했다. 이란 해군은 전멸, 공군·IRGC 지도부는 궤멸됐으며 핵시설은 B2 폭격기(Operation Midnight Hammer)로 초토화됐다고 밝혔다. 향후 2~3주 내 이란을 더욱 강력히 타격하겠다고 예고하며 협상 결렬 시 발전소 전체와 유전을 파괴하겠다고 위협했다. 이란의 유조선 공격으로 유가가 오른 것이며, 전쟁이 끝나면 유가와 주가 모두 빠르게 회복될 것이라고 주장했다.",
+    "key_points": [
+      "Operation Epic Fury 1개월 성과: 이란 해군 전멸, 공군·핵시설 초토화, IRGC 지도부 대부분 사망",
+      "향후 2~3주 내 최강 추가 타격 예고 — 협상 결렬 시 발전소 전체 및 유전 동시 타격 위협",
+      "핵시설: B2 폭격기로 완전 파괴 완료, 위성 감시 중 — 재접근 시 즉시 재타격",
+      "이란 신지도부는 구지도부보다 \"덜 급진적·더 합리적\" — 협상 문 열려 있으나 조건부",
+      "유가 급등은 이란의 유조선 테러 때문 — 전쟁 종식 후 유가·주가 급반등 전망",
+      "작전 중 미군 13명 전사, 트럼프 도버 공군기지 두 차례 직접 방문 추모"
+    ],
+    "market_impact_summary": "이란 전쟁 지속·추가 타격 예고에 유가(OIL) +5.67% 급등, 나스닥(NASDAQ) -1.07% 하락, 금(GOLD) -1.91%. 발전소·유전 타격 위협 발언(10:17 KST) 직후 유가 변동성이 최고조에 달했다. 트럼프는 \"전쟁 종식 후 주가 급반등\"을 약속했으나 시장의 즉각적인 반등은 제한적이었다.",
+    "price_changes": {
+      "nasdaq": {
+        "pre_price": 2420250.0,
+        "post_price": 2394450.0,
+        "change_pct": -1.07,
+        "pre_time_kst": "10:01",
+        "post_time_kst": "10:54"
+      },
+      "oil": {
+        "pre_price": 9832.0,
+        "post_price": 10389.0,
+        "change_pct": 5.67,
+        "pre_time_kst": "10:01",
+        "post_time_kst": "10:54"
+      },
+      "gold": {
+        "pre_price": 47844.0,
+        "post_price": 46929.0,
+        "change_pct": -1.91,
+        "pre_time_kst": "09:59",
+        "post_time_kst": "11:10"
+      }
+    }
+  },
   "top_volatility": [
     {
       "rank": 1,
