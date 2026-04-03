@@ -47,13 +47,38 @@
 - **랭킹 기준**: zone 내 z-score 합산(zone_score) 내림차순
 - **발언 매핑**: zone 시작 시각이 아닌 **피크 캔들(z-score 최고점) 시각** 기준으로 트랜스크립트 세그먼트 매핑
 - **market_moves 표시**: 피크 캔들 기준 등락률
+- **차트 자산 필터링**: 방송 기간(broadcast_at ~ end_utc) 중 고유 타임스탬프가 **5개 이상**인 자산만 차트에 포함. 미국 주간 장 종목(BTC ETF, ETH ETF, TLT 등)은 KST 오전 시간대 발언 시 제외될 수 있음.
+
+## 트랜스크립트 처리 규칙
+
+YouTube 자동 자막은 슬라이딩 윈도우 방식으로 생성되어 세그먼트가 중복된다. 각 세그먼트는 `offset_sec`, `real_time`(UTC ISO), `text`, `youtube_url` 필드를 가진다.
+
+### 연설 범위 판별
+- `raw.json`의 `speech_start_offset` / `speech_end_offset` (초 단위) 또는 세그먼트의 `real_time` 범위로 실제 연설 구간을 확정한다.
+- **`analysis.json`에 `speech_end_kst` 필드를 반드시 포함한다** (예: `"speech_end_kst": "10:20"`).
+
+### 연설 후 zone 처리
+- `top_volatility` zone의 피크 시각이 `speech_end_kst` 이후이면 발언이 아닌 **시장 반응 구간**이다.
+- `step_build`는 연설 종료 후 zone의 `transcript_segment` / `transcript_segment_ko`를 **null**로 설정해야 한다.
+- 이를 파이프라인이 자동 처리하지 못할 경우, `event.json`을 직접 수정한다.
+
+### transcript_segment 원문 규칙
+- `transcript_segment`는 짧은 스니펫이 아닌 **해당 zone 시간대의 전체 맥락 영어 원문**이어야 한다.
+- YouTube 중복 캡션은 greedy overlap 방식으로 병합한다: 이전 누적 텍스트 끝과 새 세그먼트 앞이 겹치면 겹친 부분을 제거하고 이어 붙인다.
+- `>>` 앵커 마커, 연속 공백 등을 정리하여 가독성 있는 단락으로 저장한다.
+
+### segment_translations 커버리지 규칙
+- **연설 내 모든 고유 zone**에 대응하는 `transcript_segment` 원문→한국어 번역이 포함되어야 한다.
+- Claude CLI 분석 단계에서 top_volatility 후보 zone 각각의 발언 내용을 한국어로 번역하여 `segment_translations`에 추가한다.
+- 단순 스니펫 키가 아닌 전체 원문 텍스트를 키로 사용한다.
 
 ## 다국어 규칙
 
 - 이벤트 제목: `title`(원문) + `title_ko`(한국어) 병행 저장
-- 발언 세그먼트: `transcript_segment`(원문) + `transcript_segment_ko`(한국어 번역) 병행 저장
-  - 번역 원천: `archiving/{id}/analysis.json`의 `segment_translations: {"원문": "한국어"}` 맵
+- 발언 세그먼트: `transcript_segment`(원문 전체) + `transcript_segment_ko`(한국어 번역) 병행 저장
+  - 번역 원천: `archiving/{id}/analysis.json`의 `segment_translations: {"원문 전체": "한국어"}` 맵
   - `step_build`가 top_volatility 세그먼트와 매핑하여 `event.json`에 포함
+  - 연설 종료 후 zone은 두 필드 모두 `null`
 - 프론트엔드: **한국어 우선 표시**, 원문은 '원문 보기' 토글로 숨김
 - 시간 표시: **모든 시각은 KST(한국 표준시) 기준**, `+09:00` ISO 형식으로 저장, JS에서 시간 변환 없음
 
@@ -61,6 +86,11 @@
 
 ```
 python collect.py                          # parse → plan → fetch
-Claude CLI: archiving/{id}/raw.json 분석   # analysis.json 생성
+Claude CLI: archiving/{id}/raw.json 분석   # analysis.json 생성 (speech_end_kst 포함 필수)
 python collect.py --build <event_id>       # build → data/{id}/event.json + index.json
 ```
+
+### Claude CLI 분석 시 analysis.json 필수 포함 항목
+- `speech_end_kst`: 연설 실제 종료 시각 (KST HH:MM) — raw.json의 segment real_time 마지막 값으로 확인
+- `segment_translations`: 연설 내 모든 고유 zone의 transcript_segment 전체 원문 → 한국어 번역 맵
+- `title_ko`, `speech_summary` (key_points, full_summary, market_impact_summary, price_changes 등)
