@@ -205,7 +205,13 @@ function renderVolItems(items, asset, eventId) {
       });
       if (!overlaps) deduped.push(item);
     }
-    return deduped.map((item, i) => renderVolItemGlobal(item, i + 1, eventId)).join('');
+    const seenSegments = new Set();
+    return deduped.map((item, i) => {
+      const seg = item.transcript_segment || '';
+      const isDupeSeg = seg && seenSegments.has(seg);
+      if (seg) seenSegments.add(seg);
+      return renderVolItemGlobal(item, i + 1, eventId, isDupeSeg);
+    }).join('');
   }
   const filtered = items.filter(v => v.asset === asset);
   return filtered.map((item, i) => renderVolItem({ ...item, displayRank: i + 1 }, eventId)).join('');
@@ -253,7 +259,7 @@ function renderVolItem(item, eventId) {
     </li>`;
 }
 
-function renderVolItemGlobal(item, rank, eventId) {
+function renderVolItemGlobal(item, rank, eventId, dupeSeg = false) {
   // 전체 탭: market_moves의 모든 티커를 tickers.json 순서로 표시
   const moves = item.market_moves || {};
   const tickerBadges = Object.keys(TICKERS)
@@ -272,11 +278,13 @@ function renderVolItemGlobal(item, rank, eventId) {
   const ko = item.transcript_segment_ko;
   const en = item.transcript_segment;
   let textHtml = '';
-  if (ko) {
-    textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
-    if (en) textHtml += `<details class="vol-original"><summary>원문 보기</summary><div class="vol-text-en">${escHtml(en)}</div></details>`;
-  } else if (en) {
-    textHtml = `<details class="vol-original" open><summary>원문 보기</summary><div class="vol-text-en">"${escHtml(en)}"</div></details>`;
+  if (!dupeSeg) {
+    if (ko) {
+      textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
+      if (en) textHtml += `<details class="vol-original"><summary>원문 보기</summary><div class="vol-text-en">${escHtml(en)}</div></details>`;
+    } else if (en) {
+      textHtml = `<details class="vol-original" open><summary>원문 보기</summary><div class="vol-text-en">"${escHtml(en)}"</div></details>`;
+    }
   }
 
   const zoneStart = (item.time || '').slice(11, 16);
