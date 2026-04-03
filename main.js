@@ -115,9 +115,10 @@ function renderEventDetail(id, event) {
   if (!detailEl) return;
 
   const volItems = event.top_volatility || [];
-  // tickers.json 키 순서 기준, 실제 데이터에 있는 자산만 탭으로 노출
-  const presentAssets = new Set(volItems.map(v => v.asset));
-  const orderedAssets = Object.keys(TICKERS).filter(k => presentAssets.has(k));
+  // event.tickers: 이 이벤트에서 실제 추적한 자산 목록 (tickers.json 순서)
+  const orderedAssets = (event.tickers || Object.keys(TICKERS)).filter(k =>
+    volItems.some(v => v.asset === k)
+  );
   const tabs = ['전체', ...orderedAssets];
 
   detailEl.innerHTML = `
@@ -133,7 +134,7 @@ function renderEventDetail(id, event) {
       }).join('')}
     </div>
     <ul class="volatility-list" id="vol-list-${escHtml(id)}">
-      ${renderVolItems(volItems, '전체', id)}
+      ${renderVolItems(volItems, '전체', id, event.tickers)}
     </ul>`;
   // vol-item hover → chart highlight (차트 초기화 후 바인딩)
   requestAnimationFrame(() => bindVolItemHovers(id));
@@ -152,7 +153,7 @@ function bindVolTabs(id, event) {
     const asset = btn.dataset.asset;
     const list = document.getElementById(`vol-list-${id}`);
     if (list) {
-      list.innerHTML = renderVolItems(event.top_volatility || [], asset, id);
+      list.innerHTML = renderVolItems(event.top_volatility || [], asset, id, event.tickers);
       bindVolItemHovers(id);
     }
   });
@@ -184,7 +185,7 @@ function renderIndices(indices) {
   </div>`;
 }
 
-function renderVolItems(items, asset, eventId) {
+function renderVolItems(items, asset, eventId, eventTickers) {
   if (asset === '전체') {
     // 전체: 전 티커 평균 절대변동률 기준 정렬 후 겹치는 시간 구간 제거
     const scored = items.map(item => {
@@ -210,7 +211,7 @@ function renderVolItems(items, asset, eventId) {
       const seg = item.transcript_segment || '';
       const isDupeSeg = seg && seenSegments.has(seg);
       if (seg) seenSegments.add(seg);
-      return renderVolItemGlobal(item, i + 1, eventId, isDupeSeg);
+      return renderVolItemGlobal(item, i + 1, eventId, isDupeSeg, eventTickers);
     }).join('');
   }
   const filtered = items.filter(v => v.asset === asset);
@@ -259,10 +260,10 @@ function renderVolItem(item, eventId) {
     </li>`;
 }
 
-function renderVolItemGlobal(item, rank, eventId, dupeSeg = false) {
-  // 전체 탭: market_moves의 모든 티커를 tickers.json 순서로 표시
+function renderVolItemGlobal(item, rank, eventId, dupeSeg = false, eventTickers = null) {
+  // 전체 탭: market_moves의 모든 티커를 event.tickers 순서로 표시
   const moves = item.market_moves || {};
-  const tickerBadges = Object.keys(TICKERS)
+  const tickerBadges = (eventTickers || Object.keys(TICKERS))
     .filter(k => k in moves)
     .map(k => {
       const pct = moves[k];

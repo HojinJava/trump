@@ -1,5 +1,14 @@
 {
   "id": "qT5Rf6HIp-0",
+  "tickers": [
+    "nasdaq",
+    "oil",
+    "gold",
+    "kospi",
+    "btc",
+    "eth",
+    "bonds"
+  ],
   "source": "youtube_live",
   "url": "https://www.youtube.com/watch?v=qT5Rf6HIp-0",
   "title": "LIVE: Trump addresses the nation on the Iran war | NBC News",
