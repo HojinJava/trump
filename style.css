@@ -322,6 +322,63 @@ header .subtitle {
   margin-bottom: 4px;
 }
 
+.summary-full {
+  font-size: 0.84rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin: 0 0 12px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.summary-price-section {
+  margin: 10px 0 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.summary-price-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.price-change-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 3px 0;
+  font-size: 0.82rem;
+}
+
+.price-asset {
+  font-weight: 700;
+  font-size: 0.72rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 1px 7px;
+  border-radius: 999px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.price-range {
+  color: var(--muted);
+  font-size: 0.76rem;
+  flex: 1;
+}
+
+.price-pct {
+  font-weight: 700;
+  font-size: 0.84rem;
+  min-width: 60px;
+  text-align: right;
+}
+
 .summary-impact {
   font-size: 0.78rem;
   color: var(--muted);

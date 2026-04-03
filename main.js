@@ -398,15 +398,32 @@ function initChart(eventId, event) {
 function renderSummary(event) {
   const s = event.speech_summary;
   if (!s) return '';
+
   const points = (s.key_points || [])
     .map(p => `<li>${escHtml(p)}</li>`).join('');
+
+  const pc = s.price_changes || {};
+  const assetLabel = { nasdaq: 'NASDAQ', oil: 'OIL', gold: 'GOLD', btc: 'BTC', eth: 'ETH', bonds: 'BONDS', kospi: 'KOSPI' };
+  const priceRows = Object.entries(pc).map(([asset, v]) => {
+    const cls = v.change_pct > 0 ? 'vol-change-pos' : v.change_pct < 0 ? 'vol-change-neg' : 'vol-change-neu';
+    const sign = v.change_pct > 0 ? '+' : '';
+    return `
+      <div class="price-change-row">
+        <span class="price-asset">${assetLabel[asset] || asset.toUpperCase()}</span>
+        <span class="price-range">${escHtml(v.pre_time_kst)} KST → ${escHtml(v.post_time_kst)} KST</span>
+        <span class="${cls} price-pct">${sign}${v.change_pct.toFixed(2)}%</span>
+      </div>`;
+  }).join('');
+
   return `
     <div class="summary-card">
       <div class="summary-header">
         <span class="summary-label">연설 요약</span>
         <span class="summary-meta">${escHtml(s.broadcast_start_kst || '')} · ${s.transcript_duration_min ?? '?'}분</span>
       </div>
+      ${s.full_summary ? `<p class="summary-full">${escHtml(s.full_summary)}</p>` : ''}
       <ul class="summary-points">${points}</ul>
+      ${priceRows ? `<div class="summary-price-section"><div class="summary-price-title">발언 전후 주가 변동</div>${priceRows}</div>` : ''}
       ${s.market_impact_summary ? `<div class="summary-impact">${escHtml(s.market_impact_summary)}</div>` : ''}
     </div>`;
 }
