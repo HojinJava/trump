@@ -327,6 +327,10 @@ function initChart(eventId, event) {
     },
   };
 
+  // 총 길이에 따라 x축 간격 결정 (분 단위)
+  const totalMins = allTimes.length;
+  const stepMin = totalMins <= 60 ? 10 : totalMins <= 100 ? 15 : 20;
+
   const chart = new Chart(canvas, {
     type: 'line',
     data: { labels: allTimes.map(t => t.slice(11, 16)), datasets },
@@ -358,7 +362,18 @@ function initChart(eventId, event) {
       },
       scales: {
         x: {
-          ticks: { color: '#6b7280', maxTicksLimit: 8, font: { size: 10 } },
+          ticks: {
+            color: '#6b7280',
+            font: { size: 10 },
+            maxTicksLimit: 100,
+            autoSkip: false,
+            callback: (_, idx) => {
+              const hhmm = allTimes[idx]?.slice(11, 16);
+              if (!hhmm) return null;
+              const [h, m] = hhmm.split(':').map(Number);
+              return (h * 60 + m) % stepMin === 0 ? hhmm : null;
+            },
+          },
           grid: { color: '#f3f4f6' },
           border: { color: '#e5e7eb' },
         },
