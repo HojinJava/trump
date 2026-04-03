@@ -406,7 +406,7 @@ function initChart(eventId, event) {
   // 연설 시작/종료 실선
   const broadcastHHMM = event.broadcast_at?.slice(11, 16);
   const pc = event.speech_summary?.price_changes || {};
-  const speechEndHHMM = Object.values(pc)[0]?.post_time_kst;
+  const speechEndHHMM = event.speech_summary?.speech_end_kst;
   const speechStartIdx = allTimes.findIndex(t => t.slice(11, 16) === broadcastHHMM);
   const speechEndIdx   = allTimes.findIndex(t => t.slice(11, 16) === speechEndHHMM);
 
@@ -540,9 +540,10 @@ function renderSummary(event) {
 
   const pc = s.price_changes || {};
   const pcEntries = Object.entries(pc);
-  const preTime  = pcEntries[0]?.[1]?.pre_time_kst  || s.broadcast_start_kst || '';
-  const postTime = pcEntries[0]?.[1]?.post_time_kst || '';
-  const priceTimeLabel = preTime && postTime ? ` (${escHtml(preTime)} ~ ${escHtml(postTime)} KST)` : '';
+  const chartTimes = event.chart_data?.times || [];
+  const chartStart = chartTimes.length ? chartTimes[0].slice(11, 16) : '';
+  const chartEnd   = chartTimes.length ? chartTimes[chartTimes.length - 1].slice(11, 16) : '';
+  const priceTimeLabel = chartStart && chartEnd ? ` (${escHtml(chartStart)} ~ ${escHtml(chartEnd)} KST)` : '';
 
   const priceRows = pcEntries.map(([asset, v]) => {
     const cls = v.change_pct > 0 ? 'vol-change-pos' : v.change_pct < 0 ? 'vol-change-neg' : 'vol-change-neu';
