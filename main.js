@@ -404,8 +404,8 @@ function initChart(eventId, event) {
       ctx.lineWidth = 1.5;
       ctx.setLineDash([5, 4]);
       ctx.font = '10px -apple-system, sans-serif';
-      ctx.fillStyle = 'rgba(239, 68, 68, 0.85)';
       ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
       [[speechStartIdx, '연설 시작'], [speechEndIdx, '연설 종료']].forEach(([idx, label]) => {
         if (idx < 0) return;
         const x = chart.scales.x.getPixelForValue(idx);
@@ -413,7 +413,15 @@ function initChart(eventId, event) {
         ctx.moveTo(x, top);
         ctx.lineTo(x, bottom);
         ctx.stroke();
-        ctx.fillText(label, x, top - 4);
+        // 라벨 배경 박스 (차트 내부 상단)
+        const labelY = top + 14;
+        const tw = ctx.measureText(label).width;
+        const pw = 6, ph = 5;
+        ctx.setLineDash([]);
+        ctx.fillStyle = 'rgba(255,255,255,0.88)';
+        ctx.fillRect(x - tw / 2 - pw, labelY - ph - 1, tw + pw * 2, ph * 2 + 2);
+        ctx.fillStyle = 'rgba(239, 68, 68, 0.9)';
+        ctx.fillText(label, x, labelY);
       });
       ctx.restore();
     },
