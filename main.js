@@ -268,8 +268,8 @@ function initChart(eventId, event) {
       const markedSet = new Set(chartMarkers[asset] || []);
 
       const values = allTimes.map(t => map[t] != null ? ((map[t] - first) / first * 100) : null);
-      const pointRadius    = allTimes.map(t => markedSet.has(t) ? 5 : 0);
-      const pointHitRadius = allTimes.map(t => markedSet.has(t) ? 10 : 0);
+      const pointRadius    = allTimes.map(t => markedSet.has(t) ? 3 : 0);
+      const pointHitRadius = allTimes.map(t => markedSet.has(t) ? 8 : 0);
 
       return {
         label: asset.toUpperCase(),
@@ -278,7 +278,7 @@ function initChart(eventId, event) {
         backgroundColor: colors[asset] || '#6b7280',
         borderWidth: 2,
         pointRadius,
-        pointHoverRadius: pointRadius.map(r => r > 0 ? r + 2 : 0),
+        pointHoverRadius: pointRadius.map(r => r > 0 ? r + 3 : 0),
         pointHitRadius,
         tension: 0.1,
         spanGaps: true,
@@ -309,6 +309,11 @@ function initChart(eventId, event) {
   // 총 길이에 따라 x축 간격 결정 (분 단위)
   const totalMins = allTimes.length;
   const stepMin = totalMins <= 60 ? 10 : totalMins <= 100 ? 15 : 20;
+
+  // 동그라미 위치 시각 Set (x축 tick에 추가 표시용)
+  const allMarkedTimes = new Set(
+    Object.values(chartMarkers).flat()
+  );
 
   const chart = new Chart(canvas, {
     type: 'line',
@@ -347,10 +352,13 @@ function initChart(eventId, event) {
             maxTicksLimit: 100,
             autoSkip: false,
             callback: (_, idx) => {
-              const hhmm = allTimes[idx]?.slice(11, 16);
-              if (!hhmm) return null;
+              const t = allTimes[idx];
+              if (!t) return null;
+              const hhmm = t.slice(11, 16);
               const [h, m] = hhmm.split(':').map(Number);
-              return (h * 60 + m) % stepMin === 0 ? hhmm : null;
+              if ((h * 60 + m) % stepMin === 0) return hhmm;
+              if (allMarkedTimes.has(t)) return hhmm;
+              return null;
             },
           },
           grid: { color: '#f3f4f6' },
