@@ -219,7 +219,7 @@ function renderVolItem(item, eventId) {
   } else if (en) {
     textHtml = `<details class="vol-original" open><summary>원문 보기</summary><div class="vol-text-en">"${escHtml(en)}"</div></details>`;
   } else {
-    textHtml = `<div class="vol-post-speech">연설 종료 후 시장 반응 구간</div>`;
+    textHtml = `<div class="vol-post-speech">📊 연설 종료 후 시장 반응 구간</div>`;
   }
 
   const zoneStart = (item.time || '').slice(11, 16);
@@ -270,7 +270,7 @@ function renderVolItemGlobal(item, rank, eventId, dupeSeg = false, eventTickers 
   } else if (en) {
     textHtml = `<details class="vol-original" open><summary>원문 보기</summary><div class="vol-text-en">"${escHtml(en)}"</div></details>`;
   } else {
-    textHtml = `<div class="vol-post-speech">연설 종료 후 시장 반응 구간</div>`;
+    textHtml = `<div class="vol-post-speech">📊 연설 종료 후 시장 반응 구간</div>`;
   }
 
   const zoneStart = (item.time || '').slice(11, 16);
