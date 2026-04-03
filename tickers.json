@@ -18,20 +18,20 @@
       "color": "#16a34a",
       "desc_ko": "금 선물 (CME: GC)"
     },
-    "kospi": {
-      "label": "KOSPI",
-      "label_ko": "코스피",
-      "color": "#7c3aed",
-      "desc_ko": "코스피 지수"
-    },
     "btc": {
       "label": "BTC",
       "label_ko": "비트코인",
       "color": "#f59e0b",
       "desc_ko": "비트코인 선물 (CME: BTC)"
     },
+    "short_bond": {
+      "label": "2Y",
+      "label_ko": "미국 2년 국채",
+      "color": "#0891b2",
+      "desc_ko": "미국 2년 국채 선물 (CME: ZT)"
+    },
     "bonds": {
-      "label": "BONDS",
+      "label": "30Y",
       "label_ko": "미국 30년 국채",
       "color": "#64748b",
       "desc_ko": "미국 30년 국채 선물 (CME: ZB)"
