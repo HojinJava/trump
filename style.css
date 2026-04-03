@@ -185,7 +185,7 @@ header .subtitle {
 /* ── Chart ────────────────────────────────── */
 .chart-wrap {
   position: relative;
-  height: 200px;
+  height: 320px;
   margin-bottom: 20px;
   background: #ffffff;
   border: 1px solid var(--border);
