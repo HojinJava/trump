@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "description": "schema/ 디렉토리 — 각 JSON 파일의 메타정보 (DB 마이그레이션 목적)",
+    "version": "1.0",
+    "updated": "2026-04-03"
+  },
+  "purpose": "향후 JSON → RDBMS/NoSQL 마이그레이션 시 컬럼 정의, 타입, 테이블 구조 참조용. 스키마 변경 시 해당 JSON 파일 업데이트 필수.",
+  "files": {
+    "index.json": "index.json 구조 — 이벤트 목록 (경량)",
+    "event.json": "data/{id}/event.json 구조 — 이벤트 상세 전체"
+  },
+  "conventions": {
+    "time_format": "모든 시각은 KST (+09:00) ISO 8601 문자열로 저장",
+    "nullable": "nullable: true 인 필드는 DB에서 NULL 허용",
+    "db_table_hint": "권장 DB 테이블명 (정규화 가이드)",
+    "db_type": "PostgreSQL 기준 컬럼 타입 권장"
+  }
+}

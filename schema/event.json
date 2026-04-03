@@ -1,0 +1,152 @@
+{
+  "_meta": {
+    "description": "data/{event_id}/event.json — 이벤트 상세 (프론트엔드 lazy load)",
+    "version": "2.0",
+    "updated": "2026-04-03",
+    "db_table_hint": "events"
+  },
+  "fields": {
+    "id": {
+      "type": "string",
+      "nullable": false,
+      "description": "이벤트 고유 ID (YouTube video_id 또는 해시)",
+      "db_column": "id",
+      "db_type": "VARCHAR(64) PRIMARY KEY"
+    },
+    "source": {
+      "type": "string",
+      "nullable": false,
+      "description": "소스 종류: youtube_live | youtube_video | twitter",
+      "db_column": "source",
+      "db_type": "VARCHAR(32)"
+    },
+    "url": {
+      "type": "string",
+      "nullable": false,
+      "description": "원본 콘텐츠 URL",
+      "db_column": "url",
+      "db_type": "TEXT"
+    },
+    "title": {
+      "type": "string",
+      "nullable": false,
+      "description": "원본 제목 (영어)",
+      "db_column": "title",
+      "db_type": "TEXT"
+    },
+    "title_ko": {
+      "type": "string",
+      "nullable": true,
+      "description": "번역 제목 (한국어)",
+      "db_column": "title_ko",
+      "db_type": "TEXT"
+    },
+    "broadcast_at": {
+      "type": "string",
+      "format": "ISO 8601 +09:00 (KST)",
+      "nullable": false,
+      "description": "방송 시작 시각 (KST)",
+      "db_column": "broadcast_at",
+      "db_type": "TIMESTAMPTZ"
+    },
+    "duration_seconds": {
+      "type": "integer",
+      "nullable": false,
+      "description": "방송 길이 (초)",
+      "db_column": "duration_seconds",
+      "db_type": "INTEGER"
+    },
+    "transcript": {
+      "type": "string",
+      "nullable": true,
+      "description": "전체 트랜스크립트 앞 2000자",
+      "db_column": "transcript_preview",
+      "db_type": "TEXT"
+    },
+    "indices": {
+      "type": "object",
+      "description": "Claude 분석 지수 — DB에서는 별도 컬럼 또는 events_indices 테이블 권장",
+      "db_table_hint": "events_indices (event_id FK)",
+      "fields": {
+        "rage": { "type": "integer", "range": "0-100", "db_type": "SMALLINT" },
+        "trade_war": { "type": "integer", "range": "0-100", "db_type": "SMALLINT" },
+        "chaos": { "type": "integer", "range": "0-100", "db_type": "SMALLINT" },
+        "market_brag": { "type": "integer", "range": "0-100", "db_type": "SMALLINT" },
+        "trump_risk_score": { "type": "integer", "range": "0-100", "db_type": "SMALLINT" },
+        "primary_target": { "type": "string", "db_type": "VARCHAR(128)" },
+        "targets": { "type": "array<string>", "db_type": "TEXT[] or JSONB" },
+        "keywords": { "type": "array<string>", "db_type": "TEXT[] or JSONB" }
+      }
+    },
+    "speech_summary": {
+      "type": "object",
+      "description": "연설 요약 — DB에서는 event_summaries 테이블 권장",
+      "db_table_hint": "event_summaries (event_id FK)",
+      "fields": {
+        "broadcast_start_kst": { "type": "string", "format": "HH:MM KST" },
+        "transcript_duration_min": { "type": "number" },
+        "full_summary": { "type": "string", "db_type": "TEXT" },
+        "key_points": { "type": "array<string>", "db_type": "JSONB" },
+        "market_impact_summary": { "type": "string", "db_type": "TEXT" },
+        "price_changes": {
+          "type": "object",
+          "description": "자산별 발언 전후 가격 변동",
+          "db_table_hint": "event_price_changes (event_id, asset FK)",
+          "value_schema": {
+            "pre_price": { "type": "number" },
+            "post_price": { "type": "number" },
+            "change_pct": { "type": "number", "description": "%" },
+            "pre_time_kst": { "type": "string", "format": "HH:MM" },
+            "post_time_kst": { "type": "string", "format": "HH:MM" }
+          }
+        }
+      }
+    },
+    "top_volatility": {
+      "type": "array<object>",
+      "description": "변동성 상위 구간 (최대 20개) — DB에서는 event_volatility 테이블 권장",
+      "db_table_hint": "event_volatility (event_id FK, rank PK-part)",
+      "item_schema": {
+        "rank": { "type": "integer" },
+        "time": { "type": "string", "format": "ISO 8601 +09:00", "description": "구간 시작 (KST)" },
+        "peak_time": { "type": "string", "format": "ISO 8601 +09:00", "description": "최대 변동 캔들 시각 (KST)" },
+        "end_time": { "type": "string", "format": "ISO 8601 +09:00", "description": "구간 종료 (KST)" },
+        "candle_count": { "type": "integer" },
+        "asset": { "type": "string", "description": "nasdaq | oil | gold | btc | eth | bonds | kospi" },
+        "window_vol": { "type": "number", "description": "zone_score (z-score 합산)" },
+        "video_offset_seconds": { "type": "integer" },
+        "youtube_url": { "type": "string", "nullable": true },
+        "transcript_segment": { "type": "string", "nullable": true },
+        "transcript_segment_ko": { "type": "string", "nullable": true },
+        "market_moves": { "type": "object", "description": "각 자산 1분봉 등락률 (%)", "value_type": "number" }
+      }
+    },
+    "chart_data": {
+      "type": "object",
+      "description": "차트 렌더링 사전 연산 데이터 — DB에서는 event_chart_data 테이블 또는 blob 권장",
+      "db_table_hint": "event_chart_data (event_id FK)",
+      "fields": {
+        "times": { "type": "array<string>", "format": "ISO 8601 +09:00", "description": "전 자산 통합 KST 타임라인 (정렬)" },
+        "step_min": { "type": "integer", "description": "x축 레이블 간격(분): 10 | 15 | 20" },
+        "series": {
+          "type": "object",
+          "description": "자산별 발언 직전 close 대비 등락률 배열 (times 인덱스 대응, null=데이터없음)",
+          "value_type": "array<number|null>"
+        }
+      }
+    },
+    "chart_markers": {
+      "type": "object",
+      "description": "자산별 차트 동그라미 데이터 — DB에서는 event_chart_markers 테이블 권장",
+      "db_table_hint": "event_chart_markers (event_id, asset, time PK)",
+      "value_schema": {
+        "type": "array<object>",
+        "item_schema": {
+          "time": { "type": "string", "format": "ISO 8601 +09:00" },
+          "show": { "type": "boolean" },
+          "change_pct": { "type": "number", "nullable": true, "description": "발언 시작 직전 close 대비 등락률 (%)" }
+        }
+      }
+    }
+  }
+}

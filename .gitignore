@@ -13,3 +13,7 @@
 !data/
 !data/*/
 !data/*/event.json
+
+# DB 마이그레이션용 스키마 메타정보
+!schema/
+!schema/*.json

@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "description": "index.json — 이벤트 목록 (경량, 프론트엔드 초기 로드)",
+    "version": "1.0",
+    "updated": "2026-04-03",
+    "db_table_hint": "events (서브셋 컬럼만 사용)"
+  },
+  "fields": {
+    "events": {
+      "type": "array<object>",
+      "description": "이벤트 경량 목록 (최신순 정렬)",
+      "item_schema": {
+        "id": { "type": "string", "db_column": "id", "db_type": "VARCHAR(64)" },
+        "title": { "type": "string", "db_column": "title", "db_type": "TEXT" },
+        "title_ko": { "type": "string", "nullable": true, "db_column": "title_ko", "db_type": "TEXT" },
+        "broadcast_at": { "type": "string", "format": "ISO 8601 +09:00 (KST)", "db_column": "broadcast_at", "db_type": "TIMESTAMPTZ" },
+        "source": { "type": "string", "db_column": "source", "db_type": "VARCHAR(32)" },
+        "trump_risk_score": { "type": "integer", "range": "0-100", "db_column": "trump_risk_score", "db_type": "SMALLINT" },
+        "primary_target": { "type": "string", "nullable": true, "db_column": "primary_target", "db_type": "VARCHAR(128)" }
+      }
+    }
+  }
+}

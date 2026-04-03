@@ -247,50 +247,46 @@ function initChart(eventId, event) {
   if (!canvas || canvas._chartInit) return;
   canvas._chartInit = true;
 
-  const candles = event.market_candles || {};
-  const colors = { nasdaq: '#1d4ed8', oil: '#d97706', gold: '#16a34a', kospi: '#7c3aed', btc: '#f59e0b', eth: '#6366f1', bonds: '#64748b' };
-  // 캔들 있는 자산만 동적으로 추출
-  const assets = Object.keys(candles).filter(a => candles[a]?.length > 0);
-
-  const allTimes = [...new Set(
-    assets.flatMap(a => (candles[a] || []).map(c => c.time))
-  )].sort();
+  // chart_data: 파이프라인 사전 연산 (times, step_min, series)
+  const chartData = event.chart_data || {};
+  const allTimes  = chartData.times   || [];
+  const stepMin   = chartData.step_min || 10;
+  const series    = chartData.series   || {};
 
   if (!allTimes.length) return;
+
+  const colors  = { nasdaq: '#1d4ed8', oil: '#d97706', gold: '#16a34a', kospi: '#7c3aed', btc: '#f59e0b', eth: '#6366f1', bonds: '#64748b' };
+  const assets  = Object.keys(series);
 
   // chart_markers: { asset: [{time, show, change_pct}] } — 파이프라인 사전 연산
   const chartMarkers = event.chart_markers || {};
 
   const datasets = assets.map(asset => {
-      const assetCandles = candles[asset] || [];
-      const map = Object.fromEntries(assetCandles.map(c => [c.time, c.close]));
-      const first = assetCandles[0]?.open || 1;
+    // time → marker 객체 맵 (JS 연산 없이 바로 조회)
+    const markerMap = Object.fromEntries(
+      (chartMarkers[asset] || [])
+        .filter(m => m.show)
+        .map(m => [m.time, m])
+    );
 
-      // time → marker 객체 맵 (JS 연산 없이 바로 조회)
-      const markerMap = Object.fromEntries(
-        (chartMarkers[asset] || [])
-          .filter(m => m.show)
-          .map(m => [m.time, m])
-      );
+    const values         = series[asset]; // 파이프라인 사전 연산 % 배열
+    const pointRadius    = allTimes.map(t => markerMap[t] ? 3 : 0);
+    const pointHitRadius = allTimes.map(t => markerMap[t] ? 8 : 0);
 
-      const values = allTimes.map(t => map[t] != null ? ((map[t] - first) / first * 100) : null);
-      const pointRadius    = allTimes.map(t => markerMap[t] ? 3 : 0);
-      const pointHitRadius = allTimes.map(t => markerMap[t] ? 8 : 0);
-
-      return {
-        label: asset.toUpperCase(),
-        data: values,
-        borderColor: colors[asset] || '#6b7280',
-        backgroundColor: colors[asset] || '#6b7280',
-        borderWidth: 2,
-        pointRadius,
-        pointHoverRadius: pointRadius.map(r => r > 0 ? r + 3 : 0),
-        pointHitRadius,
-        tension: 0.1,
-        spanGaps: true,
-        _markerMap: markerMap,
-      };
-    });
+    return {
+      label: asset.toUpperCase(),
+      data: values,
+      borderColor: colors[asset] || '#6b7280',
+      backgroundColor: colors[asset] || '#6b7280',
+      borderWidth: 2,
+      pointRadius,
+      pointHoverRadius: pointRadius.map(r => r > 0 ? r + 3 : 0),
+      pointHitRadius,
+      tension: 0.1,
+      spanGaps: true,
+      _markerMap: markerMap,
+    };
+  });
 
   const vertLinePlugin = {
     id: 'vertLine',
@@ -310,11 +306,6 @@ function initChart(eventId, event) {
       ctx.restore();
     },
   };
-
-  // 총 길이에 따라 x축 간격 결정 (분 단위)
-  const totalMins = allTimes.length;
-  const stepMin = totalMins <= 60 ? 10 : totalMins <= 100 ? 15 : 20;
-
 
   const chart = new Chart(canvas, {
     type: 'line',
