@@ -399,7 +399,7 @@ function initChart(eventId, event) {
       ctx.save();
       ctx.strokeStyle = 'rgba(239, 68, 68, 0.7)';
       ctx.lineWidth = 1.5;
-      ctx.setLineDash([]);
+      ctx.setLineDash([5, 4]);
       ctx.font = '10px -apple-system, sans-serif';
       ctx.fillStyle = 'rgba(239, 68, 68, 0.85)';
       ctx.textAlign = 'center';
