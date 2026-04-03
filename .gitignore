@@ -4,6 +4,7 @@
 # 허용 목록만 추적
 !.gitignore
 !README.md
+!CLAUDE.md
 !index.json
 !index.html
 !main.js
