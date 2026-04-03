@@ -14,6 +14,9 @@
 !data/*/
 !data/*/event.json
 
+# 티커 설정 (REST /tickers 역할)
+!tickers.json
+
 # DB 마이그레이션용 스키마 메타정보
 !schema/
 !schema/*.json

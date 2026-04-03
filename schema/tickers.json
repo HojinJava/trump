@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "description": "tickers.json — 티커 설정 (REST /tickers 엔드포인트 역할)",
+    "version": "1.0",
+    "updated": "2026-04-03",
+    "db_table_hint": "tickers"
+  },
+  "fields": {
+    "tickers": {
+      "type": "object",
+      "description": "티커 키(asset ID) → 설정 객체 맵",
+      "db_table_hint": "tickers (key PK)",
+      "value_schema": {
+        "label":    { "type": "string", "description": "영문 표시명 (UI 공통)",  "db_type": "VARCHAR(32)" },
+        "label_ko": { "type": "string", "description": "한국어 표시명",           "db_type": "VARCHAR(64)" },
+        "color":    { "type": "string", "description": "차트 색상 hex",           "db_type": "VARCHAR(16)" },
+        "desc_ko":  { "type": "string", "description": "한국어 자산 설명",        "db_type": "TEXT" }
+      }
+    }
+  },
+  "usage": {
+    "summary":  "price_changes 자산 라벨 표시",
+    "chart":    "series 색상 및 범례 라벨",
+    "rankings": "탭 라벨 및 vol-asset 배지 (tickers.json 키 순서대로 탭 정렬)"
+  }
+}

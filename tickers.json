@@ -1,0 +1,46 @@
+{
+  "tickers": {
+    "nasdaq": {
+      "label": "NASDAQ",
+      "label_ko": "나스닥",
+      "color": "#1d4ed8",
+      "desc_ko": "미국 나스닥100 선물 (CME: NQ)"
+    },
+    "oil": {
+      "label": "OIL",
+      "label_ko": "WTI 원유",
+      "color": "#d97706",
+      "desc_ko": "서부텍사스 원유 선물 (CME: CL)"
+    },
+    "gold": {
+      "label": "GOLD",
+      "label_ko": "금",
+      "color": "#16a34a",
+      "desc_ko": "금 선물 (CME: GC)"
+    },
+    "kospi": {
+      "label": "KOSPI",
+      "label_ko": "코스피",
+      "color": "#7c3aed",
+      "desc_ko": "코스피 지수"
+    },
+    "btc": {
+      "label": "BTC",
+      "label_ko": "비트코인",
+      "color": "#f59e0b",
+      "desc_ko": "비트코인 ETF (NASDAQ: IBIT)"
+    },
+    "eth": {
+      "label": "ETH",
+      "label_ko": "이더리움",
+      "color": "#6366f1",
+      "desc_ko": "이더리움 ETF (NASDAQ: ETHA)"
+    },
+    "bonds": {
+      "label": "BONDS",
+      "label_ko": "미국 장기채",
+      "color": "#64748b",
+      "desc_ko": "미국 20년 국채 ETF (NASDAQ: TLT)"
+    }
+  }
+}

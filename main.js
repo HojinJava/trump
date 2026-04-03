@@ -1,12 +1,20 @@
 // main.js — Trump Index frontend
-const INDEX_URL = './index.json';
+const INDEX_URL   = './index.json';
+const TICKERS_URL = './tickers.json';
+
+// 티커 설정 (tickers.json에서 로드 — REST /tickers 엔드포인트 역할)
+let TICKERS = {};
 
 // Cache for lazily loaded event data
 const eventCache = {};
 
 async function init() {
   try {
-    const index = await fetch(INDEX_URL).then(r => r.json());
+    const [index, tickerData] = await Promise.all([
+      fetch(INDEX_URL).then(r => r.json()),
+      fetch(TICKERS_URL).then(r => r.json()),
+    ]);
+    TICKERS = tickerData.tickers || {};
     renderEventList(index.events || []);
   } catch (e) {
     document.getElementById('app').innerHTML = `<p class="loading">오류: ${e.message}</p>`;
@@ -107,7 +115,10 @@ function renderEventDetail(id, event) {
   if (!detailEl) return;
 
   const volItems = event.top_volatility || [];
-  const assets = ['전체', ...new Set(volItems.map(v => v.asset))];
+  // tickers.json 키 순서 기준, 실제 데이터에 있는 자산만 탭으로 노출
+  const presentAssets = new Set(volItems.map(v => v.asset));
+  const orderedAssets = Object.keys(TICKERS).filter(k => presentAssets.has(k));
+  const tabs = ['전체', ...orderedAssets];
 
   detailEl.innerHTML = `
     ${renderIndices(event.indices)}
@@ -116,7 +127,10 @@ function renderEventDetail(id, event) {
       <canvas id="chart-${escHtml(id)}"></canvas>
     </div>
     <div class="vol-tabs" data-event="${escHtml(id)}">
-      ${assets.map((a, i) => `<button class="vol-tab${i === 0 ? ' active' : ''}" data-asset="${escHtml(a)}">${a === '전체' ? '전체' : a.toUpperCase()}</button>`).join('')}
+      ${tabs.map((a, i) => {
+        const label = a === '전체' ? '전체' : (TICKERS[a]?.label || a.toUpperCase());
+        return `<button class="vol-tab${i === 0 ? ' active' : ''}" data-asset="${escHtml(a)}">${label}</button>`;
+      }).join('')}
     </div>
     <ul class="volatility-list" id="vol-list-${escHtml(id)}">
       ${renderVolItems(volItems, '전체', id)}
@@ -216,7 +230,7 @@ function renderVolItem(item, eventId) {
       <div class="vol-rank">#${item.displayRank ?? item.rank}</div>
       <div class="vol-content">
         <div class="vol-meta">
-          <span class="vol-asset">${escHtml(item.asset.toUpperCase())}</span>
+          <span class="vol-asset">${escHtml(TICKERS[item.asset]?.label || item.asset.toUpperCase())}</span>
           <span class="${pctClass}">${pctStr}</span>
           <span class="vol-sigma">σ${(item.window_vol ?? 0).toFixed(2)}</span>
           ${timeRange}
@@ -264,14 +278,18 @@ function initChart(eventId, event) {
 
   if (!allTimes.length) return;
 
-  const colors  = { nasdaq: '#1d4ed8', oil: '#d97706', gold: '#16a34a', kospi: '#7c3aed', btc: '#f59e0b', eth: '#6366f1', bonds: '#64748b' };
-  const assets  = Object.keys(series);
+  // tickers.json 키 순서로 자산 정렬 (없는 자산은 뒤에)
+  const allSeriesAssets = Object.keys(series);
+  const assets = [
+    ...Object.keys(TICKERS).filter(k => allSeriesAssets.includes(k)),
+    ...allSeriesAssets.filter(k => !TICKERS[k]),
+  ];
 
   const datasets = assets.map(asset => ({
-    label: asset.toUpperCase(),
+    label: TICKERS[asset]?.label || asset.toUpperCase(),
     data: series[asset],
-    borderColor: colors[asset] || '#6b7280',
-    backgroundColor: colors[asset] || '#6b7280',
+    borderColor: TICKERS[asset]?.color || '#6b7280',
+    backgroundColor: TICKERS[asset]?.color || '#6b7280',
     borderWidth: 2,
     pointRadius: 0,
     pointHoverRadius: 0,
@@ -386,13 +404,12 @@ function renderSummary(event) {
     .map(p => `<li>${escHtml(p)}</li>`).join('');
 
   const pc = s.price_changes || {};
-  const assetLabel = { nasdaq: 'NASDAQ', oil: 'OIL', gold: 'GOLD', btc: 'BTC', eth: 'ETH', bonds: 'BONDS', kospi: 'KOSPI' };
   const priceRows = Object.entries(pc).map(([asset, v]) => {
     const cls = v.change_pct > 0 ? 'vol-change-pos' : v.change_pct < 0 ? 'vol-change-neg' : 'vol-change-neu';
     const sign = v.change_pct > 0 ? '+' : '';
     return `
       <div class="price-change-row">
-        <span class="price-asset">${assetLabel[asset] || asset.toUpperCase()}</span>
+        <span class="price-asset">${TICKERS[asset]?.label || asset.toUpperCase()}</span>
         <span class="price-range">${escHtml(v.pre_time_kst)} KST → ${escHtml(v.post_time_kst)} KST</span>
         <span class="${cls} price-pct">${sign}${v.change_pct.toFixed(2)}%</span>
       </div>`;
