@@ -171,25 +171,38 @@ function renderIndices(indices) {
 }
 
 function renderVolItems(items, asset, eventId) {
-  const filtered = asset === '전체' ? items : items.filter(v => v.asset === asset);
-  const reranked = filtered.map((item, i) => ({ ...item, displayRank: i + 1 }));
-  return reranked.map(item => renderVolItem(item, eventId)).join('');
+  if (asset === '전체') {
+    // 전체: 각 시각의 전 티커 평균 절대변동률 기준 재정렬 → 모든 티커 항목 표시
+    const scored = items.map(item => {
+      const moves = Object.values(item.market_moves || {});
+      const avg = moves.length ? moves.reduce((s, v) => s + Math.abs(v), 0) / moves.length : 0;
+      return { ...item, _avgMove: avg };
+    }).sort((a, b) => b._avgMove - a._avgMove);
+    return scored.map((item, i) => renderVolItem({ ...item, displayRank: i + 1 }, eventId)).join('');
+  }
+  const filtered = items.filter(v => v.asset === asset);
+  return filtered.map((item, i) => renderVolItem({ ...item, displayRank: i + 1 }, eventId)).join('');
 }
 
 function renderVolItem(item, eventId) {
   const pct = item.market_moves?.[item.asset] ?? 0;
   const pctClass = pct < -0.1 ? 'vol-change-neg' : pct > 0.1 ? 'vol-change-pos' : 'vol-change-neu';
   const pctStr = pct >= 0 ? `+${pct.toFixed(2)}%` : `${pct.toFixed(2)}%`;
+
+  // YouTube 링크: 시간 아이콘 + 해당 구간 보기
   const ytLink = item.youtube_url
-    ? `<a class="vol-source-link" href="${escHtml(item.youtube_url)}" target="_blank">▶ YouTube</a>` : '';
+    ? `<a class="vol-yt-link" href="${escHtml(item.youtube_url)}" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 해당 구간 보기</a>`
+    : '';
+
+  // 발언 텍스트: 한국어 우선, 원문은 접기로 숨김
   const ko = item.transcript_segment_ko;
   const en = item.transcript_segment;
   let textHtml = '';
   if (ko) {
     textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
-    if (en) textHtml += `<div class="vol-text-en">${escHtml(en)}</div>`;
+    if (en) textHtml += `<details class="vol-original"><summary>원문 보기</summary><div class="vol-text-en">${escHtml(en)}</div></details>`;
   } else if (en) {
-    textHtml = `<div class="vol-text-en">"${escHtml(en)}"</div>`;
+    textHtml = `<details class="vol-original" open><summary>원문 보기</summary><div class="vol-text-en">"${escHtml(en)}"</div></details>`;
   }
 
   const zoneStart = (item.time || '').slice(11, 16);

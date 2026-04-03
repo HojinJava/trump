@@ -412,6 +412,63 @@ header .subtitle {
 
 .vol-source-link:hover { text-decoration: underline; }
 
+/* ── YouTube 타임스탬프 링크 ──────────────────── */
+.vol-yt-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.72rem;
+  font-weight: 500;
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 1px 8px 1px 6px;
+  margin-left: 4px;
+  transition: background 0.12s, color 0.12s;
+}
+
+.vol-yt-link:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: #bfdbfe;
+}
+
+/* ── 원문 보기 토글 ───────────────────────────── */
+.vol-original {
+  margin-top: 3px;
+}
+
+.vol-original summary {
+  display: inline-block;
+  font-size: 0.68rem;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  margin-bottom: 3px;
+}
+
+.vol-original summary::-webkit-details-marker { display: none; }
+
+.vol-original summary::before {
+  content: '▸ ';
+  font-size: 0.6rem;
+}
+
+.vol-original[open] summary::before { content: '▾ '; }
+
+.vol-original summary:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: #bfdbfe;
+}
+
 /* ── Loading ──────────────────────────────── */
 .loading {
   color: var(--muted);
