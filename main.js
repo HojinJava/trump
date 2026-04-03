@@ -187,27 +187,8 @@ function renderIndices(indices) {
 
 function renderVolItems(items, asset, eventId, eventTickers) {
   if (asset === '전체') {
-    // 전체: 전 티커 평균 절대변동률 기준 정렬 후 겹치는 시간 구간 제거
-    const scored = items.map(item => {
-      const moves = Object.values(item.market_moves || {});
-      const avg = moves.length ? moves.reduce((s, v) => s + Math.abs(v), 0) / moves.length : 0;
-      return { ...item, _avgMove: avg };
-    }).sort((a, b) => b._avgMove - a._avgMove);
-
-    // 시간 구간 겹침 제거 (높은 점수 우선 유지)
-    const deduped = [];
-    for (const item of scored) {
-      const s = new Date(item.time).getTime();
-      const e = new Date(item.end_time || item.time).getTime();
-      const overlaps = deduped.some(d => {
-        const ds = new Date(d.time).getTime();
-        const de = new Date(d.end_time || d.time).getTime();
-        return s <= de && e >= ds;
-      });
-      if (!overlaps) deduped.push(item);
-    }
     const seenSegments = new Set();
-    return deduped.map((item, i) => {
+    return items.map((item, i) => {
       const seg = item.transcript_segment || '';
       const isDupeSeg = seg && seenSegments.has(seg);
       if (seg) seenSegments.add(seg);
@@ -496,26 +477,34 @@ function renderSummary(event) {
     .map(p => `<li>${escHtml(p)}</li>`).join('');
 
   const pc = s.price_changes || {};
-  const priceRows = Object.entries(pc).map(([asset, v]) => {
+  const pcEntries = Object.entries(pc);
+  const preTime  = pcEntries[0]?.[1]?.pre_time_kst  || s.broadcast_start_kst || '';
+  const postTime = pcEntries[0]?.[1]?.post_time_kst || '';
+  const priceTimeLabel = preTime && postTime ? ` (${escHtml(preTime)} ~ ${escHtml(postTime)} KST)` : '';
+
+  const priceRows = pcEntries.map(([asset, v]) => {
     const cls = v.change_pct > 0 ? 'vol-change-pos' : v.change_pct < 0 ? 'vol-change-neg' : 'vol-change-neu';
     const sign = v.change_pct > 0 ? '+' : '';
     return `
       <div class="price-change-row">
         <span class="price-asset">${TICKERS[asset]?.label || asset.toUpperCase()}</span>
-        <span class="price-range">${escHtml(v.pre_time_kst)} KST → ${escHtml(v.post_time_kst)} KST</span>
         <span class="${cls} price-pct">${sign}${v.change_pct.toFixed(2)}%</span>
       </div>`;
   }).join('');
+
+  const speechStart = s.broadcast_start_kst || '';
+  const speechEnd   = postTime;
+  const speechTimeLabel = speechStart && speechEnd ? `${escHtml(speechStart)} ~ ${escHtml(speechEnd)} KST` : escHtml(speechStart);
 
   return `
     <div class="summary-card">
       <div class="summary-header">
         <span class="summary-label">연설 요약</span>
-        <span class="summary-meta">${escHtml(s.broadcast_start_kst || '')} · ${s.transcript_duration_min ?? '?'}분</span>
+        <span class="summary-meta">${speechTimeLabel}</span>
       </div>
       ${s.full_summary ? `<p class="summary-full">${escHtml(s.full_summary)}</p>` : ''}
       <ul class="summary-points">${points}</ul>
-      ${priceRows ? `<div class="summary-price-section"><div class="summary-price-title">발언 전후 주가 변동</div>${priceRows}</div>` : ''}
+      ${priceRows ? `<div class="summary-price-section"><div class="summary-price-title">발언 전후 주가 변동${priceTimeLabel}</div>${priceRows}</div>` : ''}
       ${s.market_impact_summary ? `<div class="summary-impact">${escHtml(s.market_impact_summary)}</div>` : ''}
     </div>`;
 }
