@@ -258,18 +258,24 @@ function initChart(eventId, event) {
 
   if (!allTimes.length) return;
 
-  // chart_markers: 파이프라인에서 계산된 피크 시각 목록 (JS 계산 불필요)
+  // chart_markers: { asset: [{time, show, change_pct}] } — 파이프라인 사전 연산
   const chartMarkers = event.chart_markers || {};
 
   const datasets = assets.map(asset => {
       const assetCandles = candles[asset] || [];
       const map = Object.fromEntries(assetCandles.map(c => [c.time, c.close]));
       const first = assetCandles[0]?.open || 1;
-      const markedSet = new Set(chartMarkers[asset] || []);
+
+      // time → marker 객체 맵 (JS 연산 없이 바로 조회)
+      const markerMap = Object.fromEntries(
+        (chartMarkers[asset] || [])
+          .filter(m => m.show)
+          .map(m => [m.time, m])
+      );
 
       const values = allTimes.map(t => map[t] != null ? ((map[t] - first) / first * 100) : null);
-      const pointRadius    = allTimes.map(t => markedSet.has(t) ? 3 : 0);
-      const pointHitRadius = allTimes.map(t => markedSet.has(t) ? 8 : 0);
+      const pointRadius    = allTimes.map(t => markerMap[t] ? 3 : 0);
+      const pointHitRadius = allTimes.map(t => markerMap[t] ? 8 : 0);
 
       return {
         label: asset.toUpperCase(),
@@ -282,8 +288,7 @@ function initChart(eventId, event) {
         pointHitRadius,
         tension: 0.1,
         spanGaps: true,
-        _asset: asset,
-        _marked: markedSet,
+        _markerMap: markerMap,
       };
     });
 
@@ -329,13 +334,14 @@ function initChart(eventId, event) {
           }
         },
         tooltip: {
-          filter: item => item.dataset._marked?.has(allTimes[item.dataIndex]),
+          filter: item => !!item.dataset._markerMap?.[allTimes[item.dataIndex]],
           callbacks: {
             title: items => allTimes[items[0].dataIndex].slice(11, 16) + ' KST',
             label: item => {
-              const currPct = item.parsed.y;
-              const sign = currPct >= 0 ? '+' : '';
-              return `${item.dataset.label}  ${sign}${currPct.toFixed(2)}%`;
+              const marker = item.dataset._markerMap?.[allTimes[item.dataIndex]];
+              if (!marker) return '';
+              const sign = (marker.change_pct ?? 0) >= 0 ? '+' : '';
+              return `${item.dataset.label}  ${sign}${(marker.change_pct ?? 0).toFixed(2)}%`;
             },
           },
         },
