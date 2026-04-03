@@ -194,7 +194,7 @@ function renderVolItem(item, eventId) {
 
   const zoneStart = (item.time || '').slice(11, 16);
   const zoneEnd   = (item.end_time || '').slice(11, 16);
-  const peakTime  = (item.peak_time || item.time || '').slice(0, 16);
+  const peakTime  = item.peak_time || item.time || '';
   const timeRange = zoneStart && zoneEnd
     ? `<span class="vol-timerange">${zoneStart}${zoneEnd !== zoneStart ? ` ~ ${zoneEnd}` : ''} KST</span>`
     : '';
@@ -223,7 +223,7 @@ function bindVolItemHovers(id) {
       const peakTime = el.dataset.peakTime;
       if (!peakTime || !canvas._chart) return;
       const allTimes = canvas._allTimes || [];
-      const idx = allTimes.findIndex(t => t.slice(0, 16) === peakTime);
+      const idx = allTimes.findIndex(t => t === peakTime || t.slice(0, 16) === peakTime.slice(0, 16));
       if (idx < 0) return;
       canvas._hoverLineIndex = idx;
       const chart = canvas._chart;
@@ -248,8 +248,9 @@ function initChart(eventId, event) {
   canvas._chartInit = true;
 
   const candles = event.market_candles || {};
-  const assets = ['nasdaq', 'oil', 'gold'];
-  const colors = { nasdaq: '#1d4ed8', oil: '#d97706', gold: '#16a34a' };
+  const colors = { nasdaq: '#1d4ed8', oil: '#d97706', gold: '#16a34a', kospi: '#7c3aed', btc: '#f59e0b', eth: '#6366f1', bonds: '#64748b' };
+  // 캔들 있는 자산만 동적으로 추출
+  const assets = Object.keys(candles).filter(a => candles[a]?.length > 0);
 
   const allTimes = [...new Set(
     assets.flatMap(a => (candles[a] || []).map(c => c.time))
@@ -257,37 +258,18 @@ function initChart(eventId, event) {
 
   if (!allTimes.length) return;
 
-  // 자산별 volatility 랭킹 피크 시각 수집 (첫 번째 제외)
-  const volItems = event.top_volatility || [];
-  const markedByAsset = {};
-  for (const asset of assets) {
-    const pts = volItems
-      .filter(v => v.asset === asset)
-      .map(v => (v.peak_time || v.time).slice(0, 16))
-      .sort();
-    // 첫 번째 피크는 동그라미 없음
-    markedByAsset[asset] = new Set(pts.slice(1));
-  }
+  // chart_markers: 파이프라인에서 계산된 피크 시각 목록 (JS 계산 불필요)
+  const chartMarkers = event.chart_markers || {};
 
-  const datasets = assets
-    .filter(a => candles[a]?.length)
-    .map(asset => {
+  const datasets = assets.map(asset => {
       const assetCandles = candles[asset] || [];
       const map = Object.fromEntries(assetCandles.map(c => [c.time, c.close]));
       const first = assetCandles[0]?.open || 1;
-      const marked = markedByAsset[asset];
-
-      // 랭킹 피크 시각 정렬 (직전 대비 계산용)
-      const volItems = event.top_volatility || [];
-      const sortedPeaks = volItems
-        .filter(v => v.asset === asset)
-        .map(v => (v.peak_time || v.time).slice(0, 16))
-        .sort();
+      const markedSet = new Set(chartMarkers[asset] || []);
 
       const values = allTimes.map(t => map[t] != null ? ((map[t] - first) / first * 100) : null);
-
-      const pointRadius = allTimes.map(t => marked.has(t.slice(0, 16)) ? 5 : 0);
-      const pointHitRadius = allTimes.map(t => marked.has(t.slice(0, 16)) ? 10 : 0);
+      const pointRadius    = allTimes.map(t => markedSet.has(t) ? 5 : 0);
+      const pointHitRadius = allTimes.map(t => markedSet.has(t) ? 10 : 0);
 
       return {
         label: asset.toUpperCase(),
@@ -301,10 +283,7 @@ function initChart(eventId, event) {
         tension: 0.1,
         spanGaps: true,
         _asset: asset,
-        _map: map,
-        _first: first,
-        _sortedPeaks: sortedPeaks,
-        _marked: marked,
+        _marked: markedSet,
       };
     });
 
@@ -349,7 +328,7 @@ function initChart(eventId, event) {
           }
         },
         tooltip: {
-          filter: item => item.dataset._marked?.has(allTimes[item.dataIndex]?.slice(0, 16)),
+          filter: item => item.dataset._marked?.has(allTimes[item.dataIndex]),
           callbacks: {
             title: items => allTimes[items[0].dataIndex].slice(11, 16) + ' KST',
             label: item => {
