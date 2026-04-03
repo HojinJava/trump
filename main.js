@@ -4,7 +4,7 @@ const TICKERS_URL = './tickers.json';
 
 const CATEGORIES = {
   all:                { label: '전체' },
-  trump_speech:       { label: '🇺🇸 트럼프 발언' },
+  trump_speech:       { label: '🇺🇸 트럼프' },
   economic_indicator: { label: '📊 경제 지표' },
 };
 

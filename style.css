@@ -537,101 +537,16 @@ header .subtitle {
 }
 
 /* ── Methodology section ──────────────────── */
-.methodology {
-  max-width: 960px;
-  margin: 60px auto 0;
-  padding: 0 0 60px;
-}
-
-.method-section-wrap {
-  background: var(--surface);
-  border-radius: 12px;
-  padding: 32px;
-  border: 1px solid var(--border);
-}
-
-.method-title {
-  font-size: 0.75rem;
-  color: var(--muted);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.method-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-@media (max-width: 600px) {
-  .method-grid { grid-template-columns: 1fr; }
-}
-
-.method-card {
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 16px;
-}
-
-.method-card-label {
-  font-size: 0.65rem;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.method-card-name {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.method-ref-link {
-  font-size: 0.68rem;
-  font-weight: 400;
-  color: var(--accent);
-  text-decoration: none;
-  opacity: 0.7;
-  white-space: nowrap;
-}
-
-.method-ref-link:hover { opacity: 1; text-decoration: underline; }
-
-.method-card p {
-  font-size: 0.8rem;
-  color: var(--muted);
-  line-height: 1.65;
-  margin-bottom: 10px;
-}
-
-.method-card strong { color: var(--text); }
-
-.method-formula {
-  font-family: 'Courier New', 'Menlo', monospace;
-  font-size: 0.78rem;
-  color: #1e40af;
-  background: var(--accent-light);
-  border-radius: 4px;
-  padding: 8px 12px;
-  margin-top: 8px;
-}
-
-.method-refs {
+.site-footer {
   border-top: 1px solid var(--border);
-  padding-top: 20px;
+  margin-top: 60px;
+  padding: 32px 0 48px;
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
 }
 
-.method-refs-title {
+.footer-section-title {
   font-size: 0.7rem;
   color: var(--muted);
   text-transform: uppercase;
@@ -640,7 +555,21 @@ header .subtitle {
   margin-bottom: 12px;
 }
 
-.method-refs ol {
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links li,
+.footer-refs li {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.footer-refs {
   list-style: decimal;
   padding-left: 18px;
   display: flex;
@@ -648,18 +577,14 @@ header .subtitle {
   gap: 8px;
 }
 
-.method-refs li {
-  font-size: 0.78rem;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.method-refs a {
+.footer-links a,
+.footer-refs a {
   color: var(--text);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.method-refs a:hover {
+.footer-links a:hover,
+.footer-refs a:hover {
   color: #6366f1;
 }
