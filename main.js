@@ -556,7 +556,7 @@ function renderSummary(event) {
   }).join('');
 
   const speechStart = s.broadcast_start_kst || '';
-  const speechEnd   = postTime;
+  const speechEnd   = s.speech_end_kst || '';
   let durationMin = null;
   if (speechStart && speechEnd) {
     const [sh, sm] = speechStart.split(':').map(Number);
