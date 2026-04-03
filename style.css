@@ -49,6 +49,37 @@ header .subtitle {
   margin-top: 4px;
 }
 
+/* ── Category tabs ────────────────────────── */
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.cat-tab {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.cat-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cat-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 /* ── Date groups ──────────────────────────── */
 .date-group { margin-bottom: 12px; }
 

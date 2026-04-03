@@ -2,8 +2,16 @@
 const INDEX_URL   = './index.json';
 const TICKERS_URL = './tickers.json';
 
+const CATEGORIES = {
+  all:                { label: '전체' },
+  trump_speech:       { label: '🇺🇸 트럼프 발언' },
+  economic_indicator: { label: '📊 경제 지표' },
+};
+
 // 티커 설정 (tickers.json에서 로드 — REST /tickers 엔드포인트 역할)
 let TICKERS = {};
+let allEvents = [];
+let activeCategory = 'all';
 
 // Cache for lazily loaded event data
 const eventCache = {};
@@ -15,10 +23,34 @@ async function init() {
       fetch(TICKERS_URL).then(r => r.json()),
     ]);
     TICKERS = tickerData.tickers || {};
-    renderEventList(index.events || []);
+    allEvents = index.events || [];
+    renderCategoryTabs();
+    renderEventList(allEvents);
   } catch (e) {
     document.getElementById('app').innerHTML = `<p class="loading">오류: ${e.message}</p>`;
   }
+}
+
+function renderCategoryTabs() {
+  const container = document.getElementById('category-tabs');
+  if (!container) return;
+
+  // 실제 데이터에 존재하는 카테고리만 탭으로 표시 (전체 탭은 항상)
+  const usedCategories = new Set(allEvents.map(e => e.category).filter(Boolean));
+  const tabs = Object.entries(CATEGORIES).filter(([key]) => key === 'all' || usedCategories.has(key));
+
+  container.innerHTML = tabs.map(([key, { label }]) =>
+    `<button class="cat-tab${key === activeCategory ? ' active' : ''}" data-cat="${key}">${label}</button>`
+  ).join('');
+
+  container.addEventListener('click', e => {
+    const btn = e.target.closest('.cat-tab');
+    if (!btn) return;
+    activeCategory = btn.dataset.cat;
+    container.querySelectorAll('.cat-tab').forEach(b => b.classList.toggle('active', b.dataset.cat === activeCategory));
+    const filtered = activeCategory === 'all' ? allEvents : allEvents.filter(ev => ev.category === activeCategory);
+    renderEventList(filtered);
+  });
 }
 
 function renderEventList(events) {
