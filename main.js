@@ -249,9 +249,9 @@ function renderVolItem(item, eventId) {
       <div class="vol-rank">#${item.displayRank ?? item.rank}</div>
       <div class="vol-content">
         <div class="vol-meta">
+          ${timeRange}
           <span class="vol-asset">${escHtml(TICKERS[item.asset]?.label || item.asset.toUpperCase())}</span>
           <span class="${pctClass}">${pctStr}</span>
-          ${timeRange}
           ${ytLink}
         </div>
         ${textHtml}
@@ -298,8 +298,8 @@ function renderVolItemGlobal(item, rank, eventId, dupeSeg = false) {
       <div class="vol-rank">#${rank}</div>
       <div class="vol-content">
         <div class="vol-meta" style="flex-wrap:wrap;gap:6px">
-          ${tickerBadges}
           ${timeRange}
+          ${tickerBadges}
           ${ytLink}
         </div>
         ${textHtml}
