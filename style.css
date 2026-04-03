@@ -270,11 +270,19 @@ header .subtitle {
 
 .vol-sigma { color: var(--muted); font-size: 0.75rem; }
 
-.vol-text {
-  font-size: 0.82rem;
+.vol-text-ko {
+  font-size: 0.84rem;
+  color: var(--text);
+  line-height: 1.55;
+  margin-top: 4px;
+}
+
+.vol-text-en {
+  font-size: 0.76rem;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.45;
   font-style: italic;
+  margin-top: 2px;
 }
 
 .vol-source-link {

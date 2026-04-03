@@ -174,8 +174,17 @@ function renderVolItem(item) {
   const pct = item.market_moves?.[item.asset] ?? 0;
   const pctClass = pct < -0.1 ? 'vol-change-neg' : pct > 0.1 ? 'vol-change-pos' : 'vol-change-neu';
   const pctStr = pct >= 0 ? `+${pct.toFixed(2)}%` : `${pct.toFixed(2)}%`;
-  const originLink = item.youtube_url
-    ? `<a class="vol-source-link" href="${escHtml(item.youtube_url)}" target="_blank">[원문]</a>` : '';
+  const ytLink = item.youtube_url
+    ? `<a class="vol-source-link" href="${escHtml(item.youtube_url)}" target="_blank">▶ YouTube</a>` : '';
+  const ko = item.transcript_segment_ko;
+  const en = item.transcript_segment;
+  let textHtml = '';
+  if (ko) {
+    textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
+    if (en) textHtml += `<div class="vol-text-en">${escHtml(en)}</div>`;
+  } else if (en) {
+    textHtml = `<div class="vol-text-en">"${escHtml(en)}"</div>`;
+  }
 
   return `
     <li class="vol-item">
@@ -184,11 +193,10 @@ function renderVolItem(item) {
         <div class="vol-meta">
           <span class="vol-asset">${escHtml(item.asset.toUpperCase())}</span>
           <span class="${pctClass}">${pctStr}</span>
-          <span class="vol-sigma">σ${(item.window_vol ?? 0).toFixed(2)}%</span>
+          <span class="vol-sigma">σ${(item.window_vol ?? 0).toFixed(2)}</span>
+          ${ytLink}
         </div>
-        <div class="vol-text">
-          "${escHtml(item.transcript_segment || '')}"${originLink}
-        </div>
+        ${textHtml}
       </div>
     </li>`;
 }
