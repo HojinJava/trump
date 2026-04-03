@@ -478,7 +478,7 @@ function initChart(eventId, event) {
               const hhmm = allTimes[idx]?.slice(11, 16);
               if (!hhmm) return null;
               const [h, m] = hhmm.split(':').map(Number);
-              return (h * 60 + m) % (stepMin * 2) === 0 ? hhmm : null;
+              return (h * 60 + m) % stepMin === 0 ? hhmm : null;
             },
           },
           grid: { color: '#f3f4f6' },
