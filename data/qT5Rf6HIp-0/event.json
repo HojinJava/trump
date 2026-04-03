@@ -1,0 +1,2373 @@
+{
+  "id": "qT5Rf6HIp-0",
+  "source": "youtube_live",
+  "url": "https://www.youtube.com/watch?v=qT5Rf6HIp-0",
+  "title": "LIVE: Trump addresses the nation on the Iran war | NBC News",
+  "broadcast_at": "2026-04-02T01:01:58.399000+00:00",
+  "duration_seconds": 3065,
+  "transcript": ">> Thank you very much, my fellow >> Thank you very much, my fellow Americans. Good evening. Let me begin by Americans. Good evening. Let me begin by Americans. Good evening. Let me begin by congratulating the team at NASA and our congratulating the team at NASA and our congratulating the team at NASA and our brave astronauts on the successful brave astronauts on the successful brave astronauts on the successful launch of Artemis 2. It was quite launch of Artemis 2. It was quite launch of Artemis 2. It was quite something. It will be traveling further something. It will be traveling further something. It will be traveling further than any manned rocket has ever flown than any manned rocket has ever flown than any manned rocket has ever flown and will very substantially pass the and will very substantially pass the and will very substantially pass the moon, go around it and come back home moon, go around it and come back home moon, go around it and come back home from a distance that has never been done from a distance that has never been done from a distance that has never been done before. It's amazing. before. It's amazing. before. It's amazing. They are on the way and God bless them. They are on the way and God bless them. They are on the way and God bless them. These are brave people. We want to God These are brave people. We want to God These are brave people. We want to God bless those four unbelievable bless those four unbelievable bless those four unbelievable astronauts. astronauts. astronauts. As we speak this evening, it's been just As we speak this evening, it's been just As we speak this evening, it's been just one month since the United States one month since the United States one month since the United States military began operation military began operation military began operation epic fury targeting the world's number epic fury targeting the world's number epic fury targeting the world's number one state sponsor of terror, Iran. In one state sponso",
+  "indices": {
+    "rage": 72,
+    "primary_target": "Iran",
+    "targets": [
+      "Iran",
+      "IRGC",
+      "Iranian regime"
+    ],
+    "trade_war": 18,
+    "chaos": 4,
+    "market_brag": 0,
+    "trump_risk_score": 35,
+    "keywords": [
+      "Iran",
+      "nuclear",
+      "Operation Epic Fury",
+      "obliterate",
+      "military"
+    ]
+  },
+  "minute_summaries": [
+    {
+      "minute": 0,
+      "summary": "Good evening — opens with NASA Artemis 2 praise, pivots to Iran operation update"
+    },
+    {
+      "minute": 1,
+      "summary": "Operation Epic Fury: 4 weeks in, decisive victories — Iran's navy gone, air force in ruins"
+    },
+    {
+      "minute": 2,
+      "summary": "Leaders dead, IRGC decimated; America winning bigger than ever under my presidency"
+    },
+    {
+      "minute": 3,
+      "summary": "Venezuela takeover praised; joint oil venture; US energy independent from Middle East"
+    },
+    {
+      "minute": 4,
+      "summary": "Iran's 47-year terror history — October 7th, Beirut barracks, USS Cole, 45k own people killed"
+    },
+    {
+      "minute": 5,
+      "summary": "Killed Soleimani in first term; Iran nuclear threat is existential, I vowed to stop it"
+    },
+    {
+      "minute": 6,
+      "summary": "Biden's Iran deal condemned; would have given Iran nuclear bomb within months"
+    },
+    {
+      "minute": 7,
+      "summary": "B2 bombers hit nuclear sites magnificently — Fordow, Natanz, Isfahan destroyed"
+    },
+    {
+      "minute": 8,
+      "summary": "Iran was weeks from a nuclear weapon; we had to act immediately"
+    },
+    {
+      "minute": 9,
+      "summary": "Armed forces executing perfectly; allies cheering us on to finish the job"
+    },
+    {
+      "minute": 10,
+      "summary": "We WILL finish the job; every ally in the region asking us to complete the mission"
+    },
+    {
+      "minute": 11,
+      "summary": "US military best prepared in history; Gulf states cooperating fully"
+    },
+    {
+      "minute": 12,
+      "summary": "US energy dominance — number one in gas; we don't need Middle East oil anymore"
+    },
+    {
+      "minute": 13,
+      "summary": "Strait of Hormuz: US Navy controlling passage; oil flows protected for allies"
+    },
+    {
+      "minute": 14,
+      "summary": "Iran's oil infrastructure destroyed; they have nothing left to rebuild with"
+    },
+    {
+      "minute": 15,
+      "summary": "All military objectives will be achieved very shortly — days, not weeks"
+    },
+    {
+      "minute": 16,
+      "summary": "Threatened to obliterate Iran completely if they resist; nothing they can do to stop us"
+    },
+    {
+      "minute": 17,
+      "summary": "Operation faster than Vietnam, faster than any war — weeks not years"
+    },
+    {
+      "minute": 18,
+      "summary": "End of Iranian nuclear blackmail threat; wickedness of Iranian aggression being stopped"
+    },
+    {
+      "minute": 19,
+      "summary": "Again threatened obliteration; operation to conclude in 2-3 weeks; God bless America"
+    }
+  ],
+  "top_volatility": [
+    {
+      "rank": 1,
+      "time": "2026-04-02T01:02:00+00:00",
+      "asset": "oil",
+      "window_vol": 4.605,
+      "video_offset_seconds": 585,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=585",
+      "transcript_segment": ">> Thank you very much, my fellow Americans. Good evening. Let me begin by",
+      "market_moves": {
+        "nasdaq": -0.06,
+        "oil": 0.42,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 2,
+      "time": "2026-04-02T01:08:00+00:00",
+      "asset": "oil",
+      "window_vol": 4.066,
+      "video_offset_seconds": 944,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=944",
+      "transcript_segment": "nuclear bomb. His Iran deal would have",
+      "market_moves": {
+        "nasdaq": 0.14,
+        "oil": -0.41,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 3,
+      "time": "2026-04-02T01:15:00+00:00",
+      "asset": "oil",
+      "window_vol": 4.0417,
+      "video_offset_seconds": 1362,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1362",
+      "transcript_segment": "must take care of that passage. They must cherish it. They must grab it and",
+      "market_moves": {
+        "nasdaq": -0.12,
+        "oil": 0.46,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 4,
+      "time": "2026-04-02T01:21:00+00:00",
+      "asset": "oil",
+      "window_vol": 3.1332,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": -0.17,
+        "oil": -0.18,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 5,
+      "time": "2026-04-02T01:30:00+00:00",
+      "asset": "oil",
+      "window_vol": 2.4239,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": -0.14,
+        "oil": 0.38,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 6,
+      "time": "2026-04-02T01:35:00+00:00",
+      "asset": "oil",
+      "window_vol": 2.0749,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": 0.07,
+        "oil": -0.05,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 7,
+      "time": "2026-04-02T01:53:00+00:00",
+      "asset": "oil",
+      "window_vol": 1.7727,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": -0.04,
+        "oil": 0.43,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 8,
+      "time": "2026-04-02T01:40:00+00:00",
+      "asset": "oil",
+      "window_vol": 1.6934,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": -0.02,
+        "oil": -0.23,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 9,
+      "time": "2026-04-02T02:07:00+00:00",
+      "asset": "oil",
+      "window_vol": 1.4319,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": 0.02,
+        "oil": -0.02,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 10,
+      "time": "2026-04-02T02:22:00+00:00",
+      "asset": "oil",
+      "window_vol": 1.3822,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": -0.02,
+        "oil": -0.04,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 11,
+      "time": "2026-04-02T01:17:00+00:00",
+      "asset": "nasdaq",
+      "window_vol": 1.2603,
+      "video_offset_seconds": 1485,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1485",
+      "transcript_segment": "shortly. Very shortly, we are going to",
+      "market_moves": {
+        "nasdaq": -0.23,
+        "oil": 1.11,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 12,
+      "time": "2026-04-02T01:46:00+00:00",
+      "asset": "oil",
+      "window_vol": 1.1765,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": 0.03,
+        "oil": 0.04,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 13,
+      "time": "2026-04-02T01:08:00+00:00",
+      "asset": "nasdaq",
+      "window_vol": 1.1395,
+      "video_offset_seconds": 944,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=944",
+      "transcript_segment": "nuclear bomb. His Iran deal would have",
+      "market_moves": {
+        "nasdaq": 0.14,
+        "oil": -0.41,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 14,
+      "time": "2026-04-02T01:03:00+00:00",
+      "asset": "nasdaq",
+      "window_vol": 1.114,
+      "video_offset_seconds": 643,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=643",
+      "transcript_segment": "have delivered swift, decisive, overwhelming victories on the",
+      "market_moves": {
+        "nasdaq": -0.24,
+        "oil": 0.83,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 15,
+      "time": "2026-04-02T02:30:00+00:00",
+      "asset": "oil",
+      "window_vol": 1.1058,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": 0.03,
+        "oil": -0.15,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 16,
+      "time": "2026-04-02T01:58:00+00:00",
+      "asset": "oil",
+      "window_vol": 0.9886,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": -0.01,
+        "oil": -0.12,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 17,
+      "time": "2026-04-02T02:12:00+00:00",
+      "asset": "oil",
+      "window_vol": 0.9096,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": -0.02,
+        "oil": 0.02,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 18,
+      "time": "2026-04-02T02:42:00+00:00",
+      "asset": "oil",
+      "window_vol": 0.7997,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": 0.01,
+        "oil": -0.12,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 19,
+      "time": "2026-04-02T02:35:00+00:00",
+      "asset": "oil",
+      "window_vol": 0.799,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": 0.01,
+        "oil": 0.04,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    },
+    {
+      "rank": 20,
+      "time": "2026-04-02T02:49:00+00:00",
+      "asset": "oil",
+      "window_vol": 0.7608,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": "to three weeks longer. He again here threatened to obliterate Iran while also",
+      "market_moves": {
+        "nasdaq": 0.02,
+        "oil": 0.07,
+        "gold": 0.0,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.0
+      }
+    }
+  ],
+  "market_candles": {
+    "nasdaq": [
+      {
+        "time": "2026-04-02T01:01:00+00:00",
+        "open": 2419650.0,
+        "high": 2420775.0,
+        "low": 2419225.0,
+        "close": 2420250.0,
+        "volatility": 0.0641
+      },
+      {
+        "time": "2026-04-02T01:02:00+00:00",
+        "open": 2420525.0,
+        "high": 2421175.0,
+        "low": 2418200.0,
+        "close": 2419100.0,
+        "volatility": 0.1229
+      },
+      {
+        "time": "2026-04-02T01:03:00+00:00",
+        "open": 2419075.0,
+        "high": 2419775.0,
+        "low": 2411150.0,
+        "close": 2413250.0,
+        "volatility": 0.3565
+      },
+      {
+        "time": "2026-04-02T01:04:00+00:00",
+        "open": 2413800.0,
+        "high": 2417700.0,
+        "low": 2413800.0,
+        "close": 2414975.0,
+        "volatility": 0.1616
+      },
+      {
+        "time": "2026-04-02T01:05:00+00:00",
+        "open": 2415225.0,
+        "high": 2415225.0,
+        "low": 2408600.0,
+        "close": 2411275.0,
+        "volatility": 0.2743
+      },
+      {
+        "time": "2026-04-02T01:06:00+00:00",
+        "open": 2411075.0,
+        "high": 2412150.0,
+        "low": 2408450.0,
+        "close": 2408875.0,
+        "volatility": 0.1535
+      },
+      {
+        "time": "2026-04-02T01:07:00+00:00",
+        "open": 2409175.0,
+        "high": 2412425.0,
+        "low": 2408375.0,
+        "close": 2409475.0,
+        "volatility": 0.1681
+      },
+      {
+        "time": "2026-04-02T01:08:00+00:00",
+        "open": 2409675.0,
+        "high": 2413750.0,
+        "low": 2409025.0,
+        "close": 2412975.0,
+        "volatility": 0.1961
+      },
+      {
+        "time": "2026-04-02T01:09:00+00:00",
+        "open": 2412675.0,
+        "high": 2415125.0,
+        "low": 2412400.0,
+        "close": 2414225.0,
+        "volatility": 0.1129
+      },
+      {
+        "time": "2026-04-02T01:10:00+00:00",
+        "open": 2414400.0,
+        "high": 2419650.0,
+        "low": 2413325.0,
+        "close": 2418825.0,
+        "volatility": 0.262
+      },
+      {
+        "time": "2026-04-02T01:11:00+00:00",
+        "open": 2419125.0,
+        "high": 2423500.0,
+        "low": 2415425.0,
+        "close": 2417575.0,
+        "volatility": 0.3338
+      },
+      {
+        "time": "2026-04-02T01:12:00+00:00",
+        "open": 2417575.0,
+        "high": 2418075.0,
+        "low": 2412400.0,
+        "close": 2413275.0,
+        "volatility": 0.2347
+      },
+      {
+        "time": "2026-04-02T01:13:00+00:00",
+        "open": 2412975.0,
+        "high": 2415850.0,
+        "low": 2412975.0,
+        "close": 2414475.0,
+        "volatility": 0.1191
+      },
+      {
+        "time": "2026-04-02T01:14:00+00:00",
+        "open": 2414650.0,
+        "high": 2415775.0,
+        "low": 2413250.0,
+        "close": 2414125.0,
+        "volatility": 0.1046
+      },
+      {
+        "time": "2026-04-02T01:15:00+00:00",
+        "open": 2413975.0,
+        "high": 2414250.0,
+        "low": 2411000.0,
+        "close": 2411175.0,
+        "volatility": 0.1346
+      },
+      {
+        "time": "2026-04-02T01:16:00+00:00",
+        "open": 2411150.0,
+        "high": 2414875.0,
+        "low": 2407500.0,
+        "close": 2409700.0,
+        "volatility": 0.3059
+      },
+      {
+        "time": "2026-04-02T01:17:00+00:00",
+        "open": 2409400.0,
+        "high": 2411425.0,
+        "low": 2403575.0,
+        "close": 2403800.0,
+        "volatility": 0.3258
+      },
+      {
+        "time": "2026-04-02T01:18:00+00:00",
+        "open": 2403800.0,
+        "high": 2405800.0,
+        "low": 2400700.0,
+        "close": 2401225.0,
+        "volatility": 0.2122
+      },
+      {
+        "time": "2026-04-02T01:19:00+00:00",
+        "open": 2401200.0,
+        "high": 2402675.0,
+        "low": 2398150.0,
+        "close": 2399675.0,
+        "volatility": 0.1884
+      },
+      {
+        "time": "2026-04-02T01:20:00+00:00",
+        "open": 2399700.0,
+        "high": 2403850.0,
+        "low": 2398400.0,
+        "close": 2403850.0,
+        "volatility": 0.2271
+      },
+      {
+        "time": "2026-04-02T01:21:00+00:00",
+        "open": 2403600.0,
+        "high": 2406150.0,
+        "low": 2398775.0,
+        "close": 2399450.0,
+        "volatility": 0.3068
+      },
+      {
+        "time": "2026-04-02T01:22:00+00:00",
+        "open": 2399500.0,
+        "high": 2401375.0,
+        "low": 2397525.0,
+        "close": 2399075.0,
+        "volatility": 0.1605
+      },
+      {
+        "time": "2026-04-02T01:23:00+00:00",
+        "open": 2399100.0,
+        "high": 2401900.0,
+        "low": 2398450.0,
+        "close": 2400275.0,
+        "volatility": 0.1438
+      },
+      {
+        "time": "2026-04-02T01:24:00+00:00",
+        "open": 2400250.0,
+        "high": 2400825.0,
+        "low": 2399100.0,
+        "close": 2399625.0,
+        "volatility": 0.0719
+      },
+      {
+        "time": "2026-04-02T01:25:00+00:00",
+        "open": 2399450.0,
+        "high": 2400625.0,
+        "low": 2396200.0,
+        "close": 2397625.0,
+        "volatility": 0.1844
+      },
+      {
+        "time": "2026-04-02T01:26:00+00:00",
+        "open": 2397625.0,
+        "high": 2398700.0,
+        "low": 2396525.0,
+        "close": 2397750.0,
+        "volatility": 0.0907
+      },
+      {
+        "time": "2026-04-02T01:27:00+00:00",
+        "open": 2397300.0,
+        "high": 2398975.0,
+        "low": 2396325.0,
+        "close": 2398850.0,
+        "volatility": 0.1105
+      },
+      {
+        "time": "2026-04-02T01:28:00+00:00",
+        "open": 2398500.0,
+        "high": 2399625.0,
+        "low": 2397875.0,
+        "close": 2399400.0,
+        "volatility": 0.073
+      },
+      {
+        "time": "2026-04-02T01:29:00+00:00",
+        "open": 2399450.0,
+        "high": 2400000.0,
+        "low": 2397575.0,
+        "close": 2397600.0,
+        "volatility": 0.1011
+      },
+      {
+        "time": "2026-04-02T01:30:00+00:00",
+        "open": 2397400.0,
+        "high": 2397875.0,
+        "low": 2393525.0,
+        "close": 2394025.0,
+        "volatility": 0.1814
+      },
+      {
+        "time": "2026-04-02T01:31:00+00:00",
+        "open": 2394050.0,
+        "high": 2394650.0,
+        "low": 2391650.0,
+        "close": 2392525.0,
+        "volatility": 0.1253
+      },
+      {
+        "time": "2026-04-02T01:32:00+00:00",
+        "open": 2392625.0,
+        "high": 2393275.0,
+        "low": 2391600.0,
+        "close": 2392975.0,
+        "volatility": 0.07
+      },
+      {
+        "time": "2026-04-02T01:33:00+00:00",
+        "open": 2392950.0,
+        "high": 2394200.0,
+        "low": 2391500.0,
+        "close": 2391750.0,
+        "volatility": 0.1128
+      },
+      {
+        "time": "2026-04-02T01:34:00+00:00",
+        "open": 2391775.0,
+        "high": 2394325.0,
+        "low": 2391600.0,
+        "close": 2394225.0,
+        "volatility": 0.1139
+      },
+      {
+        "time": "2026-04-02T01:35:00+00:00",
+        "open": 2394100.0,
+        "high": 2396175.0,
+        "low": 2394100.0,
+        "close": 2395825.0,
+        "volatility": 0.0867
+      },
+      {
+        "time": "2026-04-02T01:36:00+00:00",
+        "open": 2396050.0,
+        "high": 2397475.0,
+        "low": 2395325.0,
+        "close": 2396050.0,
+        "volatility": 0.0897
+      },
+      {
+        "time": "2026-04-02T01:37:00+00:00",
+        "open": 2396200.0,
+        "high": 2397200.0,
+        "low": 2395475.0,
+        "close": 2396000.0,
+        "volatility": 0.072
+      },
+      {
+        "time": "2026-04-02T01:38:00+00:00",
+        "open": 2396075.0,
+        "high": 2397150.0,
+        "low": 2394975.0,
+        "close": 2395300.0,
+        "volatility": 0.0908
+      },
+      {
+        "time": "2026-04-02T01:39:00+00:00",
+        "open": 2395225.0,
+        "high": 2396950.0,
+        "low": 2393825.0,
+        "close": 2396925.0,
+        "volatility": 0.1305
+      },
+      {
+        "time": "2026-04-02T01:40:00+00:00",
+        "open": 2396825.0,
+        "high": 2397600.0,
+        "low": 2395675.0,
+        "close": 2396450.0,
+        "volatility": 0.0803
+      },
+      {
+        "time": "2026-04-02T01:41:00+00:00",
+        "open": 2396625.0,
+        "high": 2397550.0,
+        "low": 2395775.0,
+        "close": 2396100.0,
+        "volatility": 0.0741
+      },
+      {
+        "time": "2026-04-02T01:42:00+00:00",
+        "open": 2396350.0,
+        "high": 2397400.0,
+        "low": 2395200.0,
+        "close": 2395725.0,
+        "volatility": 0.0918
+      },
+      {
+        "time": "2026-04-02T01:43:00+00:00",
+        "open": 2395475.0,
+        "high": 2396775.0,
+        "low": 2395000.0,
+        "close": 2395650.0,
+        "volatility": 0.0741
+      },
+      {
+        "time": "2026-04-02T01:44:00+00:00",
+        "open": 2395750.0,
+        "high": 2396725.0,
+        "low": 2394500.0,
+        "close": 2395075.0,
+        "volatility": 0.0929
+      },
+      {
+        "time": "2026-04-02T01:45:00+00:00",
+        "open": 2394875.0,
+        "high": 2395125.0,
+        "low": 2393050.0,
+        "close": 2393050.0,
+        "volatility": 0.0866
+      },
+      {
+        "time": "2026-04-02T01:46:00+00:00",
+        "open": 2393025.0,
+        "high": 2394350.0,
+        "low": 2392825.0,
+        "close": 2393825.0,
+        "volatility": 0.0637
+      },
+      {
+        "time": "2026-04-02T01:47:00+00:00",
+        "open": 2393625.0,
+        "high": 2393625.0,
+        "low": 2391425.0,
+        "close": 2391925.0,
+        "volatility": 0.0919
+      },
+      {
+        "time": "2026-04-02T01:48:00+00:00",
+        "open": 2391925.0,
+        "high": 2394025.0,
+        "low": 2391250.0,
+        "close": 2393350.0,
+        "volatility": 0.116
+      },
+      {
+        "time": "2026-04-02T01:49:00+00:00",
+        "open": 2393275.0,
+        "high": 2394925.0,
+        "low": 2393000.0,
+        "close": 2394225.0,
+        "volatility": 0.0804
+      },
+      {
+        "time": "2026-04-02T01:50:00+00:00",
+        "open": 2394075.0,
+        "high": 2394850.0,
+        "low": 2393350.0,
+        "close": 2394650.0,
+        "volatility": 0.0627
+      },
+      {
+        "time": "2026-04-02T01:51:00+00:00",
+        "open": 2394550.0,
+        "high": 2395825.0,
+        "low": 2394525.0,
+        "close": 2395500.0,
+        "volatility": 0.0543
+      },
+      {
+        "time": "2026-04-02T01:52:00+00:00",
+        "open": 2395575.0,
+        "high": 2396000.0,
+        "low": 2394975.0,
+        "close": 2395200.0,
+        "volatility": 0.0428
+      },
+      {
+        "time": "2026-04-02T01:53:00+00:00",
+        "open": 2395500.0,
+        "high": 2395850.0,
+        "low": 2394450.0,
+        "close": 2394575.0,
+        "volatility": 0.0584
+      },
+      {
+        "time": "2026-04-02T01:54:00+00:00",
+        "open": 2394700.0,
+        "high": 2394925.0,
+        "low": 2392950.0,
+        "close": 2394450.0,
+        "volatility": 0.0825
+      },
+      {
+        "time": "2026-04-02T01:55:00+00:00",
+        "open": 2394475.0,
+        "high": 2396225.0,
+        "low": 2393750.0,
+        "close": 2395850.0,
+        "volatility": 0.1034
+      },
+      {
+        "time": "2026-04-02T01:56:00+00:00",
+        "open": 2395750.0,
+        "high": 2396225.0,
+        "low": 2393800.0,
+        "close": 2393925.0,
+        "volatility": 0.1012
+      },
+      {
+        "time": "2026-04-02T01:57:00+00:00",
+        "open": 2393900.0,
+        "high": 2395125.0,
+        "low": 2393300.0,
+        "close": 2394475.0,
+        "volatility": 0.0762
+      },
+      {
+        "time": "2026-04-02T01:58:00+00:00",
+        "open": 2394325.0,
+        "high": 2395300.0,
+        "low": 2394175.0,
+        "close": 2394200.0,
+        "volatility": 0.047
+      },
+      {
+        "time": "2026-04-02T01:59:00+00:00",
+        "open": 2394275.0,
+        "high": 2395075.0,
+        "low": 2393925.0,
+        "close": 2394200.0,
+        "volatility": 0.048
+      },
+      {
+        "time": "2026-04-02T02:00:00+00:00",
+        "open": 2394150.0,
+        "high": 2395150.0,
+        "low": 2393425.0,
+        "close": 2394600.0,
+        "volatility": 0.0721
+      },
+      {
+        "time": "2026-04-02T02:01:00+00:00",
+        "open": 2394300.0,
+        "high": 2394425.0,
+        "low": 2393275.0,
+        "close": 2393475.0,
+        "volatility": 0.048
+      },
+      {
+        "time": "2026-04-02T02:02:00+00:00",
+        "open": 2393375.0,
+        "high": 2394625.0,
+        "low": 2393150.0,
+        "close": 2394500.0,
+        "volatility": 0.0616
+      },
+      {
+        "time": "2026-04-02T02:03:00+00:00",
+        "open": 2394275.0,
+        "high": 2394650.0,
+        "low": 2393675.0,
+        "close": 2394175.0,
+        "volatility": 0.0407
+      },
+      {
+        "time": "2026-04-02T02:04:00+00:00",
+        "open": 2394075.0,
+        "high": 2394650.0,
+        "low": 2393725.0,
+        "close": 2394300.0,
+        "volatility": 0.0386
+      },
+      {
+        "time": "2026-04-02T02:05:00+00:00",
+        "open": 2394400.0,
+        "high": 2395200.0,
+        "low": 2393400.0,
+        "close": 2393800.0,
+        "volatility": 0.0752
+      },
+      {
+        "time": "2026-04-02T02:06:00+00:00",
+        "open": 2393725.0,
+        "high": 2395600.0,
+        "low": 2393725.0,
+        "close": 2395500.0,
+        "volatility": 0.0783
+      },
+      {
+        "time": "2026-04-02T02:07:00+00:00",
+        "open": 2395525.0,
+        "high": 2396700.0,
+        "low": 2395300.0,
+        "close": 2396025.0,
+        "volatility": 0.0584
+      },
+      {
+        "time": "2026-04-02T02:08:00+00:00",
+        "open": 2396050.0,
+        "high": 2396175.0,
+        "low": 2392575.0,
+        "close": 2392575.0,
+        "volatility": 0.1502
+      },
+      {
+        "time": "2026-04-02T02:09:00+00:00",
+        "open": 2392600.0,
+        "high": 2392650.0,
+        "low": 2391150.0,
+        "close": 2392275.0,
+        "volatility": 0.0627
+      },
+      {
+        "time": "2026-04-02T02:10:00+00:00",
+        "open": 2392200.0,
+        "high": 2392375.0,
+        "low": 2390800.0,
+        "close": 2392000.0,
+        "volatility": 0.0658
+      },
+      {
+        "time": "2026-04-02T02:11:00+00:00",
+        "open": 2392000.0,
+        "high": 2392275.0,
+        "low": 2390000.0,
+        "close": 2390275.0,
+        "volatility": 0.0951
+      },
+      {
+        "time": "2026-04-02T02:12:00+00:00",
+        "open": 2390400.0,
+        "high": 2390950.0,
+        "low": 2389075.0,
+        "close": 2389925.0,
+        "volatility": 0.0784
+      },
+      {
+        "time": "2026-04-02T02:13:00+00:00",
+        "open": 2389975.0,
+        "high": 2390050.0,
+        "low": 2388825.0,
+        "close": 2389200.0,
+        "volatility": 0.0513
+      },
+      {
+        "time": "2026-04-02T02:14:00+00:00",
+        "open": 2389150.0,
+        "high": 2389250.0,
+        "low": 2386200.0,
+        "close": 2387425.0,
+        "volatility": 0.1277
+      },
+      {
+        "time": "2026-04-02T02:15:00+00:00",
+        "open": 2387500.0,
+        "high": 2390425.0,
+        "low": 2387300.0,
+        "close": 2389775.0,
+        "volatility": 0.1309
+      },
+      {
+        "time": "2026-04-02T02:16:00+00:00",
+        "open": 2389725.0,
+        "high": 2390325.0,
+        "low": 2389250.0,
+        "close": 2389250.0,
+        "volatility": 0.045
+      },
+      {
+        "time": "2026-04-02T02:17:00+00:00",
+        "open": 2389325.0,
+        "high": 2389525.0,
+        "low": 2388400.0,
+        "close": 2389425.0,
+        "volatility": 0.0471
+      },
+      {
+        "time": "2026-04-02T02:18:00+00:00",
+        "open": 2389225.0,
+        "high": 2389925.0,
+        "low": 2388725.0,
+        "close": 2389675.0,
+        "volatility": 0.0502
+      },
+      {
+        "time": "2026-04-02T02:19:00+00:00",
+        "open": 2389825.0,
+        "high": 2389900.0,
+        "low": 2388750.0,
+        "close": 2389300.0,
+        "volatility": 0.0481
+      },
+      {
+        "time": "2026-04-02T02:20:00+00:00",
+        "open": 2389275.0,
+        "high": 2389300.0,
+        "low": 2388450.0,
+        "close": 2388550.0,
+        "volatility": 0.0356
+      },
+      {
+        "time": "2026-04-02T02:21:00+00:00",
+        "open": 2388650.0,
+        "high": 2389000.0,
+        "low": 2387950.0,
+        "close": 2388625.0,
+        "volatility": 0.044
+      },
+      {
+        "time": "2026-04-02T02:22:00+00:00",
+        "open": 2388600.0,
+        "high": 2389000.0,
+        "low": 2388100.0,
+        "close": 2388200.0,
+        "volatility": 0.0377
+      },
+      {
+        "time": "2026-04-02T02:23:00+00:00",
+        "open": 2388300.0,
+        "high": 2388650.0,
+        "low": 2387475.0,
+        "close": 2387500.0,
+        "volatility": 0.0492
+      },
+      {
+        "time": "2026-04-02T02:24:00+00:00",
+        "open": 2387700.0,
+        "high": 2389425.0,
+        "low": 2387425.0,
+        "close": 2389025.0,
+        "volatility": 0.0838
+      },
+      {
+        "time": "2026-04-02T02:25:00+00:00",
+        "open": 2389000.0,
+        "high": 2389250.0,
+        "low": 2388525.0,
+        "close": 2388650.0,
+        "volatility": 0.0303
+      },
+      {
+        "time": "2026-04-02T02:26:00+00:00",
+        "open": 2388475.0,
+        "high": 2388475.0,
+        "low": 2386950.0,
+        "close": 2387225.0,
+        "volatility": 0.0638
+      },
+      {
+        "time": "2026-04-02T02:27:00+00:00",
+        "open": 2387125.0,
+        "high": 2387875.0,
+        "low": 2387025.0,
+        "close": 2387550.0,
+        "volatility": 0.0356
+      },
+      {
+        "time": "2026-04-02T02:28:00+00:00",
+        "open": 2387650.0,
+        "high": 2388350.0,
+        "low": 2387225.0,
+        "close": 2387475.0,
+        "volatility": 0.0471
+      },
+      {
+        "time": "2026-04-02T02:29:00+00:00",
+        "open": 2387375.0,
+        "high": 2387525.0,
+        "low": 2386600.0,
+        "close": 2386800.0,
+        "volatility": 0.0387
+      },
+      {
+        "time": "2026-04-02T02:30:00+00:00",
+        "open": 2386825.0,
+        "high": 2388025.0,
+        "low": 2386400.0,
+        "close": 2387425.0,
+        "volatility": 0.0681
+      },
+      {
+        "time": "2026-04-02T02:31:00+00:00",
+        "open": 2387475.0,
+        "high": 2387475.0,
+        "low": 2386425.0,
+        "close": 2386825.0,
+        "volatility": 0.044
+      },
+      {
+        "time": "2026-04-02T02:32:00+00:00",
+        "open": 2387000.0,
+        "high": 2387000.0,
+        "low": 2386050.0,
+        "close": 2386625.0,
+        "volatility": 0.0398
+      },
+      {
+        "time": "2026-04-02T02:33:00+00:00",
+        "open": 2386600.0,
+        "high": 2387700.0,
+        "low": 2386100.0,
+        "close": 2387425.0,
+        "volatility": 0.067
+      },
+      {
+        "time": "2026-04-02T02:34:00+00:00",
+        "open": 2387375.0,
+        "high": 2387950.0,
+        "low": 2386675.0,
+        "close": 2387925.0,
+        "volatility": 0.0534
+      },
+      {
+        "time": "2026-04-02T02:35:00+00:00",
+        "open": 2387825.0,
+        "high": 2388450.0,
+        "low": 2387225.0,
+        "close": 2388075.0,
+        "volatility": 0.0513
+      },
+      {
+        "time": "2026-04-02T02:36:00+00:00",
+        "open": 2388075.0,
+        "high": 2388075.0,
+        "low": 2387100.0,
+        "close": 2387400.0,
+        "volatility": 0.0408
+      },
+      {
+        "time": "2026-04-02T02:37:00+00:00",
+        "open": 2387450.0,
+        "high": 2387450.0,
+        "low": 2385725.0,
+        "close": 2386025.0,
+        "volatility": 0.0723
+      },
+      {
+        "time": "2026-04-02T02:38:00+00:00",
+        "open": 2386000.0,
+        "high": 2387650.0,
+        "low": 2385600.0,
+        "close": 2386900.0,
+        "volatility": 0.0859
+      },
+      {
+        "time": "2026-04-02T02:39:00+00:00",
+        "open": 2386975.0,
+        "high": 2386975.0,
+        "low": 2385800.0,
+        "close": 2386100.0,
+        "volatility": 0.0492
+      },
+      {
+        "time": "2026-04-02T02:40:00+00:00",
+        "open": 2386125.0,
+        "high": 2386975.0,
+        "low": 2385700.0,
+        "close": 2386875.0,
+        "volatility": 0.0534
+      },
+      {
+        "time": "2026-04-02T02:41:00+00:00",
+        "open": 2386950.0,
+        "high": 2387050.0,
+        "low": 2386050.0,
+        "close": 2386800.0,
+        "volatility": 0.0419
+      },
+      {
+        "time": "2026-04-02T02:42:00+00:00",
+        "open": 2386750.0,
+        "high": 2387300.0,
+        "low": 2386500.0,
+        "close": 2386925.0,
+        "volatility": 0.0335
+      },
+      {
+        "time": "2026-04-02T02:43:00+00:00",
+        "open": 2387150.0,
+        "high": 2387275.0,
+        "low": 2386100.0,
+        "close": 2386675.0,
+        "volatility": 0.0492
+      },
+      {
+        "time": "2026-04-02T02:44:00+00:00",
+        "open": 2386675.0,
+        "high": 2387550.0,
+        "low": 2386500.0,
+        "close": 2387250.0,
+        "volatility": 0.044
+      },
+      {
+        "time": "2026-04-02T02:45:00+00:00",
+        "open": 2387125.0,
+        "high": 2388650.0,
+        "low": 2386950.0,
+        "close": 2387975.0,
+        "volatility": 0.0712
+      },
+      {
+        "time": "2026-04-02T02:46:00+00:00",
+        "open": 2387950.0,
+        "high": 2388725.0,
+        "low": 2387700.0,
+        "close": 2388725.0,
+        "volatility": 0.0429
+      },
+      {
+        "time": "2026-04-02T02:47:00+00:00",
+        "open": 2388475.0,
+        "high": 2388475.0,
+        "low": 2387225.0,
+        "close": 2387225.0,
+        "volatility": 0.0523
+      },
+      {
+        "time": "2026-04-02T02:48:00+00:00",
+        "open": 2387500.0,
+        "high": 2387600.0,
+        "low": 2386325.0,
+        "close": 2386925.0,
+        "volatility": 0.0534
+      },
+      {
+        "time": "2026-04-02T02:49:00+00:00",
+        "open": 2386800.0,
+        "high": 2387325.0,
+        "low": 2386550.0,
+        "close": 2387175.0,
+        "volatility": 0.0325
+      },
+      {
+        "time": "2026-04-02T02:50:00+00:00",
+        "open": 2387175.0,
+        "high": 2387975.0,
+        "low": 2386950.0,
+        "close": 2387775.0,
+        "volatility": 0.0429
+      },
+      {
+        "time": "2026-04-02T02:51:00+00:00",
+        "open": 2387850.0,
+        "high": 2388200.0,
+        "low": 2387325.0,
+        "close": 2387750.0,
+        "volatility": 0.0366
+      },
+      {
+        "time": "2026-04-02T02:52:00+00:00",
+        "open": 2387700.0,
+        "high": 2388875.0,
+        "low": 2387700.0,
+        "close": 2388650.0,
+        "volatility": 0.0492
+      },
+      {
+        "time": "2026-04-02T02:53:00+00:00",
+        "open": 2388625.0,
+        "high": 2388625.0,
+        "low": 2387550.0,
+        "close": 2387600.0,
+        "volatility": 0.045
+      }
+    ],
+    "oil": [
+      {
+        "time": "2026-04-02T01:01:00+00:00",
+        "open": 9843.0,
+        "high": 9843.0,
+        "low": 9821.0,
+        "close": 9832.0,
+        "volatility": 0.2235
+      },
+      {
+        "time": "2026-04-02T01:02:00+00:00",
+        "open": 9828.0,
+        "high": 9872.0,
+        "low": 9824.0,
+        "close": 9869.0,
+        "volatility": 0.4884
+      },
+      {
+        "time": "2026-04-02T01:03:00+00:00",
+        "open": 9869.0,
+        "high": 9996.0,
+        "low": 9860.0,
+        "close": 9951.0,
+        "volatility": 1.3781
+      },
+      {
+        "time": "2026-04-02T01:04:00+00:00",
+        "open": 9948.0,
+        "high": 9998.0,
+        "low": 9935.0,
+        "close": 9974.0,
+        "volatility": 0.6333
+      },
+      {
+        "time": "2026-04-02T01:05:00+00:00",
+        "open": 9975.0,
+        "high": 10100.0,
+        "low": 9975.0,
+        "close": 10088.0,
+        "volatility": 1.2531
+      },
+      {
+        "time": "2026-04-02T01:06:00+00:00",
+        "open": 10093.0,
+        "high": 10142.0,
+        "low": 10056.0,
+        "close": 10128.0,
+        "volatility": 0.8521
+      },
+      {
+        "time": "2026-04-02T01:07:00+00:00",
+        "open": 10132.0,
+        "high": 10141.0,
+        "low": 10092.0,
+        "close": 10097.0,
+        "volatility": 0.4836
+      },
+      {
+        "time": "2026-04-02T01:08:00+00:00",
+        "open": 10094.0,
+        "high": 10105.0,
+        "low": 10047.0,
+        "close": 10053.0,
+        "volatility": 0.5746
+      },
+      {
+        "time": "2026-04-02T01:09:00+00:00",
+        "open": 10051.0,
+        "high": 10052.0,
+        "low": 9994.0,
+        "close": 10030.0,
+        "volatility": 0.5771
+      },
+      {
+        "time": "2026-04-02T01:10:00+00:00",
+        "open": 10025.0,
+        "high": 10035.0,
+        "low": 9950.0,
+        "close": 9954.0,
+        "volatility": 0.8479
+      },
+      {
+        "time": "2026-04-02T01:11:00+00:00",
+        "open": 9955.0,
+        "high": 10018.0,
+        "low": 9886.0,
+        "close": 9989.0,
+        "volatility": 1.326
+      },
+      {
+        "time": "2026-04-02T01:12:00+00:00",
+        "open": 9994.0,
+        "high": 10063.0,
+        "low": 9989.0,
+        "close": 10050.0,
+        "volatility": 0.7404
+      },
+      {
+        "time": "2026-04-02T01:13:00+00:00",
+        "open": 10051.0,
+        "high": 10056.0,
+        "low": 10022.0,
+        "close": 10052.0,
+        "volatility": 0.3383
+      },
+      {
+        "time": "2026-04-02T01:14:00+00:00",
+        "open": 10045.0,
+        "high": 10056.0,
+        "low": 10017.0,
+        "close": 10029.0,
+        "volatility": 0.3883
+      },
+      {
+        "time": "2026-04-02T01:15:00+00:00",
+        "open": 10030.0,
+        "high": 10088.0,
+        "low": 10029.0,
+        "close": 10076.0,
+        "volatility": 0.5882
+      },
+      {
+        "time": "2026-04-02T01:16:00+00:00",
+        "open": 10078.0,
+        "high": 10129.0,
+        "low": 10043.0,
+        "close": 10129.0,
+        "volatility": 0.8533
+      },
+      {
+        "time": "2026-04-02T01:17:00+00:00",
+        "open": 10130.0,
+        "high": 10247.0,
+        "low": 10118.0,
+        "close": 10242.0,
+        "volatility": 1.2734
+      },
+      {
+        "time": "2026-04-02T01:18:00+00:00",
+        "open": 10237.0,
+        "high": 10274.0,
+        "low": 10206.0,
+        "close": 10258.0,
+        "volatility": 0.6643
+      },
+      {
+        "time": "2026-04-02T01:19:00+00:00",
+        "open": 10264.0,
+        "high": 10316.0,
+        "low": 10248.0,
+        "close": 10295.0,
+        "volatility": 0.6625
+      },
+      {
+        "time": "2026-04-02T01:20:00+00:00",
+        "open": 10294.0,
+        "high": 10315.0,
+        "low": 10260.0,
+        "close": 10278.0,
+        "volatility": 0.5343
+      },
+      {
+        "time": "2026-04-02T01:21:00+00:00",
+        "open": 10280.0,
+        "high": 10301.0,
+        "low": 10216.0,
+        "close": 10262.0,
+        "volatility": 0.8268
+      },
+      {
+        "time": "2026-04-02T01:22:00+00:00",
+        "open": 10270.0,
+        "high": 10290.0,
+        "low": 10233.0,
+        "close": 10275.0,
+        "volatility": 0.555
+      },
+      {
+        "time": "2026-04-02T01:23:00+00:00",
+        "open": 10278.0,
+        "high": 10299.0,
+        "low": 10250.0,
+        "close": 10254.0,
+        "volatility": 0.4767
+      },
+      {
+        "time": "2026-04-02T01:24:00+00:00",
+        "open": 10253.0,
+        "high": 10316.0,
+        "low": 10243.0,
+        "close": 10311.0,
+        "volatility": 0.712
+      },
+      {
+        "time": "2026-04-02T01:25:00+00:00",
+        "open": 10307.0,
+        "high": 10338.0,
+        "low": 10280.0,
+        "close": 10322.0,
+        "volatility": 0.5627
+      },
+      {
+        "time": "2026-04-02T01:26:00+00:00",
+        "open": 10318.0,
+        "high": 10356.0,
+        "low": 10310.0,
+        "close": 10324.0,
+        "volatility": 0.4458
+      },
+      {
+        "time": "2026-04-02T01:27:00+00:00",
+        "open": 10324.0,
+        "high": 10340.0,
+        "low": 10290.0,
+        "close": 10307.0,
+        "volatility": 0.4843
+      },
+      {
+        "time": "2026-04-02T01:28:00+00:00",
+        "open": 10304.0,
+        "high": 10310.0,
+        "low": 10274.0,
+        "close": 10284.0,
+        "volatility": 0.3494
+      },
+      {
+        "time": "2026-04-02T01:29:00+00:00",
+        "open": 10287.0,
+        "high": 10302.0,
+        "low": 10274.0,
+        "close": 10287.0,
+        "volatility": 0.2722
+      },
+      {
+        "time": "2026-04-02T01:30:00+00:00",
+        "open": 10287.0,
+        "high": 10331.0,
+        "low": 10284.0,
+        "close": 10326.0,
+        "volatility": 0.4569
+      },
+      {
+        "time": "2026-04-02T01:31:00+00:00",
+        "open": 10326.0,
+        "high": 10389.0,
+        "low": 10320.0,
+        "close": 10379.0,
+        "volatility": 0.6682
+      },
+      {
+        "time": "2026-04-02T01:32:00+00:00",
+        "open": 10374.0,
+        "high": 10400.0,
+        "low": 10372.0,
+        "close": 10390.0,
+        "volatility": 0.2699
+      },
+      {
+        "time": "2026-04-02T01:33:00+00:00",
+        "open": 10392.0,
+        "high": 10421.0,
+        "low": 10372.0,
+        "close": 10407.0,
+        "volatility": 0.4715
+      },
+      {
+        "time": "2026-04-02T01:34:00+00:00",
+        "open": 10405.0,
+        "high": 10429.0,
+        "low": 10371.0,
+        "close": 10374.0,
+        "volatility": 0.5574
+      },
+      {
+        "time": "2026-04-02T01:35:00+00:00",
+        "open": 10374.0,
+        "high": 10407.0,
+        "low": 10366.0,
+        "close": 10369.0,
+        "volatility": 0.3952
+      },
+      {
+        "time": "2026-04-02T01:36:00+00:00",
+        "open": 10369.0,
+        "high": 10370.0,
+        "low": 10333.0,
+        "close": 10337.0,
+        "volatility": 0.3568
+      },
+      {
+        "time": "2026-04-02T01:37:00+00:00",
+        "open": 10341.0,
+        "high": 10372.0,
+        "low": 10313.0,
+        "close": 10365.0,
+        "volatility": 0.5705
+      },
+      {
+        "time": "2026-04-02T01:38:00+00:00",
+        "open": 10364.0,
+        "high": 10377.0,
+        "low": 10345.0,
+        "close": 10373.0,
+        "volatility": 0.3088
+      },
+      {
+        "time": "2026-04-02T01:39:00+00:00",
+        "open": 10369.0,
+        "high": 10379.0,
+        "low": 10333.0,
+        "close": 10340.0,
+        "volatility": 0.4436
+      },
+      {
+        "time": "2026-04-02T01:40:00+00:00",
+        "open": 10340.0,
+        "high": 10352.0,
+        "low": 10313.0,
+        "close": 10316.0,
+        "volatility": 0.3772
+      },
+      {
+        "time": "2026-04-02T01:41:00+00:00",
+        "open": 10319.0,
+        "high": 10334.0,
+        "low": 10306.0,
+        "close": 10330.0,
+        "volatility": 0.2713
+      },
+      {
+        "time": "2026-04-02T01:42:00+00:00",
+        "open": 10328.0,
+        "high": 10355.0,
+        "low": 10326.0,
+        "close": 10346.0,
+        "volatility": 0.2808
+      },
+      {
+        "time": "2026-04-02T01:43:00+00:00",
+        "open": 10348.0,
+        "high": 10363.0,
+        "low": 10333.0,
+        "close": 10337.0,
+        "volatility": 0.2899
+      },
+      {
+        "time": "2026-04-02T01:44:00+00:00",
+        "open": 10333.0,
+        "high": 10379.0,
+        "low": 10330.0,
+        "close": 10359.0,
+        "volatility": 0.4742
+      },
+      {
+        "time": "2026-04-02T01:45:00+00:00",
+        "open": 10359.0,
+        "high": 10372.0,
+        "low": 10350.0,
+        "close": 10365.0,
+        "volatility": 0.2124
+      },
+      {
+        "time": "2026-04-02T01:46:00+00:00",
+        "open": 10364.0,
+        "high": 10369.0,
+        "low": 10341.0,
+        "close": 10368.0,
+        "volatility": 0.2702
+      },
+      {
+        "time": "2026-04-02T01:47:00+00:00",
+        "open": 10369.0,
+        "high": 10386.0,
+        "low": 10368.0,
+        "close": 10384.0,
+        "volatility": 0.1736
+      },
+      {
+        "time": "2026-04-02T01:48:00+00:00",
+        "open": 10382.0,
+        "high": 10392.0,
+        "low": 10365.0,
+        "close": 10374.0,
+        "volatility": 0.2601
+      },
+      {
+        "time": "2026-04-02T01:49:00+00:00",
+        "open": 10374.0,
+        "high": 10383.0,
+        "low": 10364.0,
+        "close": 10368.0,
+        "volatility": 0.1832
+      },
+      {
+        "time": "2026-04-02T01:50:00+00:00",
+        "open": 10365.0,
+        "high": 10375.0,
+        "low": 10345.0,
+        "close": 10345.0,
+        "volatility": 0.2894
+      },
+      {
+        "time": "2026-04-02T01:51:00+00:00",
+        "open": 10352.0,
+        "high": 10352.0,
+        "low": 10336.0,
+        "close": 10346.0,
+        "volatility": 0.1546
+      },
+      {
+        "time": "2026-04-02T01:52:00+00:00",
+        "open": 10348.0,
+        "high": 10351.0,
+        "low": 10334.0,
+        "close": 10344.0,
+        "volatility": 0.1643
+      },
+      {
+        "time": "2026-04-02T01:53:00+00:00",
+        "open": 10346.0,
+        "high": 10393.0,
+        "low": 10337.0,
+        "close": 10391.0,
+        "volatility": 0.5413
+      },
+      {
+        "time": "2026-04-02T01:54:00+00:00",
+        "open": 10386.0,
+        "high": 10414.0,
+        "low": 10381.0,
+        "close": 10389.0,
+        "volatility": 0.3177
+      },
+      {
+        "time": "2026-04-02T01:55:00+00:00",
+        "open": 10390.0,
+        "high": 10396.0,
+        "low": 10375.0,
+        "close": 10380.0,
+        "volatility": 0.2021
+      },
+      {
+        "time": "2026-04-02T01:56:00+00:00",
+        "open": 10384.0,
+        "high": 10418.0,
+        "low": 10377.0,
+        "close": 10411.0,
+        "volatility": 0.3948
+      },
+      {
+        "time": "2026-04-02T01:57:00+00:00",
+        "open": 10416.0,
+        "high": 10449.0,
+        "low": 10416.0,
+        "close": 10436.0,
+        "volatility": 0.3168
+      },
+      {
+        "time": "2026-04-02T01:58:00+00:00",
+        "open": 10439.0,
+        "high": 10450.0,
+        "low": 10423.0,
+        "close": 10426.0,
+        "volatility": 0.2586
+      },
+      {
+        "time": "2026-04-02T01:59:00+00:00",
+        "open": 10422.0,
+        "high": 10431.0,
+        "low": 10412.0,
+        "close": 10417.0,
+        "volatility": 0.1823
+      },
+      {
+        "time": "2026-04-02T02:00:00+00:00",
+        "open": 10411.0,
+        "high": 10426.0,
+        "low": 10404.0,
+        "close": 10405.0,
+        "volatility": 0.2113
+      },
+      {
+        "time": "2026-04-02T02:01:00+00:00",
+        "open": 10405.0,
+        "high": 10419.0,
+        "low": 10402.0,
+        "close": 10402.0,
+        "volatility": 0.1634
+      },
+      {
+        "time": "2026-04-02T02:02:00+00:00",
+        "open": 10402.0,
+        "high": 10403.0,
+        "low": 10385.0,
+        "close": 10388.0,
+        "volatility": 0.173
+      },
+      {
+        "time": "2026-04-02T02:03:00+00:00",
+        "open": 10389.0,
+        "high": 10396.0,
+        "low": 10378.0,
+        "close": 10388.0,
+        "volatility": 0.1733
+      },
+      {
+        "time": "2026-04-02T02:04:00+00:00",
+        "open": 10387.0,
+        "high": 10390.0,
+        "low": 10380.0,
+        "close": 10383.0,
+        "volatility": 0.0963
+      },
+      {
+        "time": "2026-04-02T02:05:00+00:00",
+        "open": 10380.0,
+        "high": 10399.0,
+        "low": 10370.0,
+        "close": 10396.0,
+        "volatility": 0.2794
+      },
+      {
+        "time": "2026-04-02T02:06:00+00:00",
+        "open": 10396.0,
+        "high": 10408.0,
+        "low": 10387.0,
+        "close": 10389.0,
+        "volatility": 0.202
+      },
+      {
+        "time": "2026-04-02T02:07:00+00:00",
+        "open": 10387.0,
+        "high": 10392.0,
+        "low": 10372.0,
+        "close": 10385.0,
+        "volatility": 0.1925
+      },
+      {
+        "time": "2026-04-02T02:08:00+00:00",
+        "open": 10385.0,
+        "high": 10438.0,
+        "low": 10382.0,
+        "close": 10433.0,
+        "volatility": 0.5392
+      },
+      {
+        "time": "2026-04-02T02:09:00+00:00",
+        "open": 10434.0,
+        "high": 10438.0,
+        "low": 10416.0,
+        "close": 10419.0,
+        "volatility": 0.2108
+      },
+      {
+        "time": "2026-04-02T02:10:00+00:00",
+        "open": 10416.0,
+        "high": 10434.0,
+        "low": 10409.0,
+        "close": 10420.0,
+        "volatility": 0.24
+      },
+      {
+        "time": "2026-04-02T02:11:00+00:00",
+        "open": 10423.0,
+        "high": 10444.0,
+        "low": 10418.0,
+        "close": 10438.0,
+        "volatility": 0.2494
+      },
+      {
+        "time": "2026-04-02T02:12:00+00:00",
+        "open": 10436.0,
+        "high": 10443.0,
+        "low": 10429.0,
+        "close": 10438.0,
+        "volatility": 0.1342
+      },
+      {
+        "time": "2026-04-02T02:13:00+00:00",
+        "open": 10439.0,
+        "high": 10464.0,
+        "low": 10437.0,
+        "close": 10457.0,
+        "volatility": 0.2586
+      },
+      {
+        "time": "2026-04-02T02:14:00+00:00",
+        "open": 10455.0,
+        "high": 10463.0,
+        "low": 10444.0,
+        "close": 10452.0,
+        "volatility": 0.1817
+      },
+      {
+        "time": "2026-04-02T02:15:00+00:00",
+        "open": 10451.0,
+        "high": 10451.0,
+        "low": 10432.0,
+        "close": 10442.0,
+        "volatility": 0.1818
+      },
+      {
+        "time": "2026-04-02T02:16:00+00:00",
+        "open": 10438.0,
+        "high": 10440.0,
+        "low": 10424.0,
+        "close": 10429.0,
+        "volatility": 0.1533
+      },
+      {
+        "time": "2026-04-02T02:17:00+00:00",
+        "open": 10429.0,
+        "high": 10439.0,
+        "low": 10426.0,
+        "close": 10432.0,
+        "volatility": 0.1247
+      },
+      {
+        "time": "2026-04-02T02:18:00+00:00",
+        "open": 10432.0,
+        "high": 10437.0,
+        "low": 10426.0,
+        "close": 10426.0,
+        "volatility": 0.1054
+      },
+      {
+        "time": "2026-04-02T02:19:00+00:00",
+        "open": 10428.0,
+        "high": 10439.0,
+        "low": 10428.0,
+        "close": 10432.0,
+        "volatility": 0.1055
+      },
+      {
+        "time": "2026-04-02T02:20:00+00:00",
+        "open": 10435.0,
+        "high": 10438.0,
+        "low": 10424.0,
+        "close": 10430.0,
+        "volatility": 0.1342
+      },
+      {
+        "time": "2026-04-02T02:21:00+00:00",
+        "open": 10433.0,
+        "high": 10446.0,
+        "low": 10427.0,
+        "close": 10432.0,
+        "volatility": 0.1821
+      },
+      {
+        "time": "2026-04-02T02:22:00+00:00",
+        "open": 10431.0,
+        "high": 10433.0,
+        "low": 10418.0,
+        "close": 10427.0,
+        "volatility": 0.1438
+      },
+      {
+        "time": "2026-04-02T02:23:00+00:00",
+        "open": 10429.0,
+        "high": 10444.0,
+        "low": 10420.0,
+        "close": 10428.0,
+        "volatility": 0.2301
+      },
+      {
+        "time": "2026-04-02T02:24:00+00:00",
+        "open": 10430.0,
+        "high": 10430.0,
+        "low": 10376.0,
+        "close": 10390.0,
+        "volatility": 0.5177
+      },
+      {
+        "time": "2026-04-02T02:25:00+00:00",
+        "open": 10388.0,
+        "high": 10417.0,
+        "low": 10387.0,
+        "close": 10406.0,
+        "volatility": 0.2888
+      },
+      {
+        "time": "2026-04-02T02:26:00+00:00",
+        "open": 10406.0,
+        "high": 10423.0,
+        "low": 10402.0,
+        "close": 10419.0,
+        "volatility": 0.2018
+      },
+      {
+        "time": "2026-04-02T02:27:00+00:00",
+        "open": 10416.0,
+        "high": 10421.0,
+        "low": 10408.0,
+        "close": 10414.0,
+        "volatility": 0.1248
+      },
+      {
+        "time": "2026-04-02T02:28:00+00:00",
+        "open": 10414.0,
+        "high": 10420.0,
+        "low": 10407.0,
+        "close": 10410.0,
+        "volatility": 0.1248
+      },
+      {
+        "time": "2026-04-02T02:29:00+00:00",
+        "open": 10412.0,
+        "high": 10416.0,
+        "low": 10404.0,
+        "close": 10413.0,
+        "volatility": 0.1153
+      },
+      {
+        "time": "2026-04-02T02:30:00+00:00",
+        "open": 10414.0,
+        "high": 10416.0,
+        "low": 10393.0,
+        "close": 10398.0,
+        "volatility": 0.2209
+      },
+      {
+        "time": "2026-04-02T02:31:00+00:00",
+        "open": 10394.0,
+        "high": 10415.0,
+        "low": 10394.0,
+        "close": 10406.0,
+        "volatility": 0.202
+      },
+      {
+        "time": "2026-04-02T02:32:00+00:00",
+        "open": 10406.0,
+        "high": 10418.0,
+        "low": 10403.0,
+        "close": 10407.0,
+        "volatility": 0.1441
+      },
+      {
+        "time": "2026-04-02T02:33:00+00:00",
+        "open": 10403.0,
+        "high": 10403.0,
+        "low": 10376.0,
+        "close": 10377.0,
+        "volatility": 0.2595
+      },
+      {
+        "time": "2026-04-02T02:34:00+00:00",
+        "open": 10382.0,
+        "high": 10398.0,
+        "low": 10369.0,
+        "close": 10374.0,
+        "volatility": 0.2793
+      },
+      {
+        "time": "2026-04-02T02:35:00+00:00",
+        "open": 10374.0,
+        "high": 10381.0,
+        "low": 10361.0,
+        "close": 10378.0,
+        "volatility": 0.1928
+      },
+      {
+        "time": "2026-04-02T02:36:00+00:00",
+        "open": 10382.0,
+        "high": 10399.0,
+        "low": 10378.0,
+        "close": 10392.0,
+        "volatility": 0.2023
+      },
+      {
+        "time": "2026-04-02T02:37:00+00:00",
+        "open": 10394.0,
+        "high": 10405.0,
+        "low": 10390.0,
+        "close": 10404.0,
+        "volatility": 0.1443
+      },
+      {
+        "time": "2026-04-02T02:38:00+00:00",
+        "open": 10403.0,
+        "high": 10409.0,
+        "low": 10388.0,
+        "close": 10390.0,
+        "volatility": 0.2019
+      },
+      {
+        "time": "2026-04-02T02:39:00+00:00",
+        "open": 10392.0,
+        "high": 10393.0,
+        "low": 10387.0,
+        "close": 10391.0,
+        "volatility": 0.0577
+      },
+      {
+        "time": "2026-04-02T02:40:00+00:00",
+        "open": 10391.0,
+        "high": 10392.0,
+        "low": 10383.0,
+        "close": 10388.0,
+        "volatility": 0.0866
+      },
+      {
+        "time": "2026-04-02T02:41:00+00:00",
+        "open": 10394.0,
+        "high": 10402.0,
+        "low": 10392.0,
+        "close": 10395.0,
+        "volatility": 0.0962
+      },
+      {
+        "time": "2026-04-02T02:42:00+00:00",
+        "open": 10393.0,
+        "high": 10395.0,
+        "low": 10373.0,
+        "close": 10381.0,
+        "volatility": 0.2117
+      },
+      {
+        "time": "2026-04-02T02:43:00+00:00",
+        "open": 10382.0,
+        "high": 10390.0,
+        "low": 10377.0,
+        "close": 10380.0,
+        "volatility": 0.1252
+      },
+      {
+        "time": "2026-04-02T02:44:00+00:00",
+        "open": 10379.0,
+        "high": 10383.0,
+        "low": 10365.0,
+        "close": 10368.0,
+        "volatility": 0.1734
+      },
+      {
+        "time": "2026-04-02T02:45:00+00:00",
+        "open": 10367.0,
+        "high": 10376.0,
+        "low": 10363.0,
+        "close": 10365.0,
+        "volatility": 0.1254
+      },
+      {
+        "time": "2026-04-02T02:46:00+00:00",
+        "open": 10368.0,
+        "high": 10371.0,
+        "low": 10354.0,
+        "close": 10364.0,
+        "volatility": 0.164
+      },
+      {
+        "time": "2026-04-02T02:47:00+00:00",
+        "open": 10364.0,
+        "high": 10372.0,
+        "low": 10360.0,
+        "close": 10371.0,
+        "volatility": 0.1158
+      },
+      {
+        "time": "2026-04-02T02:48:00+00:00",
+        "open": 10372.0,
+        "high": 10381.0,
+        "low": 10371.0,
+        "close": 10371.0,
+        "volatility": 0.0964
+      },
+      {
+        "time": "2026-04-02T02:49:00+00:00",
+        "open": 10371.0,
+        "high": 10379.0,
+        "low": 10370.0,
+        "close": 10378.0,
+        "volatility": 0.0868
+      },
+      {
+        "time": "2026-04-02T02:50:00+00:00",
+        "open": 10379.0,
+        "high": 10385.0,
+        "low": 10375.0,
+        "close": 10379.0,
+        "volatility": 0.0963
+      },
+      {
+        "time": "2026-04-02T02:51:00+00:00",
+        "open": 10378.0,
+        "high": 10389.0,
+        "low": 10378.0,
+        "close": 10388.0,
+        "volatility": 0.106
+      },
+      {
+        "time": "2026-04-02T02:52:00+00:00",
+        "open": 10389.0,
+        "high": 10393.0,
+        "low": 10375.0,
+        "close": 10388.0,
+        "volatility": 0.1733
+      },
+      {
+        "time": "2026-04-02T02:53:00+00:00",
+        "open": 10388.0,
+        "high": 10414.0,
+        "low": 10383.0,
+        "close": 10410.0,
+        "volatility": 0.2984
+      }
+    ],
+    "gold": [
+      {
+        "time": "2026-04-02T01:31:00+00:00",
+        "open": 46770.0,
+        "high": 46770.0,
+        "low": 46770.0,
+        "close": 46770.0,
+        "volatility": 0.0
+      },
+      {
+        "time": "2026-04-02T01:33:00+00:00",
+        "open": 46624.0,
+        "high": 46624.0,
+        "low": 46624.0,
+        "close": 46624.0,
+        "volatility": 0.0
+      },
+      {
+        "time": "2026-04-02T01:35:00+00:00",
+        "open": 46773.0,
+        "high": 46773.0,
+        "low": 46773.0,
+        "close": 46773.0,
+        "volatility": 0.0
+      },
+      {
+        "time": "2026-04-02T02:10:00+00:00",
+        "open": 46929.0,
+        "high": 46929.0,
+        "low": 46929.0,
+        "close": 46929.0,
+        "volatility": 0.0
+      },
+      {
+        "time": "2026-04-02T02:11:00+00:00",
+        "open": 46920.0,
+        "high": 46938.0,
+        "low": 46920.0,
+        "close": 46938.0,
+        "volatility": 0.0384
+      },
+      {
+        "time": "2026-04-02T02:12:00+00:00",
+        "open": 46853.0,
+        "high": 46853.0,
+        "low": 46853.0,
+        "close": 46853.0,
+        "volatility": 0.0
+      },
+      {
+        "time": "2026-04-02T02:18:00+00:00",
+        "open": 46978.0,
+        "high": 46978.0,
+        "low": 46978.0,
+        "close": 46978.0,
+        "volatility": 0.0
+      },
+      {
+        "time": "2026-04-02T02:38:00+00:00",
+        "open": 46586.0,
+        "high": 46586.0,
+        "low": 46586.0,
+        "close": 46586.0,
+        "volatility": 0.0
+      },
+      {
+        "time": "2026-04-02T02:39:00+00:00",
+        "open": 46555.0,
+        "high": 46555.0,
+        "low": 46555.0,
+        "close": 46555.0,
+        "volatility": 0.0
+      },
+      {
+        "time": "2026-04-02T02:43:00+00:00",
+        "open": 46760.0,
+        "high": 46760.0,
+        "low": 46760.0,
+        "close": 46760.0,
+        "volatility": 0.0
+      }
+    ],
+    "btc": [],
+    "eth": [],
+    "bonds": [],
+    "kospi": []
+  }
+}
