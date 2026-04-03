@@ -128,7 +128,20 @@ header .subtitle {
   background: var(--surface);
 }
 
-.toggle-body.open { display: block; }
+.toggle-body.open {
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.chart-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--surface);
+  padding-top: 4px;
+}
 
 /* ── Indices grid ─────────────────────────── */
 .indices-grid {

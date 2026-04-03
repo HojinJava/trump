@@ -124,14 +124,16 @@ function renderEventDetail(id, event) {
   detailEl.innerHTML = `
     ${renderIndices(event.indices)}
     ${renderSummary(event)}
-    <div class="chart-wrap">
-      <canvas id="chart-${escHtml(id)}"></canvas>
-    </div>
-    <div class="vol-tabs" data-event="${escHtml(id)}">
-      ${tabs.map((a, i) => {
-        const label = a === '전체' ? '전체' : (TICKERS[a]?.label || a.toUpperCase());
-        return `<button class="vol-tab${i === 0 ? ' active' : ''}" data-asset="${escHtml(a)}">${label}</button>`;
-      }).join('')}
+    <div class="chart-sticky">
+      <div class="chart-wrap">
+        <canvas id="chart-${escHtml(id)}"></canvas>
+      </div>
+      <div class="vol-tabs" data-event="${escHtml(id)}">
+        ${tabs.map((a, i) => {
+          const label = a === '전체' ? '전체' : (TICKERS[a]?.label || a.toUpperCase());
+          return `<button class="vol-tab${i === 0 ? ' active' : ''}" data-asset="${escHtml(a)}">${label}</button>`;
+        }).join('')}
+      </div>
     </div>
     <ul class="volatility-list" id="vol-list-${escHtml(id)}">
       ${renderVolItems(volItems, '전체', id, event.tickers)}
