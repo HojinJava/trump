@@ -186,13 +186,26 @@ function renderIndices(indices) {
 
 function renderVolItems(items, asset, eventId) {
   if (asset === '전체') {
-    // 전체: 각 시각의 전 티커 평균 절대변동률 기준 재정렬 → 모든 티커 항목 표시
+    // 전체: 전 티커 평균 절대변동률 기준 정렬 후 겹치는 시간 구간 제거
     const scored = items.map(item => {
       const moves = Object.values(item.market_moves || {});
       const avg = moves.length ? moves.reduce((s, v) => s + Math.abs(v), 0) / moves.length : 0;
       return { ...item, _avgMove: avg };
     }).sort((a, b) => b._avgMove - a._avgMove);
-    return scored.map((item, i) => renderVolItem({ ...item, displayRank: i + 1 }, eventId)).join('');
+
+    // 시간 구간 겹침 제거 (높은 점수 우선 유지)
+    const deduped = [];
+    for (const item of scored) {
+      const s = new Date(item.time).getTime();
+      const e = new Date(item.end_time || item.time).getTime();
+      const overlaps = deduped.some(d => {
+        const ds = new Date(d.time).getTime();
+        const de = new Date(d.end_time || d.time).getTime();
+        return s <= de && e >= ds;
+      });
+      if (!overlaps) deduped.push(item);
+    }
+    return deduped.map((item, i) => renderVolItem({ ...item, displayRank: i + 1 }, eventId)).join('');
   }
   const filtered = items.filter(v => v.asset === asset);
   return filtered.map((item, i) => renderVolItem({ ...item, displayRank: i + 1 }, eventId)).join('');
