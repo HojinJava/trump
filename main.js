@@ -383,6 +383,39 @@ function initChart(eventId, event) {
     },
   };
 
+  // 연설 시작/종료 실선
+  const broadcastHHMM = event.broadcast_at?.slice(11, 16);
+  const pc = event.speech_summary?.price_changes || {};
+  const speechEndHHMM = Object.values(pc)[0]?.post_time_kst;
+  const speechStartIdx = allTimes.findIndex(t => t.slice(11, 16) === broadcastHHMM);
+  const speechEndIdx   = allTimes.findIndex(t => t.slice(11, 16) === speechEndHHMM);
+
+  const speechLinesPlugin = {
+    id: 'speechLines',
+    afterDatasetsDraw(chart) {
+      const ctx    = chart.ctx;
+      const top    = chart.chartArea.top;
+      const bottom = chart.chartArea.bottom;
+      ctx.save();
+      ctx.strokeStyle = 'rgba(239, 68, 68, 0.7)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([]);
+      ctx.font = '10px -apple-system, sans-serif';
+      ctx.fillStyle = 'rgba(239, 68, 68, 0.85)';
+      ctx.textAlign = 'center';
+      [[speechStartIdx, '연설 시작'], [speechEndIdx, '연설 종료']].forEach(([idx, label]) => {
+        if (idx < 0) return;
+        const x = chart.scales.x.getPixelForValue(idx);
+        ctx.beginPath();
+        ctx.moveTo(x, top);
+        ctx.lineTo(x, bottom);
+        ctx.stroke();
+        ctx.fillText(label, x, top - 4);
+      });
+      ctx.restore();
+    },
+  };
+
   const crosshairPlugin = {
     id: 'crosshair',
     afterDraw(chart) {
@@ -407,10 +440,11 @@ function initChart(eventId, event) {
   const chart = new Chart(canvas, {
     type: 'line',
     data: { labels: allTimes.map(t => t.slice(11, 16)), datasets },
-    plugins: [zoneHighlightPlugin, crosshairPlugin],
+    plugins: [speechLinesPlugin, zoneHighlightPlugin, crosshairPlugin],
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      layout: { padding: { top: 18 } },
       interaction: { mode: 'index', intersect: false },
       plugins: {
         legend: {
@@ -494,7 +528,15 @@ function renderSummary(event) {
 
   const speechStart = s.broadcast_start_kst || '';
   const speechEnd   = postTime;
-  const speechTimeLabel = speechStart && speechEnd ? `${escHtml(speechStart)} ~ ${escHtml(speechEnd)} KST` : escHtml(speechStart);
+  let durationMin = null;
+  if (speechStart && speechEnd) {
+    const [sh, sm] = speechStart.split(':').map(Number);
+    const [eh, em] = speechEnd.split(':').map(Number);
+    durationMin = (eh * 60 + em) - (sh * 60 + sm);
+  }
+  const speechTimeLabel = speechStart && speechEnd
+    ? `${escHtml(speechStart)} ~ ${escHtml(speechEnd)} KST${durationMin != null ? ` (${durationMin}분)` : ''}`
+    : escHtml(speechStart);
 
   return `
     <div class="summary-card">
