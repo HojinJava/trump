@@ -92,7 +92,7 @@ function renderEventSummary(event) {
     <div class="event-toggle">
       <div class="toggle-header" data-id="${escHtml(event.id)}">
         <span class="toggle-arrow">▶</span>
-        <span class="toggle-title">${escHtml(event.title)}</span>
+        <span class="toggle-title">${escHtml(event.title_ko || event.title)}</span>
         <span class="risk-badge ${riskClass}">${riskLabel} ${score}</span>
       </div>
       <div class="toggle-body">
