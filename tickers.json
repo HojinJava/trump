@@ -28,19 +28,19 @@
       "label": "BTC",
       "label_ko": "비트코인",
       "color": "#f59e0b",
-      "desc_ko": "비트코인 ETF (NASDAQ: IBIT)"
+      "desc_ko": "비트코인 선물 (CME: BTC)"
     },
     "eth": {
       "label": "ETH",
       "label_ko": "이더리움",
       "color": "#6366f1",
-      "desc_ko": "이더리움 ETF (NASDAQ: ETHA)"
+      "desc_ko": "이더리움 선물 (CME: ETH)"
     },
     "bonds": {
       "label": "BONDS",
-      "label_ko": "미국 장기채",
+      "label_ko": "미국 30년 국채",
       "color": "#64748b",
-      "desc_ko": "미국 20년 국채 ETF (NASDAQ: TLT)"
+      "desc_ko": "미국 30년 국채 선물 (CME: ZB)"
     }
   }
 }
