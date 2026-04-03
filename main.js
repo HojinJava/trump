@@ -190,15 +190,22 @@ function renderIndices(indices) {
 
 function renderVolItems(items, asset, eventId, eventTickers) {
   if (asset === '전체') {
-    const seenSegments = new Set();
-    let rank = 0;
-    return items.map(item => {
+    // 같은 transcript_segment끼리 묶기 (null/empty는 각각 별도 카드)
+    const groups = [];
+    const segMap = new Map(); // seg → group index
+    items.forEach(item => {
       const seg = item.transcript_segment || '';
-      if (seg && seenSegments.has(seg)) return '';
-      if (seg) seenSegments.add(seg);
-      rank++;
-      return renderVolItemGlobal(item, rank, eventId, false, eventTickers);
-    }).join('');
+      if (seg && segMap.has(seg)) {
+        groups[segMap.get(seg)].push(item);
+      } else {
+        const idx = groups.length;
+        groups.push([item]);
+        if (seg) segMap.set(seg, idx);
+      }
+    });
+    return groups.map((group, i) =>
+      renderVolItemGlobal(group, i + 1, eventId, eventTickers)
+    ).join('');
   }
   const filtered = items.filter(v => v.asset === asset);
   return filtered.map((item, i) => renderVolItem({ ...item, displayRank: i + 1 }, eventId)).join('');
@@ -248,24 +255,34 @@ function renderVolItem(item, eventId) {
     </li>`;
 }
 
-function renderVolItemGlobal(item, rank, eventId, _unused = false, eventTickers = null) {
-  // 전체 탭: market_moves의 모든 티커를 event.tickers 순서로 표시
-  const moves = item.market_moves || {};
+function renderVolItemGlobal(group, rank, eventId, eventTickers = null) {
+  // group: 같은 발언 구간에 속한 item 배열 (대표=첫 번째)
+  const rep   = group[0];
+
+  // 그룹 내 모든 item의 market_moves를 합쳐 자산별 최대 |변동| 값으로 표시
+  const mergedMoves = {};
+  group.forEach(item => {
+    Object.entries(item.market_moves || {}).forEach(([k, v]) => {
+      if (!(k in mergedMoves) || Math.abs(v) > Math.abs(mergedMoves[k])) {
+        mergedMoves[k] = v;
+      }
+    });
+  });
   const tickerBadges = (eventTickers || Object.keys(TICKERS))
-    .filter(k => k in moves)
+    .filter(k => k in mergedMoves)
     .map(k => {
-      const pct = moves[k];
+      const pct = mergedMoves[k];
       const pctClass = pct < -0.1 ? 'vol-change-neg' : pct > 0.1 ? 'vol-change-pos' : 'vol-change-neu';
       const pctStr = pct >= 0 ? `+${pct.toFixed(2)}%` : `${pct.toFixed(2)}%`;
-      return `<span class="vol-asset">${escHtml(TICKERS[k].label)}</span><span class="${pctClass}" style="font-size:0.8rem">${pctStr}</span>`;
+      return `<span class="vol-asset">${escHtml(TICKERS[k]?.label || k.toUpperCase())}</span><span class="${pctClass}" style="font-size:0.8rem">${pctStr}</span>`;
     }).join(' ');
 
-  const ytLink = item.youtube_url
-    ? `<a class="vol-yt-link" href="${escHtml(item.youtube_url)}" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 해당 구간 보기 <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M23 7s-.3-2-1.2-2.8c-1.1-1.2-2.4-1.2-3-1.3C16.3 2.8 12 2.8 12 2.8s-4.3 0-6.8.1c-.6.1-1.9.1-3 1.3C1.3 5 1 7 1 7S.8 9.2.8 11.5v2.1C.8 16 1 18 1 18s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C7.6 22.1 12 22 12 22s4.3 0 6.8-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.2-2.2.2-4.4v-2.1C23.2 9.2 23 7 23 7zM9.7 15.5V8.3l8.1 3.6-8.1 3.6z"/></svg></a>`
+  const ytLink = rep.youtube_url
+    ? `<a class="vol-yt-link" href="${escHtml(rep.youtube_url)}" target="_blank"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 해당 구간 보기 <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px"><path d="M23 7s-.3-2-1.2-2.8c-1.1-1.2-2.4-1.2-3-1.3C16.3 2.8 12 2.8 12 2.8s-4.3 0-6.8.1c-.6.1-1.9.1-3 1.3C1.3 5 1 7 1 7S.8 9.2.8 11.5v2.1C.8 16 1 18 1 18s.3 2 1.2 2.8c1.1 1.2 2.6 1.1 3.3 1.2C7.6 22.1 12 22 12 22s4.3 0 6.8-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.8 1.2-2.8s.2-2.2.2-4.4v-2.1C23.2 9.2 23 7 23 7zM9.7 15.5V8.3l8.1 3.6-8.1 3.6z"/></svg></a>`
     : '';
 
-  const ko = item.transcript_segment_ko;
-  const en = item.transcript_segment;
+  const ko = rep.transcript_segment_ko;
+  const en = rep.transcript_segment;
   let textHtml = '';
   if (ko) {
     textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
@@ -276,14 +293,14 @@ function renderVolItemGlobal(item, rank, eventId, _unused = false, eventTickers 
     textHtml = `<div class="vol-post-speech">📊 연설 종료 후 시장 반응 구간</div>`;
   }
 
-  const zoneStart = (item.time || '').slice(11, 16);
-  const zoneEnd   = (item.end_time || item.time || '').slice(11, 16);
+  const zoneStart = (rep.time || '').slice(11, 16);
+  const zoneEnd   = (rep.end_time || rep.time || '').slice(11, 16);
   const timeRange = zoneStart
     ? `<span class="vol-timerange">${zoneStart !== zoneEnd ? `${zoneStart} ~ ${zoneEnd}` : zoneStart} KST</span>`
     : '';
 
   return `
-    <li class="vol-item" data-event-id="${escHtml(eventId || '')}" data-time="${escHtml(item.time || '')}" data-end-time="${escHtml(item.end_time || item.time || '')}">
+    <li class="vol-item" data-event-id="${escHtml(eventId || '')}" data-time="${escHtml(rep.time || '')}" data-end-time="${escHtml(rep.end_time || rep.time || '')}">
       <div class="vol-rank">#${rank}</div>
       <div class="vol-content">
         <div class="vol-meta" style="flex-wrap:wrap;gap:6px">
