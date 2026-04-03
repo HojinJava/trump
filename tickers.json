@@ -30,12 +30,6 @@
       "color": "#f59e0b",
       "desc_ko": "비트코인 선물 (CME: BTC)"
     },
-    "eth": {
-      "label": "ETH",
-      "label_ko": "이더리움",
-      "color": "#6366f1",
-      "desc_ko": "이더리움 선물 (CME: ETH)"
-    },
     "bonds": {
       "label": "BONDS",
       "label_ko": "미국 30년 국채",
