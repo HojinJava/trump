@@ -310,10 +310,6 @@ function initChart(eventId, event) {
   const totalMins = allTimes.length;
   const stepMin = totalMins <= 60 ? 10 : totalMins <= 100 ? 15 : 20;
 
-  // 동그라미 위치 시각 Set (x축 tick에 추가 표시용)
-  const allMarkedTimes = new Set(
-    Object.values(chartMarkers).flat()
-  );
 
   const chart = new Chart(canvas, {
     type: 'line',
@@ -352,13 +348,10 @@ function initChart(eventId, event) {
             maxTicksLimit: 100,
             autoSkip: false,
             callback: (_, idx) => {
-              const t = allTimes[idx];
-              if (!t) return null;
-              const hhmm = t.slice(11, 16);
+              const hhmm = allTimes[idx]?.slice(11, 16);
+              if (!hhmm) return null;
               const [h, m] = hhmm.split(':').map(Number);
-              if ((h * 60 + m) % stepMin === 0) return hhmm;
-              if (allMarkedTimes.has(t)) return hhmm;
-              return null;
+              return (h * 60 + m) % stepMin === 0 ? hhmm : null;
             },
           },
           grid: { color: '#f3f4f6' },
