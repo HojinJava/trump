@@ -237,6 +237,7 @@ header .subtitle {
 
 .vol-item:nth-child(odd)  { background: #ffffff; }
 .vol-item:nth-child(even) { background: var(--surface); }
+.vol-item:hover { background: #eff6ff; cursor: default; }
 
 .vol-rank {
   color: var(--muted);
@@ -269,6 +270,65 @@ header .subtitle {
 .vol-change-neu { color: var(--muted); }
 
 .vol-sigma { color: var(--muted); font-size: 0.75rem; }
+
+.vol-timerange {
+  color: var(--muted);
+  font-size: 0.72rem;
+  background: #f1f5f9;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Speech Summary ───────────────────────── */
+.summary-card {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+}
+
+.summary-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.summary-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+}
+
+.summary-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.summary-points {
+  margin: 0 0 10px 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.summary-points li {
+  font-size: 0.83rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.summary-impact {
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+  line-height: 1.55;
+}
 
 .vol-text-ko {
   font-size: 0.84rem;
