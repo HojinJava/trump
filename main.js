@@ -124,16 +124,15 @@ function renderEventDetail(id, event) {
   detailEl.innerHTML = `
     ${renderIndices(event.indices)}
     ${renderSummary(event)}
-    <div class="chart-sticky">
-      <div class="chart-wrap">
-        <canvas id="chart-${escHtml(id)}"></canvas>
-      </div>
-      <div class="vol-tabs" data-event="${escHtml(id)}">
-        ${tabs.map((a, i) => {
-          const label = a === '전체' ? '전체' : (TICKERS[a]?.label || a.toUpperCase());
-          return `<button class="vol-tab${i === 0 ? ' active' : ''}" data-asset="${escHtml(a)}">${label}</button>`;
-        }).join('')}
-      </div>
+    <div class="chart-wrap">
+      <canvas id="chart-${escHtml(id)}"></canvas>
+    </div>
+    <div class="vol-ranking-header">변동성 순위</div>
+    <div class="vol-tabs" data-event="${escHtml(id)}">
+      ${tabs.map((a, i) => {
+        const label = a === '전체' ? '전체' : (TICKERS[a]?.label || a.toUpperCase());
+        return `<button class="vol-tab${i === 0 ? ' active' : ''}" data-asset="${escHtml(a)}">${label}</button>`;
+      }).join('')}
     </div>
     <ul class="volatility-list" id="vol-list-${escHtml(id)}">
       ${renderVolItems(volItems, '전체', id, event.tickers)}
@@ -155,11 +154,10 @@ function bindVolTabs(id, event) {
     const asset = btn.dataset.asset;
     const list = document.getElementById(`vol-list-${id}`);
     if (list) {
-      const scrollEl = tabGroup.closest('.toggle-body');
-      const savedScroll = scrollEl ? scrollEl.scrollTop : 0;
+      const savedScroll = list.scrollTop;
       list.innerHTML = renderVolItems(event.top_volatility || [], asset, id, event.tickers);
       bindVolItemHovers(id);
-      if (scrollEl) scrollEl.scrollTop = savedScroll;
+      list.scrollTop = savedScroll;
     }
   });
 }
