@@ -155,8 +155,11 @@ function bindVolTabs(id, event) {
     const asset = btn.dataset.asset;
     const list = document.getElementById(`vol-list-${id}`);
     if (list) {
+      const scrollEl = tabGroup.closest('.toggle-body');
+      const savedScroll = scrollEl ? scrollEl.scrollTop : 0;
       list.innerHTML = renderVolItems(event.top_volatility || [], asset, id, event.tickers);
       bindVolItemHovers(id);
+      if (scrollEl) scrollEl.scrollTop = savedScroll;
     }
   });
 }
