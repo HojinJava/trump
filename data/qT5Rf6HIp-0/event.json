@@ -150,6 +150,13 @@
         "change_pct": -0.49,
         "pre_time_kst": "10:01",
         "post_time_kst": "10:20"
+      },
+      "kospi": {
+        "pre_price": 5545.25,
+        "post_price": 5414.5098,
+        "change_pct": -2.36,
+        "pre_time_kst": "10:01",
+        "post_time_kst": "10:20"
       }
     },
     "speech_end_kst": "10:20"
@@ -174,11 +181,77 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": -0.08,
-        "kospi": 0.0
+        "kospi": -0.16
       }
     },
     {
       "rank": 2,
+      "time": "2026-04-02T10:15:00+09:00",
+      "peak_time": "2026-04-02T10:17:00+09:00",
+      "end_time": "2026-04-02T10:18:00+09:00",
+      "candle_count": 4,
+      "asset": "kospi",
+      "window_vol": 76.2497,
+      "video_offset_seconds": 1485,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1485",
+      "transcript_segment": "shortly. Very shortly, we are going to",
+      "transcript_segment_ko": "호르무즈 해협을 통해 석유를 공급받는 국가들은 스스로 해협을 보호해야 한다며, 미국산 석유를 구매하라고 촉구했다. 이란은 사실상 초토화됐으니 어려운 부분은 끝났다고 언급하고, 분쟁 종식 후 해협이 자연스럽게 열리면서 유가는 빠르게 하락하고 주가는 급반등할 것이라 주장했다. 역사적 감세 법안으로 경제가 강하며 곧 최고 수준을 넘어설 것이라 했다. 향후 2~3주간 이란을 극도로 강력히 타격해 '석기시대로 되돌리겠다'고 위협했다. 정권교체는 목표가 아니었으나 지도부 전원 사망으로 사실상 정권교체가 이뤄졌으며 새 지도부는 덜 급진적이라고 평가했다. 합의 실패 시 발전소 전체와 유전을 동시 타격하겠다고 경고하고, B2 폭격기로 파괴한 핵시설은 위성으로 감시 중이며 접근 시 즉각 재타격하겠다고 밝혔다.",
+      "market_moves": {
+        "nasdaq": -0.23,
+        "oil": 1.11,
+        "gold": -0.29,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": -0.17,
+        "kospi": -0.68
+      }
+    },
+    {
+      "rank": 3,
+      "time": "2026-04-02T10:29:00+09:00",
+      "peak_time": "2026-04-02T10:30:00+09:00",
+      "end_time": "2026-04-02T10:30:00+09:00",
+      "candle_count": 2,
+      "asset": "kospi",
+      "window_vol": 63.901,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": null,
+      "transcript_segment_ko": null,
+      "market_moves": {
+        "nasdaq": -0.14,
+        "oil": 0.38,
+        "gold": -0.24,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": -0.06,
+        "kospi": -0.82
+      }
+    },
+    {
+      "rank": 4,
+      "time": "2026-04-02T10:08:00+09:00",
+      "peak_time": "2026-04-02T10:10:00+09:00",
+      "end_time": "2026-04-02T10:12:00+09:00",
+      "candle_count": 5,
+      "asset": "kospi",
+      "window_vol": 60.8639,
+      "video_offset_seconds": 1065,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1065",
+      "transcript_segment": "everyone has said that Iran cannot have",
+      "transcript_segment_ko": "이란이 핵무기 문턱에 도달했으나 말뿐이면 소용없다며 행동의 필요성을 강조했다. Operation Epic Fury의 목표는 명확하다고 밝히며, 이란 해군은 완전 파괴, 공군과 미사일 전력도 궤멸 수준이라고 보고했다. 이란의 방위산업 기반까지 전멸시켰으며, 핵심 전략 목표가 완수에 근접했다고 선언했다. 이 작전에서 미군 13명이 전사했으며 트럼프 대통령이 도버 공군기지를 두 차례 방문해 유가족을 만났고, 유가족 모두가 '임무를 완수해 달라'고 요청했다고 전했다. 이스라엘, 사우디, 카타르, UAE, 쿠웨이트, 바레인 등 중동 동맹국들에 감사를 표하며 그들을 반드시 지키겠다고 약속했다. 최근 국내 휘발유 가격 상승에 대한 국민 우려도 언급했다.",
+      "market_moves": {
+        "nasdaq": 0.18,
+        "oil": -0.71,
+        "gold": 0.19,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.06,
+        "kospi": 0.52
+      }
+    },
+    {
+      "rank": 5,
       "time": "2026-04-02T10:15:00+09:00",
       "peak_time": "2026-04-02T10:17:00+09:00",
       "end_time": "2026-04-02T10:17:00+09:00",
@@ -196,11 +269,11 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": -0.17,
-        "kospi": 0.0
+        "kospi": -0.68
       }
     },
     {
-      "rank": 3,
+      "rank": 6,
       "time": "2026-04-02T10:16:00+09:00",
       "peak_time": "2026-04-02T10:17:00+09:00",
       "end_time": "2026-04-02T10:17:00+09:00",
@@ -218,11 +291,33 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": -0.17,
-        "kospi": 0.0
+        "kospi": -0.68
       }
     },
     {
-      "rank": 4,
+      "rank": 7,
+      "time": "2026-04-02T10:47:00+09:00",
+      "peak_time": "2026-04-02T10:49:00+09:00",
+      "end_time": "2026-04-02T10:51:00+09:00",
+      "candle_count": 5,
+      "asset": "kospi",
+      "window_vol": 32.346,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": null,
+      "transcript_segment_ko": null,
+      "market_moves": {
+        "nasdaq": 0.04,
+        "oil": -0.06,
+        "gold": 0.1,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.39
+      }
+    },
+    {
+      "rank": 8,
       "time": "2026-04-02T10:10:00+09:00",
       "peak_time": "2026-04-02T10:10:00+09:00",
       "end_time": "2026-04-02T10:12:00+09:00",
@@ -240,11 +335,11 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": 0.06,
-        "kospi": 0.0
+        "kospi": 0.52
       }
     },
     {
-      "rank": 5,
+      "rank": 9,
       "time": "2026-04-02T10:22:00+09:00",
       "peak_time": "2026-04-02T10:25:00+09:00",
       "end_time": "2026-04-02T10:26:00+09:00",
@@ -262,11 +357,11 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": 0.0,
-        "kospi": 0.0
+        "kospi": -0.63
       }
     },
     {
-      "rank": 6,
+      "rank": 10,
       "time": "2026-04-02T10:05:00+09:00",
       "peak_time": "2026-04-02T10:06:00+09:00",
       "end_time": "2026-04-02T10:06:00+09:00",
@@ -284,11 +379,55 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": -0.08,
-        "kospi": 0.0
+        "kospi": -0.43
       }
     },
     {
-      "rank": 7,
+      "rank": 11,
+      "time": "2026-04-02T10:21:00+09:00",
+      "peak_time": "2026-04-02T10:23:00+09:00",
+      "end_time": "2026-04-02T10:23:00+09:00",
+      "candle_count": 3,
+      "asset": "kospi",
+      "window_vol": 16.4781,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": null,
+      "transcript_segment_ko": null,
+      "market_moves": {
+        "nasdaq": 0.05,
+        "oil": -0.23,
+        "gold": 0.26,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.03,
+        "kospi": -0.36
+      }
+    },
+    {
+      "rank": 12,
+      "time": "2026-04-02T10:03:00+09:00",
+      "peak_time": "2026-04-02T10:03:00+09:00",
+      "end_time": "2026-04-02T10:04:00+09:00",
+      "candle_count": 2,
+      "asset": "kospi",
+      "window_vol": 14.8421,
+      "video_offset_seconds": 643,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=643",
+      "transcript_segment": "have delivered swift, decisive, overwhelming victories on the",
+      "transcript_segment_ko": "트럼프 대통령이 NASA 아르테미스 2호 발사 성공을 축하하며 연설을 시작한 뒤, Operation Epic Fury 개시 1개월 성과를 보고했다. 지난 4주간 이란 해군은 전멸, 공군은 폐허가 됐으며 테러 정권 지도부 대부분이 사망했고, IRGC의 지휘통제 체계가 와해되고 있다고 밝혔다. 베네수엘라 점령 작전도 '수 분 만에 완료'됐다며 세계 2위 석유 매장량을 공동 개발 중이라고 언급했다. 이란의 47년간 테러 역사(베이루트 해병대 폭탄 테러, USS 콜 공격, 10월 7일 사태, 자국민 4만5천 명 학살)를 열거하며 핵무기 보유를 절대 허용하지 않겠다고 강조했다. 1기 때 솔레이마니를 제거하고 오바마의 이란 핵 합의를 파기한 것을 자랑하며, 역대 대통령이 하지 못한 일을 자신이 바로잡고 있다고 주장했다.",
+      "market_moves": {
+        "nasdaq": -0.24,
+        "oil": 0.83,
+        "gold": -0.41,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": -0.08,
+        "kospi": -0.4
+      }
+    },
+    {
+      "rank": 13,
       "time": "2026-04-02T10:34:00+09:00",
       "peak_time": "2026-04-02T10:34:00+09:00",
       "end_time": "2026-04-02T10:34:00+09:00",
@@ -306,11 +445,11 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": 0.03,
-        "kospi": 0.0
+        "kospi": 0.38
       }
     },
     {
-      "rank": 8,
+      "rank": 14,
       "time": "2026-04-02T10:03:00+09:00",
       "peak_time": "2026-04-02T10:03:00+09:00",
       "end_time": "2026-04-02T10:03:00+09:00",
@@ -328,11 +467,11 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": -0.08,
-        "kospi": 0.0
+        "kospi": -0.4
       }
     },
     {
-      "rank": 9,
+      "rank": 15,
       "time": "2026-04-02T10:17:00+09:00",
       "peak_time": "2026-04-02T10:17:00+09:00",
       "end_time": "2026-04-02T10:18:00+09:00",
@@ -350,11 +489,33 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": -0.17,
-        "kospi": 0.0
+        "kospi": -0.68
       }
     },
     {
-      "rank": 10,
+      "rank": 16,
+      "time": "2026-04-02T11:07:00+09:00",
+      "peak_time": "2026-04-02T11:07:00+09:00",
+      "end_time": "2026-04-02T11:08:00+09:00",
+      "candle_count": 2,
+      "asset": "kospi",
+      "window_vol": 13.5266,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": null,
+      "transcript_segment_ko": null,
+      "market_moves": {
+        "nasdaq": 0.02,
+        "oil": -0.02,
+        "gold": 0.12,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": 0.0,
+        "kospi": 0.38
+      }
+    },
+    {
+      "rank": 17,
       "time": "2026-04-02T10:30:00+09:00",
       "peak_time": "2026-04-02T10:31:00+09:00",
       "end_time": "2026-04-02T10:31:00+09:00",
@@ -372,11 +533,11 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": -0.03,
-        "kospi": 0.0
+        "kospi": -0.04
       }
     },
     {
-      "rank": 11,
+      "rank": 18,
       "time": "2026-04-02T10:03:00+09:00",
       "peak_time": "2026-04-02T10:03:00+09:00",
       "end_time": "2026-04-02T10:03:00+09:00",
@@ -394,11 +555,11 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": -0.08,
-        "kospi": 0.0
+        "kospi": -0.4
       }
     },
     {
-      "rank": 12,
+      "rank": 19,
       "time": "2026-04-02T10:39:00+09:00",
       "peak_time": "2026-04-02T10:39:00+09:00",
       "end_time": "2026-04-02T10:39:00+09:00",
@@ -416,11 +577,11 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": 0.08,
-        "kospi": 0.0
+        "kospi": -0.17
       }
     },
     {
-      "rank": 13,
+      "rank": 20,
       "time": "2026-04-02T10:24:00+09:00",
       "peak_time": "2026-04-02T10:24:00+09:00",
       "end_time": "2026-04-02T10:24:00+09:00",
@@ -438,161 +599,7 @@
         "btc": 0.0,
         "eth": 0.0,
         "bonds": -0.03,
-        "kospi": 0.0
-      }
-    },
-    {
-      "rank": 14,
-      "time": "2026-04-02T11:38:00+09:00",
-      "peak_time": "2026-04-02T11:40:00+09:00",
-      "end_time": "2026-04-02T11:40:00+09:00",
-      "candle_count": 3,
-      "asset": "gold",
-      "window_vol": 9.5167,
-      "video_offset_seconds": 1720,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
-      "transcript_segment": null,
-      "transcript_segment_ko": null,
-      "market_moves": {
-        "nasdaq": 0.03,
-        "oil": -0.03,
-        "gold": 0.25,
-        "btc": 0.0,
-        "eth": 0.0,
-        "bonds": 0.0,
-        "kospi": 0.0
-      }
-    },
-    {
-      "rank": 15,
-      "time": "2026-04-02T11:11:00+09:00",
-      "peak_time": "2026-04-02T11:11:00+09:00",
-      "end_time": "2026-04-02T11:12:00+09:00",
-      "candle_count": 2,
-      "asset": "gold",
-      "window_vol": 9.4315,
-      "video_offset_seconds": 1720,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
-      "transcript_segment": null,
-      "transcript_segment_ko": null,
-      "market_moves": {
-        "nasdaq": -0.07,
-        "oil": 0.14,
-        "gold": -0.31,
-        "btc": 0.0,
-        "eth": 0.0,
-        "bonds": -0.03,
-        "kospi": 0.0
-      }
-    },
-    {
-      "rank": 16,
-      "time": "2026-04-02T10:29:00+09:00",
-      "peak_time": "2026-04-02T10:30:00+09:00",
-      "end_time": "2026-04-02T10:30:00+09:00",
-      "candle_count": 2,
-      "asset": "bonds",
-      "window_vol": 8.7946,
-      "video_offset_seconds": 1720,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
-      "transcript_segment": null,
-      "transcript_segment_ko": null,
-      "market_moves": {
-        "nasdaq": -0.14,
-        "oil": 0.38,
-        "gold": -0.24,
-        "btc": 0.0,
-        "eth": 0.0,
-        "bonds": -0.06,
-        "kospi": 0.0
-      }
-    },
-    {
-      "rank": 17,
-      "time": "2026-04-02T10:28:00+09:00",
-      "peak_time": "2026-04-02T10:28:00+09:00",
-      "end_time": "2026-04-02T10:28:00+09:00",
-      "candle_count": 1,
-      "asset": "gold",
-      "window_vol": 8.2056,
-      "video_offset_seconds": 1720,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
-      "transcript_segment": null,
-      "transcript_segment_ko": null,
-      "market_moves": {
-        "nasdaq": 0.04,
-        "oil": -0.19,
-        "gold": 0.32,
-        "btc": 0.0,
-        "eth": 0.0,
-        "bonds": 0.0,
-        "kospi": 0.0
-      }
-    },
-    {
-      "rank": 18,
-      "time": "2026-04-02T10:17:00+09:00",
-      "peak_time": "2026-04-02T10:17:00+09:00",
-      "end_time": "2026-04-02T10:17:00+09:00",
-      "candle_count": 1,
-      "asset": "gold",
-      "window_vol": 7.0693,
-      "video_offset_seconds": 1485,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1485",
-      "transcript_segment": "shortly. Very shortly, we are going to",
-      "transcript_segment_ko": "호르무즈 해협을 통해 석유를 공급받는 국가들은 스스로 해협을 보호해야 한다며, 미국산 석유를 구매하라고 촉구했다. 이란은 사실상 초토화됐으니 어려운 부분은 끝났다고 언급하고, 분쟁 종식 후 해협이 자연스럽게 열리면서 유가는 빠르게 하락하고 주가는 급반등할 것이라 주장했다. 역사적 감세 법안으로 경제가 강하며 곧 최고 수준을 넘어설 것이라 했다. 향후 2~3주간 이란을 극도로 강력히 타격해 '석기시대로 되돌리겠다'고 위협했다. 정권교체는 목표가 아니었으나 지도부 전원 사망으로 사실상 정권교체가 이뤄졌으며 새 지도부는 덜 급진적이라고 평가했다. 합의 실패 시 발전소 전체와 유전을 동시 타격하겠다고 경고하고, B2 폭격기로 파괴한 핵시설은 위성으로 감시 중이며 접근 시 즉각 재타격하겠다고 밝혔다.",
-      "market_moves": {
-        "nasdaq": -0.23,
-        "oil": 1.11,
-        "gold": -0.29,
-        "btc": 0.0,
-        "eth": 0.0,
-        "bonds": -0.17,
-        "kospi": 0.0
-      }
-    },
-    {
-      "rank": 19,
-      "time": "2026-04-02T10:10:00+09:00",
-      "peak_time": "2026-04-02T10:10:00+09:00",
-      "end_time": "2026-04-02T10:10:00+09:00",
-      "candle_count": 1,
-      "asset": "nasdaq",
-      "window_vol": 6.9363,
-      "video_offset_seconds": 1065,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1065",
-      "transcript_segment": "everyone has said that Iran cannot have",
-      "transcript_segment_ko": "이란이 핵무기 문턱에 도달했으나 말뿐이면 소용없다며 행동의 필요성을 강조했다. Operation Epic Fury의 목표는 명확하다고 밝히며, 이란 해군은 완전 파괴, 공군과 미사일 전력도 궤멸 수준이라고 보고했다. 이란의 방위산업 기반까지 전멸시켰으며, 핵심 전략 목표가 완수에 근접했다고 선언했다. 이 작전에서 미군 13명이 전사했으며 트럼프 대통령이 도버 공군기지를 두 차례 방문해 유가족을 만났고, 유가족 모두가 '임무를 완수해 달라'고 요청했다고 전했다. 이스라엘, 사우디, 카타르, UAE, 쿠웨이트, 바레인 등 중동 동맹국들에 감사를 표하며 그들을 반드시 지키겠다고 약속했다. 최근 국내 휘발유 가격 상승에 대한 국민 우려도 언급했다.",
-      "market_moves": {
-        "nasdaq": 0.18,
-        "oil": -0.71,
-        "gold": 0.19,
-        "btc": 0.0,
-        "eth": 0.0,
-        "bonds": 0.06,
-        "kospi": 0.0
-      }
-    },
-    {
-      "rank": 20,
-      "time": "2026-04-02T11:08:00+09:00",
-      "peak_time": "2026-04-02T11:08:00+09:00",
-      "end_time": "2026-04-02T11:08:00+09:00",
-      "candle_count": 1,
-      "asset": "oil",
-      "window_vol": 6.5491,
-      "video_offset_seconds": 1720,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
-      "transcript_segment": null,
-      "transcript_segment_ko": null,
-      "market_moves": {
-        "nasdaq": -0.15,
-        "oil": 0.46,
-        "gold": -0.2,
-        "btc": 0.0,
-        "eth": -0.13,
-        "bonds": 0.0,
-        "kospi": 0.0
+        "kospi": 0.13
       }
     }
   ],
@@ -1323,6 +1330,151 @@
         -0.4672,
         -0.4397,
         -0.4397
+      ],
+      "kospi": [
+        -0.6329,
+        -0.5615,
+        -0.5034,
+        -0.5292,
+        -0.5856,
+        -0.6758,
+        -0.6348,
+        -0.8061,
+        -0.7884,
+        -0.9305,
+        -0.7745,
+        -0.5175,
+        -0.2826,
+        -0.3333,
+        -0.3421,
+        -0.236,
+        -0.2704,
+        -0.3493,
+        -0.2259,
+        -0.2727,
+        -0.3538,
+        -0.3362,
+        -0.1703,
+        -0.1903,
+        -0.1997,
+        -0.173,
+        -0.0166,
+        0.1024,
+        0.1844,
+        0.0,
+        -0.0469,
+        -0.1087,
+        -0.4524,
+        -0.8232,
+        -0.9305,
+        -1.4108,
+        -1.5123,
+        -1.1248,
+        -0.5418,
+        -0.0461,
+        -0.1386,
+        -0.4375,
+        -0.6426,
+        -0.6101,
+        -1.044,
+        -0.8246,
+        -1.6585,
+        -2.4649,
+        -2.3627,
+        -2.4035,
+        -2.1985,
+        -2.557,
+        -3.0516,
+        -2.955,
+        -3.6061,
+        -3.4691,
+        -3.3253,
+        -3.366,
+        -2.9419,
+        -3.7953,
+        -3.8786,
+        -4.1245,
+        -3.9426,
+        -3.6717,
+        -3.5635,
+        -3.3837,
+        -3.5926,
+        -3.4049,
+        -3.715,
+        -3.9336,
+        -4.0459,
+        -4.2541,
+        -4.1914,
+        -4.4141,
+        -4.6827,
+        -4.6762,
+        -5.0106,
+        -4.8125,
+        -4.3141,
+        -4.0672,
+        -3.811,
+        -3.8839,
+        -3.7186,
+        -4.0504,
+        -3.7926,
+        -3.7937,
+        -3.7611,
+        -3.7847,
+        -3.8292,
+        -3.8388,
+        -4.1275,
+        -4.2795,
+        -4.3226,
+        -4.465,
+        -4.6067,
+        -4.5834,
+        -4.1281,
+        -4.4897,
+        -4.6524,
+        -4.631,
+        -4.6692,
+        -4.8174,
+        -4.9107,
+        -5.0459,
+        -4.8585,
+        -4.7963,
+        -4.8084,
+        -4.7328,
+        -4.6957,
+        -4.7992,
+        -4.8042,
+        -4.917,
+        -5.0389,
+        -5.0955,
+        -5.082,
+        -5.1247,
+        -5.2489,
+        -5.2626,
+        -5.3066,
+        -5.3246,
+        -5.4555,
+        -5.5908,
+        -5.3028,
+        -5.1256,
+        -5.0189,
+        -5.1734,
+        -5.4506,
+        -5.275,
+        -5.3819,
+        -5.1726,
+        -4.9495,
+        -5.0292,
+        -5.0203,
+        -5.0131,
+        -4.9823,
+        -4.9545,
+        -5.0037,
+        -5.014,
+        -5.009,
+        -4.8797,
+        -4.8489,
+        -4.804,
+        null
       ]
     }
   },
@@ -1352,11 +1504,43 @@
         "time": "2026-04-02T10:31:00+09:00",
         "show": true,
         "change_pct": 5.48
+      }
+    ],
+    "kospi": [
+      {
+        "time": "2026-04-02T10:03:00+09:00",
+        "show": true,
+        "change_pct": -0.45
       },
       {
-        "time": "2026-04-02T11:08:00+09:00",
+        "time": "2026-04-02T10:10:00+09:00",
         "show": true,
-        "change_pct": 6.03
+        "change_pct": -0.05
+      },
+      {
+        "time": "2026-04-02T10:17:00+09:00",
+        "show": true,
+        "change_pct": -1.66
+      },
+      {
+        "time": "2026-04-02T10:23:00+09:00",
+        "show": true,
+        "change_pct": -3.05
+      },
+      {
+        "time": "2026-04-02T10:30:00+09:00",
+        "show": true,
+        "change_pct": -3.8
+      },
+      {
+        "time": "2026-04-02T10:49:00+09:00",
+        "show": true,
+        "change_pct": -4.31
+      },
+      {
+        "time": "2026-04-02T11:07:00+09:00",
+        "show": true,
+        "change_pct": -4.13
       }
     ],
     "bonds": [
@@ -1371,11 +1555,6 @@
         "change_pct": -0.41
       },
       {
-        "time": "2026-04-02T10:30:00+09:00",
-        "show": true,
-        "change_pct": -0.52
-      },
-      {
         "time": "2026-04-02T10:39:00+09:00",
         "show": true,
         "change_pct": -0.49
@@ -1388,34 +1567,14 @@
         "change_pct": -0.46
       },
       {
-        "time": "2026-04-02T10:17:00+09:00",
-        "show": true,
-        "change_pct": -0.83
-      },
-      {
         "time": "2026-04-02T10:25:00+09:00",
         "show": true,
         "change_pct": -1.46
       },
       {
-        "time": "2026-04-02T10:28:00+09:00",
-        "show": true,
-        "change_pct": -1.4
-      },
-      {
         "time": "2026-04-02T10:34:00+09:00",
         "show": true,
         "change_pct": -1.85
-      },
-      {
-        "time": "2026-04-02T11:11:00+09:00",
-        "show": true,
-        "change_pct": -1.89
-      },
-      {
-        "time": "2026-04-02T11:40:00+09:00",
-        "show": true,
-        "change_pct": -2.06
       }
     ],
     "nasdaq": [
@@ -1423,11 +1582,6 @@
         "time": "2026-04-02T10:03:00+09:00",
         "show": true,
         "change_pct": -0.27
-      },
-      {
-        "time": "2026-04-02T10:10:00+09:00",
-        "show": true,
-        "change_pct": -0.04
       },
       {
         "time": "2026-04-02T10:17:00+09:00",
