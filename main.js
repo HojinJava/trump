@@ -261,6 +261,11 @@ function initChart(eventId, event) {
   // chart_markers: { asset: [{time, show, change_pct}] } — 파이프라인 사전 연산
   const chartMarkers = event.chart_markers || {};
 
+  // 차트에 표시되는 자산의 마커 시각 집합 (x축 라벨 추가용)
+  const markedTimesSet = new Set(
+    assets.flatMap(a => (chartMarkers[a] || []).filter(m => m.show).map(m => m.time))
+  );
+
   const datasets = assets.map(asset => {
     // time → marker 객체 맵 (JS 연산 없이 바로 조회)
     const markerMap = Object.fromEntries(
@@ -345,8 +350,10 @@ function initChart(eventId, event) {
             maxTicksLimit: 100,
             autoSkip: false,
             callback: (_, idx) => {
-              const hhmm = allTimes[idx]?.slice(11, 16);
-              if (!hhmm) return null;
+              const t = allTimes[idx];
+              if (!t) return null;
+              const hhmm = t.slice(11, 16);
+              if (markedTimesSet.has(t)) return hhmm;
               const [h, m] = hhmm.split(':').map(Number);
               return (h * 60 + m) % stepMin === 0 ? hhmm : null;
             },
