@@ -196,7 +196,7 @@ function renderVolItem(item, eventId) {
   const zoneEnd   = (item.end_time || '').slice(11, 16);
   const peakTime  = (item.peak_time || item.time || '').slice(0, 16);
   const timeRange = zoneStart && zoneEnd
-    ? `<span class="vol-timerange">${zoneStart}${zoneEnd !== zoneStart ? ` ~ ${zoneEnd}` : ''} UTC</span>`
+    ? `<span class="vol-timerange">${zoneStart}${zoneEnd !== zoneStart ? ` ~ ${zoneEnd}` : ''} KST</span>`
     : '';
 
   return `
@@ -347,7 +347,7 @@ function initChart(eventId, event) {
         tooltip: {
           filter: item => item.dataset._marked?.has(allTimes[item.dataIndex]?.slice(0, 16)),
           callbacks: {
-            title: items => allTimes[items[0].dataIndex].slice(11, 16) + ' UTC',
+            title: items => allTimes[items[0].dataIndex].slice(11, 16) + ' KST',
             label: item => {
               const currPct = item.parsed.y;
               const sign = currPct >= 0 ? '+' : '';
