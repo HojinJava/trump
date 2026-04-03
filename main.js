@@ -191,11 +191,13 @@ function renderIndices(indices) {
 function renderVolItems(items, asset, eventId, eventTickers) {
   if (asset === '전체') {
     const seenSegments = new Set();
-    return items.map((item, i) => {
+    let rank = 0;
+    return items.map(item => {
       const seg = item.transcript_segment || '';
-      const isDupeSeg = seg && seenSegments.has(seg);
+      if (seg && seenSegments.has(seg)) return '';
       if (seg) seenSegments.add(seg);
-      return renderVolItemGlobal(item, i + 1, eventId, isDupeSeg, eventTickers);
+      rank++;
+      return renderVolItemGlobal(item, rank, eventId, false, eventTickers);
     }).join('');
   }
   const filtered = items.filter(v => v.asset === asset);
@@ -246,7 +248,7 @@ function renderVolItem(item, eventId) {
     </li>`;
 }
 
-function renderVolItemGlobal(item, rank, eventId, dupeSeg = false, eventTickers = null) {
+function renderVolItemGlobal(item, rank, eventId, _unused = false, eventTickers = null) {
   // 전체 탭: market_moves의 모든 티커를 event.tickers 순서로 표시
   const moves = item.market_moves || {};
   const tickerBadges = (eventTickers || Object.keys(TICKERS))
@@ -265,9 +267,7 @@ function renderVolItemGlobal(item, rank, eventId, dupeSeg = false, eventTickers 
   const ko = item.transcript_segment_ko;
   const en = item.transcript_segment;
   let textHtml = '';
-  if (dupeSeg) {
-    textHtml = `<div class="vol-post-speech">↑ 동일 발언 구간</div>`;
-  } else if (ko) {
+  if (ko) {
     textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
     if (en) textHtml += `<details class="vol-original"><summary>원문 보기</summary><div class="vol-text-en">${escHtml(en)}</div></details>`;
   } else if (en) {
