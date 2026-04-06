@@ -375,6 +375,11 @@ function initChart(eventId, event) {
   if (!canvas || canvas._chartInit) return;
   canvas._chartInit = true;
 
+  const isEcon = event.source === 'economic_release';
+
+  // compact 클래스: economic_release는 차트 너비 제한
+  if (isEcon) canvas.closest('.chart-wrap')?.classList.add('chart-wrap--compact');
+
   // chart_data: 파이프라인 사전 연산 (times, step_min, series)
   const chartData = event.chart_data || {};
   const allTimes  = chartData.times   || [];
@@ -396,8 +401,8 @@ function initChart(eventId, event) {
     borderColor: TICKERS[asset]?.color || '#6b7280',
     backgroundColor: TICKERS[asset]?.color || '#6b7280',
     borderWidth: 2,
-    pointRadius: 0,
-    pointHoverRadius: 0,
+    pointRadius: isEcon ? 3 : 0,
+    pointHoverRadius: isEcon ? 5 : 0,
     tension: 0.1,
     spanGaps: true,
   }));

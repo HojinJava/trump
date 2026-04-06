@@ -232,6 +232,9 @@ header .subtitle {
   border-radius: 6px;
   padding: 12px;
 }
+.chart-wrap--compact {
+  max-width: 480px;
+}
 
 /* ── Volatility tabs ──────────────────────── */
 .vol-tabs {
