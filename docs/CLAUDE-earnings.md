@@ -49,20 +49,23 @@ python collect.py --build <event_id>     # build → data/{id}/event.json + inde
 - `event.json`의 `price_changes_release` 필드에 저장.
 - 데이터 없으면 null.
 
-### top_volatility_release (실발 ±10분 재랭킹)
-- 기준선: 실발 10~40분 전 캔들 (calc_top_volatility에 window_start = release−10분 전달).
-- 분석 범위: release−10분 ~ release+10분 이내 peak를 가진 zone만 포함.
-- 동일 품질 필터 적용: candle_count ≤ 10, window_vol ≥ 10.0.
-- `event.json`의 `top_volatility_release` 필드에 저장.
-- 어닝콜 구간과 겹치는 zone도 포함될 수 있음 (시간 윈도우 기준으로만 판단).
+### top_volatility — 단일 통합 랭킹 (어닝콜 + 실발)
+- `step_build`는 실발 ±10분 zones (`_top_er`, tagged `window='release'`)과
+  어닝콜 구간 zones (`top20`, tagged `window='call'`)을 **하나의 리스트**로 병합한다.
+- 병합 규칙: 동일 (asset, time) 쌍은 중복 제거 (call 우선). 전체를 `window_vol` 내림차순 재랭킹.
+- `event.json`의 `top_volatility` 하나에만 저장. `top_volatility_release` 필드는 사용하지 않음 (null).
+- 각 항목에 `window: 'release' | 'call'` 필드 포함.
+- 품질 필터: candle_count ≤ 10, window_vol ≥ 10.0 (CLAUDE.md 공통 규칙과 동일).
+- 실발 ±10분 기준선: 실발 10~40분 전 캔들.
 
 ## 프론트엔드 출력
 - indices 카드 대신 `earnings_release` 표(EPS/매출 실적·예상·서프라이즈) 렌더링.
 - 차트 수직선 3개: 실적 발표(황색), 어닝콜 시작(적색), 어닝콜 종료(보라).
   - 실발 시각이 차트 윈도우 밖이면 왼쪽 끝(index 0)에 실제 시각 라벨로 고정 표시.
 - 차트 가로 스크롤 지원 (데이터 길이에 따라 min-width 자동 계산).
-- 요약 카드에 **발언 전후 주가 변동** + **실적 발표 전후 주가 변동(±20분)** 두 블록 표시.
-- 변동성 랭킹 섹션 두 개: 어닝콜 전체 기간 / 실발 ±10분.
+- 요약 카드에 **실적 발표 전후 주가 변동(±20분)** (왼쪽) + **어닝콜 전후 주가 변동** (오른쪽) 나란히 표시.
+- 변동성 랭킹: 단일 리스트. 각 항목에 `실발±10분` / `어닝콜` 배지로 구간 표시.
+  - `renderVolItem`과 `renderVolItemGlobal` 양쪽 모두 `window` 필드로 배지 렌더링.
 
 ## 오류 방지
 

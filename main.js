@@ -173,11 +173,7 @@ function renderEventDetail(id, event) {
     <ul class="volatility-list" id="vol-list-${escHtml(id)}">
       ${renderVolItems(volItems, '전체', id, event.tickers)}
     </ul>
-    ${event.top_volatility_release?.length ? `
-    <div class="vol-ranking-header">실적 발표 전후 변동성 순위 <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:6px">±10분</span></div>
-    <ul class="volatility-list" id="vol-list-release-${escHtml(id)}">
-      ${renderVolItems(event.top_volatility_release, '전체', id, event.tickers)}
-    </ul>` : ''}`;
+``;
   // vol-item hover → chart highlight (차트 초기화 후 바인딩)
   requestAnimationFrame(() => bindVolItemHovers(id));
 }
@@ -324,6 +320,11 @@ function renderVolItem(item, eventId) {
   const timeRange = zoneStart
     ? `<span class="vol-timerange">${zoneStart !== zoneEnd ? `${zoneStart} ~ ${zoneEnd}` : zoneStart} KST</span>`
     : '';
+  const windowBadge = item.window === 'release'
+    ? `<span class="vol-window-badge release">실발±10분</span>`
+    : item.window === 'call'
+      ? `<span class="vol-window-badge call">어닝콜</span>`
+      : '';
 
   return `
     <li class="vol-item" data-event-id="${escHtml(eventId || '')}" data-time="${escHtml(item.time || '')}" data-end-time="${escHtml(item.end_time || item.time || '')}">
@@ -331,6 +332,7 @@ function renderVolItem(item, eventId) {
       <div class="vol-content">
         <div class="vol-meta">
           ${timeRange}
+          ${windowBadge}
           ${ytLink}
           <span class="vol-asset">${escHtml(TICKERS[item.asset]?.label || item.asset.toUpperCase())}</span>
           <span class="${pctClass}">${pctStr}</span>
@@ -381,6 +383,11 @@ function renderVolItemGlobal(group, rank, eventId, eventTickers = null) {
   const timeRange = zoneStart
     ? `<span class="vol-timerange">${zoneStart !== zoneEnd ? `${zoneStart} ~ ${zoneEnd}` : zoneStart} KST</span>`
     : '';
+  const windowBadge = rep.window === 'release'
+    ? `<span class="vol-window-badge release">실발±10분</span>`
+    : rep.window === 'call'
+      ? `<span class="vol-window-badge call">어닝콜</span>`
+      : '';
 
   return `
     <li class="vol-item" data-event-id="${escHtml(eventId || '')}" data-time="${escHtml(rep.time || '')}" data-end-time="${escHtml(rep.end_time || rep.time || '')}">
@@ -388,6 +395,7 @@ function renderVolItemGlobal(group, rank, eventId, eventTickers = null) {
       <div class="vol-content">
         <div class="vol-meta" style="flex-wrap:wrap;gap:6px">
           ${timeRange}
+          ${windowBadge}
           ${ytLink}
           ${tickerBadges}
         </div>

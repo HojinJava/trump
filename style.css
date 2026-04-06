@@ -409,6 +409,21 @@ header .subtitle {
   font-variant-numeric: tabular-nums;
 }
 
+.vol-window-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.vol-window-badge.release {
+  background: #fff8e1;
+  color: #b45309;
+}
+.vol-window-badge.call {
+  background: #fce7f3;
+  color: #9d174d;
+}
+
 /* ── Speech Summary ───────────────────────── */
 .summary-card {
   background: #f8fafc;

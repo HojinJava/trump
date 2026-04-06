@@ -202,7 +202,8 @@
         "mu": -0.01,
         "amd": 0.0,
         "avgo": -0.05
-      }
+      },
+      "window": "call"
     },
     {
       "rank": 2,
@@ -231,7 +232,8 @@
         "mu": 0.03,
         "amd": -0.43,
         "avgo": 1.2
-      }
+      },
+      "window": "call"
     },
     {
       "rank": 3,
@@ -260,7 +262,8 @@
         "mu": -0.03,
         "amd": 0.0,
         "avgo": 0.0
-      }
+      },
+      "window": "call"
     },
     {
       "rank": 4,
@@ -289,7 +292,8 @@
         "mu": -0.18,
         "amd": 0.0,
         "avgo": -0.03
-      }
+      },
+      "window": "call"
     },
     {
       "rank": 5,
@@ -318,10 +322,35 @@
         "mu": -0.08,
         "amd": 0.12,
         "avgo": 0.01
-      }
+      },
+      "window": "call"
     },
     {
       "rank": 6,
+      "time": "2026-02-27T06:10:00+09:00",
+      "peak_time": "2026-02-27T06:10:00+09:00",
+      "end_time": "2026-02-27T06:11:00+09:00",
+      "candle_count": 2,
+      "asset": "avgo",
+      "window_vol": 14.266,
+      "video_offset_seconds": 0,
+      "youtube_url": null,
+      "transcript_segment": null,
+      "transcript_segment_ko": null,
+      "is_post_speech": false,
+      "market_moves": {
+        "nasdaq": 0.03,
+        "sp500": 0.03,
+        "nvda": 0.0,
+        "googl": 0.02,
+        "mu": 0.0,
+        "amd": 0.0,
+        "avgo": 0.51
+      },
+      "window": "release"
+    },
+    {
+      "rank": 7,
       "time": "2026-02-27T08:00:00+09:00",
       "peak_time": "2026-02-27T08:01:00+09:00",
       "end_time": "2026-02-27T08:01:00+09:00",
@@ -347,34 +376,11 @@
         "mu": 0.16,
         "amd": 0.0,
         "avgo": 0.0
-      }
+      },
+      "window": "call"
     }
   ],
-  "top_volatility_release": [
-    {
-      "rank": 1,
-      "time": "2026-02-27T06:10:00+09:00",
-      "peak_time": "2026-02-27T06:10:00+09:00",
-      "end_time": "2026-02-27T06:11:00+09:00",
-      "candle_count": 2,
-      "asset": "avgo",
-      "window_vol": 14.266,
-      "video_offset_seconds": 0,
-      "youtube_url": null,
-      "transcript_segment": null,
-      "transcript_segment_ko": null,
-      "is_post_speech": false,
-      "market_moves": {
-        "nasdaq": 0.03,
-        "sp500": 0.03,
-        "nvda": 0.0,
-        "googl": 0.02,
-        "mu": 0.0,
-        "amd": 0.0,
-        "avgo": 0.51
-      }
-    }
-  ],
+  "top_volatility_release": null,
   "price_changes_release": {
     "nasdaq": {
       "pre_price": 608.77,

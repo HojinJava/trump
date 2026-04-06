@@ -121,4 +121,11 @@
 - **규칙**: 티커 목록은 `archiving/{id}/tickers.json`에만 저장.
 
 ### 8. 티커 필터 누락으로 제거한 티커가 재노출
-- **규칙**: `step_build`에서 `top_volatility`, `chart_data.series`, `price_changes` **세 곳 모두** `_event_tickers`로 필터링. 어닝콜의 경우 `top_volatility_release`, `price_changes_release`도 동일하게 필터링.
+- **규칙**: `step_build`에서 `top_volatility`, `chart_data.series`, `price_changes` **세 곳 모두** `_event_tickers`로 필터링. 어닝콜의 경우 `price_changes_release`도 동일하게 필터링.
+- 어닝콜의 `top_volatility_release`는 더 이상 별도 필드 없음 — 실발 zones이 `window='release'`로 태깅되어 `top_volatility`에 통합됨.
+
+### 9. 어닝콜 랭킹 통합 구조 (2026-04 변경)
+- 실발 ±10분 zones과 어닝콜 zones을 `top_volatility` 하나로 병합. `top_volatility_release` 필드는 null.
+- 각 항목에 `window: 'release' | 'call'` 필드 → 프론트엔드에서 배지로 표시.
+- 병합 전: `_top_er` (release 태그) + `top20` (call 태그) → 중복 제거 후 window_vol 내림차순 재랭킹.
+- `renderVolItem`과 `renderVolItemGlobal` 양쪽에서 `window` 필드로 `실발±10분` / `어닝콜` 배지 렌더링.
