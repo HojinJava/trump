@@ -377,9 +377,6 @@ function initChart(eventId, event) {
 
   const isEcon = event.source === 'economic_release';
 
-  // compact 클래스: economic_release는 차트 너비 제한
-  if (isEcon) canvas.closest('.chart-wrap')?.classList.add('chart-wrap--compact');
-
   // chart_data: 파이프라인 사전 연산 (times, step_min, series)
   const chartData = event.chart_data || {};
   const allTimes  = chartData.times   || [];
