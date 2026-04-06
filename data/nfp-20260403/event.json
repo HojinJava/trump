@@ -182,30 +182,6 @@
     },
     {
       "rank": 5,
-      "time": "2026-04-03T21:44:00+09:00",
-      "peak_time": "2026-04-03T21:44:00+09:00",
-      "end_time": "2026-04-03T21:44:00+09:00",
-      "candle_count": 1,
-      "asset": "short_bond",
-      "window_vol": 8.1567,
-      "video_offset_seconds": 0,
-      "youtube_url": null,
-      "transcript_segment": null,
-      "transcript_segment_ko": "지표 발표 후 시장 반응",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": 0.03,
-        "sp500": 0.01,
-        "oil": 0.0,
-        "gold": 0.0,
-        "btc": 0.0,
-        "eth": 0.0,
-        "short_bond": 0.01,
-        "bonds": 0.06
-      }
-    },
-    {
-      "rank": 6,
       "time": "2026-04-03T21:37:00+09:00",
       "peak_time": "2026-04-03T21:37:00+09:00",
       "end_time": "2026-04-03T21:37:00+09:00",
@@ -229,79 +205,7 @@
       }
     },
     {
-      "rank": 7,
-      "time": "2026-04-03T21:57:00+09:00",
-      "peak_time": "2026-04-03T21:57:00+09:00",
-      "end_time": "2026-04-03T21:57:00+09:00",
-      "candle_count": 1,
-      "asset": "bonds",
-      "window_vol": 6.9229,
-      "video_offset_seconds": 0,
-      "youtube_url": null,
-      "transcript_segment": null,
-      "transcript_segment_ko": "지표 발표 후 시장 반응",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": -0.03,
-        "sp500": -0.02,
-        "oil": 0.0,
-        "gold": 0.0,
-        "btc": 0.0,
-        "eth": 0.0,
-        "short_bond": -0.0,
-        "bonds": -0.06
-      }
-    },
-    {
-      "rank": 8,
-      "time": "2026-04-03T21:44:00+09:00",
-      "peak_time": "2026-04-03T21:44:00+09:00",
-      "end_time": "2026-04-03T21:44:00+09:00",
-      "candle_count": 1,
-      "asset": "bonds",
-      "window_vol": 6.9019,
-      "video_offset_seconds": 0,
-      "youtube_url": null,
-      "transcript_segment": null,
-      "transcript_segment_ko": "지표 발표 후 시장 반응",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": 0.03,
-        "sp500": 0.01,
-        "oil": 0.0,
-        "gold": 0.0,
-        "btc": 0.0,
-        "eth": 0.0,
-        "short_bond": 0.01,
-        "bonds": 0.06
-      }
-    },
-    {
-      "rank": 9,
-      "time": "2026-04-03T21:49:00+09:00",
-      "peak_time": "2026-04-03T21:49:00+09:00",
-      "end_time": "2026-04-03T21:49:00+09:00",
-      "candle_count": 1,
-      "asset": "bonds",
-      "window_vol": 6.8932,
-      "video_offset_seconds": 0,
-      "youtube_url": null,
-      "transcript_segment": null,
-      "transcript_segment_ko": "지표 발표 후 시장 반응",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": -0.05,
-        "sp500": -0.05,
-        "oil": 0.0,
-        "gold": 0.0,
-        "btc": 0.0,
-        "eth": 0.0,
-        "short_bond": -0.01,
-        "bonds": -0.06
-      }
-    },
-    {
-      "rank": 10,
+      "rank": 6,
       "time": "2026-04-03T21:39:00+09:00",
       "peak_time": "2026-04-03T21:39:00+09:00",
       "end_time": "2026-04-03T21:40:00+09:00",
@@ -325,7 +229,7 @@
       }
     },
     {
-      "rank": 11,
+      "rank": 7,
       "time": "2026-04-03T21:37:00+09:00",
       "peak_time": "2026-04-03T21:37:00+09:00",
       "end_time": "2026-04-03T21:37:00+09:00",
@@ -346,150 +250,6 @@
         "eth": 0.0,
         "short_bond": 0.0,
         "bonds": -0.03
-      }
-    },
-    {
-      "rank": 12,
-      "time": "2026-04-03T21:49:00+09:00",
-      "peak_time": "2026-04-03T21:49:00+09:00",
-      "end_time": "2026-04-03T21:49:00+09:00",
-      "candle_count": 1,
-      "asset": "short_bond",
-      "window_vol": 3.2239,
-      "video_offset_seconds": 0,
-      "youtube_url": null,
-      "transcript_segment": null,
-      "transcript_segment_ko": "지표 발표 후 시장 반응",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": -0.05,
-        "sp500": -0.05,
-        "oil": 0.0,
-        "gold": 0.0,
-        "btc": 0.0,
-        "eth": 0.0,
-        "short_bond": -0.01,
-        "bonds": -0.06
-      }
-    },
-    {
-      "rank": 13,
-      "time": "2026-04-03T22:08:00+09:00",
-      "peak_time": "2026-04-03T22:08:00+09:00",
-      "end_time": "2026-04-03T22:08:00+09:00",
-      "candle_count": 1,
-      "asset": "short_bond",
-      "window_vol": 3.2233,
-      "video_offset_seconds": 0,
-      "youtube_url": null,
-      "transcript_segment": null,
-      "transcript_segment_ko": "지표 발표 후 시장 반응",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": -0.01,
-        "sp500": -0.01,
-        "oil": 0.0,
-        "gold": 0.0,
-        "btc": 0.0,
-        "eth": 0.0,
-        "short_bond": 0.01,
-        "bonds": 0.0
-      }
-    },
-    {
-      "rank": 14,
-      "time": "2026-04-03T21:49:00+09:00",
-      "peak_time": "2026-04-03T21:49:00+09:00",
-      "end_time": "2026-04-03T21:49:00+09:00",
-      "candle_count": 1,
-      "asset": "sp500",
-      "window_vol": 1.9069,
-      "video_offset_seconds": 0,
-      "youtube_url": null,
-      "transcript_segment": null,
-      "transcript_segment_ko": "지표 발표 후 시장 반응",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": -0.05,
-        "sp500": -0.05,
-        "oil": 0.0,
-        "gold": 0.0,
-        "btc": 0.0,
-        "eth": 0.0,
-        "short_bond": -0.01,
-        "bonds": -0.06
-      }
-    },
-    {
-      "rank": 15,
-      "time": "2026-04-03T22:01:00+09:00",
-      "peak_time": "2026-04-03T22:01:00+09:00",
-      "end_time": "2026-04-03T22:01:00+09:00",
-      "candle_count": 1,
-      "asset": "nasdaq",
-      "window_vol": 1.7122,
-      "video_offset_seconds": 0,
-      "youtube_url": null,
-      "transcript_segment": null,
-      "transcript_segment_ko": "지표 발표 후 시장 반응",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": 0.06,
-        "sp500": 0.03,
-        "oil": 0.0,
-        "gold": 0.0,
-        "btc": 0.0,
-        "eth": 0.0,
-        "short_bond": 0.0,
-        "bonds": -0.03
-      }
-    },
-    {
-      "rank": 16,
-      "time": "2026-04-03T22:12:00+09:00",
-      "peak_time": "2026-04-03T22:12:00+09:00",
-      "end_time": "2026-04-03T22:12:00+09:00",
-      "candle_count": 1,
-      "asset": "nasdaq",
-      "window_vol": 1.634,
-      "video_offset_seconds": 0,
-      "youtube_url": null,
-      "transcript_segment": null,
-      "transcript_segment_ko": "지표 발표 후 시장 반응",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": 0.06,
-        "sp500": 0.05,
-        "oil": 0.0,
-        "gold": 0.0,
-        "btc": 0.0,
-        "eth": 0.0,
-        "short_bond": 0.0,
-        "bonds": 0.0
-      }
-    },
-    {
-      "rank": 17,
-      "time": "2026-04-03T22:12:00+09:00",
-      "peak_time": "2026-04-03T22:12:00+09:00",
-      "end_time": "2026-04-03T22:12:00+09:00",
-      "candle_count": 1,
-      "asset": "sp500",
-      "window_vol": 1.5762,
-      "video_offset_seconds": 0,
-      "youtube_url": null,
-      "transcript_segment": null,
-      "transcript_segment_ko": "지표 발표 후 시장 반응",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": 0.06,
-        "sp500": 0.05,
-        "oil": 0.0,
-        "gold": 0.0,
-        "btc": 0.0,
-        "eth": 0.0,
-        "short_bond": 0.0,
-        "bonds": 0.0
       }
     }
   ],
@@ -677,21 +437,6 @@
         "time": "2026-04-03T21:39:00+09:00",
         "show": true,
         "change_pct": -0.07
-      },
-      {
-        "time": "2026-04-03T21:44:00+09:00",
-        "show": true,
-        "change_pct": -0.05
-      },
-      {
-        "time": "2026-04-03T21:49:00+09:00",
-        "show": true,
-        "change_pct": -0.06
-      },
-      {
-        "time": "2026-04-03T22:08:00+09:00",
-        "show": true,
-        "change_pct": -0.04
       }
     ],
     "bonds": [
@@ -699,21 +444,6 @@
         "time": "2026-04-03T21:30:00+09:00",
         "show": true,
         "change_pct": -0.25
-      },
-      {
-        "time": "2026-04-03T21:44:00+09:00",
-        "show": true,
-        "change_pct": -0.36
-      },
-      {
-        "time": "2026-04-03T21:49:00+09:00",
-        "show": true,
-        "change_pct": -0.36
-      },
-      {
-        "time": "2026-04-03T21:57:00+09:00",
-        "show": true,
-        "change_pct": -0.38
       }
     ],
     "sp500": [
@@ -726,16 +456,6 @@
         "time": "2026-04-03T21:37:00+09:00",
         "show": true,
         "change_pct": -0.12
-      },
-      {
-        "time": "2026-04-03T21:49:00+09:00",
-        "show": true,
-        "change_pct": -0.09
-      },
-      {
-        "time": "2026-04-03T22:12:00+09:00",
-        "show": true,
-        "change_pct": -0.13
       }
     ],
     "nasdaq": [
@@ -748,16 +468,6 @@
         "time": "2026-04-03T21:37:00+09:00",
         "show": true,
         "change_pct": -0.11
-      },
-      {
-        "time": "2026-04-03T22:01:00+09:00",
-        "show": true,
-        "change_pct": -0.14
-      },
-      {
-        "time": "2026-04-03T22:12:00+09:00",
-        "show": true,
-        "change_pct": -0.13
       }
     ]
   }
