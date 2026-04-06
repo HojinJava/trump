@@ -113,14 +113,33 @@ YouTube 자동 자막은 슬라이딩 윈도우 방식으로 생성되어 세그
 
 ```
 python collect.py                          # parse → plan → fetch → segments
-Claude CLI: archiving/{id}/raw.json 분석   # analysis.json 생성 (speech_end_kst 포함 필수)
+Claude CLI: archiving/{id}/zone_segments.json 분석   # analysis.json 생성
 python collect.py --build <event_id>       # build → data/{id}/event.json + index.json
 ```
 
 - `python collect.py` 실행 시 `archiving/{id}/zone_segments.json`이 자동 생성된다.
 - Claude CLI 분석 전에 이 파일을 참고하여 각 zone의 `transcript_segment`를 번역 키로 사용한다.
 
-### Claude CLI 분석 시 analysis.json 필수 포함 항목
+### Claude CLI 분석 시 analysis.json 필수 포함 항목 (YouTube 연설)
 - `speech_end_kst`: 연설 실제 종료 시각 (KST HH:MM) — raw.json의 segment real_time 마지막 값으로 확인
 - `segment_translations`: 연설 내 모든 고유 zone의 transcript_segment 전체 원문 → 한국어 번역 맵
 - `title_ko`, `speech_summary` (key_points, full_summary, market_impact_summary, price_changes 등)
+
+### Claude CLI 분석 시 analysis.json 필수 포함 항목 (경제 지표 발표)
+- `speech_end_kst`: 발표 시각 KST (zone_segments.json의 `release_kst` 값과 동일)
+- `category`: `"economic_indicator"`
+- `title_ko`: 한국어 제목 (예: "3월 미국 고용보고서 (NFP)")
+- `segment_translations` **불필요** — 트랜스크립트 없음
+- `speech_summary`: 발표 수치 해석 + 시장 반응 분석
+
+## 소스 타입별 파이프라인 차이
+
+| source | 트랜스크립트 | fetch 범위 | zone 텍스트 |
+|---|---|---|---|
+| `youtube_live` | YouTube 자막 | 연설 시작~종료+1h | 해당 구간 발언 |
+| `youtube_video` | YouTube 자막 | 연설 시작~종료+1h | 해당 구간 발언 |
+| `twitter` | 트윗 본문 | 트윗 시각±1h | 트윗 텍스트 |
+| `economic_release` | 없음 | 발표 시각±45분 | "지표 발표 후 시장 반응" |
+
+- `economic_release` 수집: `collect.py` 옵션 4 선택 → 지표명, 발표 시각, 실제값, 예상값 입력
+- extra 형식: `"NFP|2026-04-03 08:30 ET|178000|65000|151000"` (previous 선택)
