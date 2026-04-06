@@ -7,7 +7,8 @@
       "broadcast_at": "2026-04-02T10:01:58.399000+09:00",
       "source": "youtube_live",
       "trump_risk_score": 34,
-      "primary_target": "Iran"
+      "primary_target": "Iran",
+      "category": "trump_speech"
     },
     {
       "id": "fomc-20260318",
@@ -16,7 +17,8 @@
       "broadcast_at": "2026-03-19T03:00:00+09:00",
       "source": "youtube_live",
       "trump_risk_score": 14,
-      "primary_target": null
+      "primary_target": null,
+      "category": "economic_indicator"
     }
   ]
 }
