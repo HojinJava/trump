@@ -137,20 +137,6 @@
         "pre_time_kst": "06:51",
         "post_time_kst": "08:06"
       },
-      "short_bond": {
-        "pre_price": 104.3605,
-        "post_price": 104.3984,
-        "change_pct": 0.04,
-        "pre_time_kst": "06:51",
-        "post_time_kst": "09:03"
-      },
-      "bonds": {
-        "pre_price": 118.3107,
-        "post_price": 118.5625,
-        "change_pct": 0.21,
-        "pre_time_kst": "06:51",
-        "post_time_kst": "08:06"
-      },
       "nvda": {
         "pre_price": 185.0045,
         "post_price": 185.69,

@@ -36,6 +36,7 @@
 - **단일 진실 소스(SSoT)**: 같은 데이터를 여러 곳에 하드코딩하지 않는다.
   - 티커 정의(라벨·색상·설명)는 `tickers.json` 하나에만 존재한다.
   - 프론트엔드의 모든 섹션(요약·차트·랭킹 탭)은 `tickers.json`을 참조한다.
+- **이벤트 티커 필터는 `step_build`의 모든 출력에 일관 적용한다.** `archiving/{id}/tickers.json`이 존재하면 `top_volatility`, `chart_data.series`, `price_changes` **세 곳 모두** 해당 티커 목록으로 필터링해야 한다. 하나라도 누락되면 제거한 티커가 뷰어에 다시 노출된다.
 - **JSON 파일은 REST 엔드포인트처럼 설계한다.** `GET /tickers.json`, `GET /index.json`, `GET /data/{id}/event.json` 형태로 역할이 명확히 구분되어야 한다. 향후 실제 DB + API 서버로 교체할 때 각 JSON이 하나의 엔드포인트로 1:1 대응된다.
 - **스키마 메타정보는 `schema/` 에 유지한다.** JSON 구조가 바뀔 때마다 `schema/{파일명}.json`도 함께 업데이트한다. DB 마이그레이션 시 참조 목적이다.
 - **한국어는 `data/` 아래 JSON에만 존재한다.** `archiving/`의 원본 데이터는 수집된 그대로(영어) 보관한다. 번역·가공된 값은 `analysis.json` → `step_build` → `event.json` 흐름으로 생성된다.
