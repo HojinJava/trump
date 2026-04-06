@@ -21,6 +21,16 @@
       "category": "trump_speech"
     },
     {
+      "id": "DZozIvKlxLQ",
+      "title": "$NKE NIKE Q3 2026 Earnings Conference Call",
+      "title_ko": "나이키 Q3 FY2026 어닝콜 — 관세 역풍·중국 부진에 주가 10년 최저",
+      "broadcast_at": "2026-04-01T06:00:00+09:00",
+      "source": "youtube_video",
+      "trump_risk_score": 45,
+      "primary_target": "주주 신뢰 회복 및 턴어라운드 진척 커뮤니케이션",
+      "category": "corporate_earnings"
+    },
+    {
       "id": "fomc-20260318",
       "title": "LIVE: Federal Reserve Chair Powell holds press conference after FOMC rate decision | NBC News",
       "title_ko": "LIVE: 연준 파월 의장, FOMC 금리 결정 이후 기자회견 | NBC 뉴스",
