@@ -58,10 +58,12 @@
 - **발언 매핑**: zone 시작 시각이 아닌 **피크 캔들(z-score 최고점) 시각** 기준으로 트랜스크립트 세그먼트 매핑
 - **market_moves 표시**: 피크 캔들 기준 등락률
 - **차트 자산 필터링**: 방송 기간(broadcast_at ~ end_utc) 중 고유 타임스탬프가 **5개 이상**이고, 방송 시작 30분 이내에 첫 데이터가 존재하는 자산만 차트에 포함.
+- **economic_release top_volatility 필터**: `step_build`에서 `economic_release` 이벤트의 `top_volatility`는 차트 윈도우(broadcast_at ~ broadcast_at+10분) 내 zone만 포함한다. 필터 후 rank를 1부터 재번호한다. 차트에 보이지 않는 구간의 랭킹은 삭제한다.
 - **차트 시간 범위 트림**: `step_build`에서 chart_data를 구성할 때, 뒤쪽에 변동성이 없는(flat) 구간은 제거한다. 기준: 마지막 `top_volatility` zone의 `end_time` 이후로 모든 자산의 가격 변동이 미미한 구간은 여유 30분만 남기고 잘라낸다.
-- **모든 티커는 24시간 거래 가능한 선물(Futures) 종목으로 수집한다.** ETF·주식 종목은 미국 장중에만 데이터가 있어 KST 오전 발언 시 데이터 공백이 발생하므로 사용하지 않는다.
-  - ✅ 허용: CME 선물 (NQ, CL, GC, ZB, BTC, ETH 등), 국내 지수 (코스피 등)
-  - ❌ 금지: 미국 ETF (IBIT, ETHA, TLT 등), 미국 주식
+- **기본 티커는 24시간 거래 가능한 선물(Futures) 종목으로 수집한다.** ETF·주식 종목은 미국 장중에만 데이터가 있어 KST 오전 발언 시 데이터 공백이 발생하므로 기본 프로필에서는 사용하지 않는다.
+  - ✅ 허용 (기본): CME 선물 (NQ, CL, GC, ZB, BTC, ETH 등), 국내 지수 (코스피 등)
+  - ❌ 금지 (기본): 미국 ETF (IBIT, ETHA, TLT 등), 일반 미국 주식
+  - ✅ 허용 (tech_ai 프로필): 미국 장 마감 후 이벤트(어닝콜 등)에 한해 반도체 주식(GOOGL/MU/AMD/AVGO) 예외 허용 — Yahoo Finance `prepost=True`로 애프터마켓 데이터 수집
   - 티커 기준: `tickers.json`의 `desc_ko` 참조
 - **KIS API 미제공 시 Yahoo Finance로 우회**: KIS API가 과거 분봉을 지원하지 않는 자산(예: 코스피 지수 — `inquire-time-indexchartprice`는 당일만 지원)은 **Yahoo Finance REST API**로 수집한다.
   - 엔드포인트: `https://query1.finance.yahoo.com/v8/finance/chart/{symbol}?interval=1m&period1={unix}&period2={unix}`
@@ -127,8 +129,10 @@ python collect.py --build <event_id>       # build → data/{id}/event.json + in
 
 ### Claude CLI 분석 시 analysis.json 필수 포함 항목 (경제 지표 발표)
 - `speech_end_kst`: 발표 시각 KST (zone_segments.json의 `release_kst` 값과 동일)
-- `category`: `"economic_indicator"`
-- `title_ko`: 한국어 제목 (예: "3월 미국 고용보고서 (NFP)")
+- `category`: 지표 종류에 따라 선택
+  - 고용보고서(NFP), 실업률 등: `"employment"`
+  - FOMC, CPI, PPI, GDP 등: `"economic_indicator"`
+- `title_ko`: 한국어 제목 (예: "3월 미국 고용보고서 (NFP +178K)")
 - `segment_translations` **불필요** — 트랜스크립트 없음
 - `speech_summary`: 발표 수치 해석 + 시장 반응 분석
 

@@ -29,6 +29,16 @@
       "trump_risk_score": 14,
       "primary_target": null,
       "category": "economic_indicator"
+    },
+    {
+      "id": "0saM9rLGj0Y",
+      "title": "Nvidia Q4 FY26 Earnings Call | $NVDA | 🔴 WATCH LIVE",
+      "title_ko": "NVIDIA Q4 FY26 실적발표 어닝콜",
+      "broadcast_at": "2026-02-27T06:51:00+09:00",
+      "source": "youtube_video",
+      "trump_risk_score": 81,
+      "primary_target": "",
+      "category": "corporate_earnings"
     }
   ]
 }

@@ -47,6 +47,30 @@
       "label_ko": "미국 30년 국채",
       "color": "#64748b",
       "desc_ko": "미국 30년 국채 선물 (CME: ZB)"
+    },
+    "googl": {
+      "label": "GOOGL",
+      "label_ko": "구글",
+      "color": "#4285f4",
+      "desc_ko": "알파벳(구글) 주식 — 반도체/AI 수요 (NASDAQ: GOOGL, 애프터마켓 포함)"
+    },
+    "mu": {
+      "label": "MU",
+      "label_ko": "마이크론",
+      "color": "#0e76bd",
+      "desc_ko": "마이크론 테크놀로지 — HBM/DRAM (NASDAQ: MU, 애프터마켓 포함)"
+    },
+    "amd": {
+      "label": "AMD",
+      "label_ko": "AMD",
+      "color": "#ed1c24",
+      "desc_ko": "어드밴스드 마이크로 디바이시스 — GPU/CPU (NASDAQ: AMD, 애프터마켓 포함)"
+    },
+    "avgo": {
+      "label": "AVGO",
+      "label_ko": "브로드컴",
+      "color": "#dc6b19",
+      "desc_ko": "브로드컴 — AI 반도체/네트워크칩 (NASDAQ: AVGO, 애프터마켓 포함)"
     }
   }
 }
