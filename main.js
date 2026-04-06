@@ -5,7 +5,7 @@ const TICKERS_URL = './tickers.json';
 const CATEGORIES = {
   all:                { label: '전체' },
   trump_speech:       { label: '<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/flags/4x3/us.svg" width="18" height="13" style="vertical-align:-2px;border-radius:2px"> 트럼프' },
-  economic_indicator: { label: '📊 경제 지표' },
+  economic_indicator: { label: '<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/flags/4x3/us.svg" width="18" height="13" style="vertical-align:-2px;border-radius:2px"> FOMC' },
 };
 
 // 티커 설정 (tickers.json에서 로드 — REST /tickers 엔드포인트 역할)
