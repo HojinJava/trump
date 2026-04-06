@@ -5,6 +5,10 @@
 !.gitignore
 !README.md
 !CLAUDE.md
+
+# 이벤트 유형별 파이프라인 지침서
+!docs/
+!docs/CLAUDE-*.md
 !index.json
 !index.html
 !main.js

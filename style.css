@@ -303,12 +303,16 @@ header .subtitle {
 
 /* ── Chart ────────────────────────────────── */
 .chart-wrap {
-  position: relative;
-  height: 320px;
+  overflow-x: auto;
   margin-bottom: 20px;
   background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 6px;
+}
+.chart-inner {
+  position: relative;
+  height: 320px;
+  min-width: 600px;
   padding: 12px;
 }
 

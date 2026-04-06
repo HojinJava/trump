@@ -159,7 +159,9 @@ function renderEventDetail(id, event) {
     ${renderIndices(event.indices, event.category, event.earnings_release)}
     ${renderSummary(event)}
     <div class="chart-wrap">
-      <canvas id="chart-${escHtml(id)}"></canvas>
+      <div class="chart-inner" style="min-width:${Math.max(600, (event.chart_data?.times?.length || 0) * 6)}px">
+        <canvas id="chart-${escHtml(id)}"></canvas>
+      </div>
     </div>
     <div class="vol-ranking-header">변동성 순위</div>
     <div class="vol-tabs" data-event="${escHtml(id)}">
@@ -170,7 +172,12 @@ function renderEventDetail(id, event) {
     </div>
     <ul class="volatility-list" id="vol-list-${escHtml(id)}">
       ${renderVolItems(volItems, '전체', id, event.tickers)}
-    </ul>`;
+    </ul>
+    ${event.top_volatility_release?.length ? `
+    <div class="vol-ranking-header">실적 발표 전후 변동성 순위 <span style="font-size:11px;font-weight:400;color:var(--muted);margin-left:6px">±10분</span></div>
+    <ul class="volatility-list" id="vol-list-release-${escHtml(id)}">
+      ${renderVolItems(event.top_volatility_release, '전체', id, event.tickers)}
+    </ul>` : ''}`;
   // vol-item hover → chart highlight (차트 초기화 후 바인딩)
   requestAnimationFrame(() => bindVolItemHovers(id));
 }
@@ -733,6 +740,20 @@ function renderSummary(event) {
       </div>`;
   }).join('');
 
+  // 어닝콜 전용: 실발 ±20분 가격변동
+  const pcRelease = event.price_changes_release || {};
+  const pcReleaseEntries = Object.entries(pcRelease);
+  const erKST = event.earnings_release?.release_time_kst?.slice(11, 16) || '';
+  const priceReleaseRows = pcReleaseEntries.map(([asset, v]) => {
+    const cls = v.change_pct > 0 ? 'vol-change-pos' : v.change_pct < 0 ? 'vol-change-neg' : 'vol-change-neu';
+    const sign = v.change_pct > 0 ? '+' : '';
+    return `
+      <div class="price-change-row">
+        <span class="price-asset">${TICKERS[asset]?.label || asset.toUpperCase()}</span>
+        <span class="${cls} price-pct">${sign}${v.change_pct.toFixed(2)}%</span>
+      </div>`;
+  }).join('');
+
   const speechStart = s.broadcast_start_kst || '';
   const speechEnd   = s.speech_end_kst || '';
   let durationMin = null;
@@ -754,6 +775,7 @@ function renderSummary(event) {
       ${s.full_summary ? `<p class="summary-full">${escHtml(s.full_summary)}</p>` : ''}
       <ul class="summary-points">${points}</ul>
       ${priceRows ? `<div class="summary-price-section"><div class="summary-price-title">발언 전후 주가 변동${priceTimeLabel}</div>${priceRows}</div>` : ''}
+      ${priceReleaseRows ? `<div class="summary-price-section"><div class="summary-price-title">실적 발표 전후 주가 변동 (±20분${erKST ? ` · 기준 ${escHtml(erKST)} KST` : ''})</div>${priceReleaseRows}</div>` : ''}
       ${s.market_impact_summary ? `<div class="summary-impact">${escHtml(s.market_impact_summary)}</div>` : ''}
     </div>`;
 }
