@@ -436,7 +436,8 @@ function initChart(eventId, event) {
     },
   };
 
-  // 연설 시작/종료 실선
+  // 연설 시작/종료 (또는 발표 시점) 실선
+  const isEconomicRelease = event.source === 'economic_release';
   const broadcastHHMM = event.broadcast_at?.slice(11, 16);
   const pc = event.speech_summary?.price_changes || {};
   const speechEndHHMM = event.speech_summary?.speech_end_kst;
@@ -456,7 +457,10 @@ function initChart(eventId, event) {
       ctx.font = '10px -apple-system, sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      [[speechStartIdx, '연설 시작'], [speechEndIdx, '연설 종료']].forEach(([idx, label]) => {
+      const markers = isEconomicRelease
+        ? [[speechStartIdx, '발표']]
+        : [[speechStartIdx, '연설 시작'], [speechEndIdx, '연설 종료']];
+      markers.forEach(([idx, label]) => {
         if (idx < 0) return;
         const x = chart.scales.x.getPixelForValue(idx);
         ctx.beginPath();
