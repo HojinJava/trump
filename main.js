@@ -497,10 +497,75 @@ function initChart(eventId, event) {
     },
   };
 
+  // 마우스 위치 추적
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    canvas._mousePos = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  });
+  canvas.addEventListener('mouseleave', () => { canvas._mousePos = null; });
+
+  const lineHoverLabelPlugin = {
+    id: 'lineHoverLabel',
+    afterDraw(chart) {
+      const active = chart.tooltip?._active;
+      if (!active?.length) return;
+      const mouse = canvas._mousePos;
+      if (!mouse) return;
+
+      const xIdx = active[0].dataIndex;
+
+      // 마우스 y 위치에 가장 가까운 데이터셋 탐색
+      let nearestIdx = null;
+      let minDist = Infinity;
+      chart.data.datasets.forEach((_, i) => {
+        const meta = chart.getDatasetMeta(i);
+        if (!meta.visible) return;
+        const pt = meta.data[xIdx];
+        if (!pt || pt.parsed?.y == null) return;
+        const d = Math.abs(pt.y - mouse.y);
+        if (d < minDist) { minDist = d; nearestIdx = i; }
+      });
+
+      if (nearestIdx == null) return;
+
+      const ds  = chart.data.datasets[nearestIdx];
+      const meta = chart.getDatasetMeta(nearestIdx);
+      const pt   = meta.data[xIdx];
+      const { right, top, bottom } = chart.chartArea;
+      const ctx  = chart.ctx;
+
+      ctx.save();
+      const label = ds.label;
+      ctx.font = 'bold 11px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+      const tw = ctx.measureText(label).width;
+      const pad = 6, boxH = 20, boxW = tw + pad * 2;
+
+      // 커서 오른쪽에 배치, 차트 경계 초과 시 왼쪽으로
+      let lx = pt.x + 12;
+      let ly = pt.y - boxH / 2;
+      if (lx + boxW > right) lx = pt.x - boxW - 12;
+      ly = Math.max(top, Math.min(bottom - boxH, ly));
+
+      // 배경 박스
+      ctx.fillStyle = ds.borderColor;
+      ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(lx, ly, boxW, boxH, 4);
+      else ctx.rect(lx, ly, boxW, boxH);
+      ctx.fill();
+
+      // 텍스트
+      ctx.fillStyle = '#fff';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(label, lx + pad, ly + boxH / 2);
+      ctx.restore();
+    },
+  };
+
   const chart = new Chart(canvas, {
     type: 'line',
     data: { labels: allTimes.map(t => t.slice(11, 16)), datasets },
-    plugins: [speechLinesPlugin, zoneHighlightPlugin, crosshairPlugin],
+    plugins: [speechLinesPlugin, zoneHighlightPlugin, crosshairPlugin, lineHoverLabelPlugin],
     options: {
       responsive: true,
       maintainAspectRatio: false,
