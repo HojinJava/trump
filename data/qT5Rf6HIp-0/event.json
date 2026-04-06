@@ -4,6 +4,7 @@
   "url": "https://www.youtube.com/watch?v=qT5Rf6HIp-0",
   "title": "LIVE: Trump addresses the nation on the Iran war | NBC News",
   "title_ko": "LIVE: 트럼프, 이란 전쟁 관련 국민 담화 발표 | NBC 뉴스",
+  "category": "trump_speech",
   "broadcast_at": "2026-04-02T10:01:58.399000+09:00",
   "duration_seconds": 3065,
   "transcript": ">> Thank you very much, my fellow >> Thank you very much, my fellow Americans. Good evening. Let me begin by Americans. Good evening. Let me begin by Americans. Good evening. Let me begin by congratulating the team at NASA and our congratulating the team at NASA and our congratulating the team at NASA and our brave astronauts on the successful brave astronauts on the successful brave astronauts on the successful launch of Artemis 2. It was quite launch of Artemis 2. It was quite launch of Artemis 2. It was quite something. It will be traveling further something. It will be traveling further something. It will be traveling further than any manned rocket has ever flown than any manned rocket has ever flown than any manned rocket has ever flown and will very substantially pass the and will very substantially pass the and will very substantially pass the moon, go around it and come back home moon, go around it and come back home moon, go around it and come back home from a distance that has never been done from a distance that has never been done from a distance that has never been done before. It's amazing. before. It's amazing. before. It's amazing. They are on the way and God bless them. They are on the way and God bless them. They are on the way and God bless them. These are brave people. We want to God These are brave people. We want to God These are brave people. We want to God bless those four unbelievable bless those four unbelievable bless those four unbelievable astronauts. astronauts. astronauts. As we speak this evening, it's been just As we speak this evening, it's been just As we speak this evening, it's been just one month since the United States one month since the United States one month since the United States military began operation military began operation military began operation epic fury targeting the world's number epic fury targeting the world's number epic fury targeting the world's number one state sponsor of terror, Iran. In one state sponso",
@@ -447,52 +448,6 @@
     },
     {
       "rank": 13,
-      "time": "2026-04-02T10:34:00+09:00",
-      "peak_time": "2026-04-02T10:34:00+09:00",
-      "end_time": "2026-04-02T10:34:00+09:00",
-      "candle_count": 1,
-      "asset": "gold",
-      "window_vol": 14.617,
-      "video_offset_seconds": 1720,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
-      "transcript_segment": null,
-      "transcript_segment_ko": "연설 종료 후 시장 반응 구간",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": 0.1,
-        "oil": -0.3,
-        "gold": 0.42,
-        "btc": 0.0,
-        "eth": 0.0,
-        "bonds": 0.03,
-        "kospi": 0.38
-      }
-    },
-    {
-      "rank": 14,
-      "time": "2026-04-02T10:03:00+09:00",
-      "peak_time": "2026-04-02T10:03:00+09:00",
-      "end_time": "2026-04-02T10:03:00+09:00",
-      "candle_count": 1,
-      "asset": "gold",
-      "window_vol": 14.2285,
-      "video_offset_seconds": 643,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=643",
-      "transcript_segment": "They are on the way and God bless them. These are brave people. We want to God bless those four unbelievable astronauts. As we speak this evening, it's been just one month since the United States military began operation epic fury targeting the world's number one state sponsor of terror, Iran. In these past four weeks, our armed forces have delivered swift, decisive, overwhelming victories on the battlefield. Victories like few people have ever seen before. Tonight, Iran's navy is gone. Their air forces in ruins. Their leaders, most of them terrorist regime they led are now dead. Their command and control of the Islamic Revolutionary Guard Corps is being decimated as we speak. Their ability to",
-      "transcript_segment_ko": "NASA 아르테미스 2호 우주비행사를 축하하며 연설을 시작했다. Operation Epic Fury 1개월 성과로 이란 해군 전멸·공군 폐허·지도부 대부분 사망·IRGC 지휘체계 와해가 진행 중임을 보고했다.",
-      "is_post_speech": false,
-      "market_moves": {
-        "nasdaq": -0.24,
-        "oil": 0.83,
-        "gold": -0.41,
-        "btc": 0.0,
-        "eth": 0.0,
-        "bonds": -0.08,
-        "kospi": -0.4
-      }
-    },
-    {
-      "rank": 15,
       "time": "2026-04-02T10:17:00+09:00",
       "peak_time": "2026-04-02T10:17:00+09:00",
       "end_time": "2026-04-02T10:18:00+09:00",
@@ -515,7 +470,7 @@
       }
     },
     {
-      "rank": 16,
+      "rank": 14,
       "time": "2026-04-02T11:07:00+09:00",
       "peak_time": "2026-04-02T11:07:00+09:00",
       "end_time": "2026-04-02T11:08:00+09:00",
@@ -538,7 +493,30 @@
       }
     },
     {
-      "rank": 17,
+      "rank": 15,
+      "time": "2026-04-02T10:30:00+09:00",
+      "peak_time": "2026-04-02T10:31:00+09:00",
+      "end_time": "2026-04-02T10:32:00+09:00",
+      "candle_count": 3,
+      "asset": "gold",
+      "window_vol": 13.2434,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": null,
+      "transcript_segment_ko": "연설 종료 후 시장 반응 구간",
+      "is_post_speech": true,
+      "market_moves": {
+        "nasdaq": -0.06,
+        "oil": 0.51,
+        "gold": -0.26,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": -0.03,
+        "kospi": -0.04
+      }
+    },
+    {
+      "rank": 16,
       "time": "2026-04-02T10:30:00+09:00",
       "peak_time": "2026-04-02T10:31:00+09:00",
       "end_time": "2026-04-02T10:31:00+09:00",
@@ -561,72 +539,95 @@
       }
     },
     {
-      "rank": 18,
-      "time": "2026-04-02T10:03:00+09:00",
-      "peak_time": "2026-04-02T10:03:00+09:00",
-      "end_time": "2026-04-02T10:03:00+09:00",
-      "candle_count": 1,
-      "asset": "nasdaq",
-      "window_vol": 12.3598,
-      "video_offset_seconds": 643,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=643",
-      "transcript_segment": "They are on the way and God bless them. These are brave people. We want to God bless those four unbelievable astronauts. As we speak this evening, it's been just one month since the United States military began operation epic fury targeting the world's number one state sponsor of terror, Iran. In these past four weeks, our armed forces have delivered swift, decisive, overwhelming victories on the battlefield. Victories like few people have ever seen before. Tonight, Iran's navy is gone. Their air forces in ruins. Their leaders, most of them terrorist regime they led are now dead. Their command and control of the Islamic Revolutionary Guard Corps is being decimated as we speak. Their ability to",
-      "transcript_segment_ko": "NASA 아르테미스 2호 우주비행사를 축하하며 연설을 시작했다. Operation Epic Fury 1개월 성과로 이란 해군 전멸·공군 폐허·지도부 대부분 사망·IRGC 지휘체계 와해가 진행 중임을 보고했다.",
-      "is_post_speech": false,
+      "rank": 17,
+      "time": "2026-04-02T11:38:00+09:00",
+      "peak_time": "2026-04-02T11:40:00+09:00",
+      "end_time": "2026-04-02T11:40:00+09:00",
+      "candle_count": 3,
+      "asset": "gold",
+      "window_vol": 9.5167,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": null,
+      "transcript_segment_ko": "연설 종료 후 시장 반응 구간",
+      "is_post_speech": true,
       "market_moves": {
-        "nasdaq": -0.24,
-        "oil": 0.83,
-        "gold": -0.41,
+        "nasdaq": 0.03,
+        "oil": -0.03,
+        "gold": 0.25,
         "btc": 0.0,
         "eth": 0.0,
-        "bonds": -0.08,
-        "kospi": -0.4
+        "bonds": 0.0,
+        "kospi": 0.24
+      }
+    },
+    {
+      "rank": 18,
+      "time": "2026-04-02T11:11:00+09:00",
+      "peak_time": "2026-04-02T11:11:00+09:00",
+      "end_time": "2026-04-02T11:12:00+09:00",
+      "candle_count": 2,
+      "asset": "gold",
+      "window_vol": 9.4315,
+      "video_offset_seconds": 1720,
+      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
+      "transcript_segment": null,
+      "transcript_segment_ko": "연설 종료 후 시장 반응 구간",
+      "is_post_speech": true,
+      "market_moves": {
+        "nasdaq": -0.07,
+        "oil": 0.14,
+        "gold": -0.31,
+        "btc": 0.0,
+        "eth": 0.0,
+        "bonds": -0.03,
+        "kospi": -0.11
       }
     },
     {
       "rank": 19,
-      "time": "2026-04-02T10:39:00+09:00",
-      "peak_time": "2026-04-02T10:39:00+09:00",
-      "end_time": "2026-04-02T10:39:00+09:00",
-      "candle_count": 1,
+      "time": "2026-04-02T10:29:00+09:00",
+      "peak_time": "2026-04-02T10:30:00+09:00",
+      "end_time": "2026-04-02T10:30:00+09:00",
+      "candle_count": 2,
       "asset": "bonds",
-      "window_vol": 10.4883,
+      "window_vol": 8.7946,
       "video_offset_seconds": 1720,
       "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
       "transcript_segment": null,
       "transcript_segment_ko": "연설 종료 후 시장 반응 구간",
       "is_post_speech": true,
       "market_moves": {
-        "nasdaq": 0.07,
-        "oil": -0.28,
-        "gold": 0.19,
+        "nasdaq": -0.14,
+        "oil": 0.38,
+        "gold": -0.24,
         "btc": 0.0,
         "eth": 0.0,
-        "bonds": 0.08,
-        "kospi": -0.17
+        "bonds": -0.06,
+        "kospi": -0.82
       }
     },
     {
       "rank": 20,
-      "time": "2026-04-02T10:24:00+09:00",
-      "peak_time": "2026-04-02T10:24:00+09:00",
-      "end_time": "2026-04-02T10:24:00+09:00",
-      "candle_count": 1,
-      "asset": "oil",
-      "window_vol": 10.0533,
+      "time": "2026-04-02T10:54:00+09:00",
+      "peak_time": "2026-04-02T10:54:00+09:00",
+      "end_time": "2026-04-02T10:55:00+09:00",
+      "candle_count": 2,
+      "asset": "kospi",
+      "window_vol": 7.6815,
       "video_offset_seconds": 1720,
       "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
       "transcript_segment": null,
       "transcript_segment_ko": "연설 종료 후 시장 반응 구간",
       "is_post_speech": true,
       "market_moves": {
-        "nasdaq": -0.03,
-        "oil": 0.57,
-        "gold": -0.17,
+        "nasdaq": -0.01,
+        "oil": 0.03,
+        "gold": 0.0,
         "btc": 0.0,
-        "eth": 0.0,
-        "bonds": -0.03,
-        "kospi": 0.13
+        "eth": -0.06,
+        "bonds": 0.03,
+        "kospi": -0.28
       }
     }
   ],
@@ -1668,11 +1669,6 @@
         "change_pct": 4.09
       },
       {
-        "time": "2026-04-02T10:24:00+09:00",
-        "show": true,
-        "change_pct": 4.79
-      },
-      {
         "time": "2026-04-02T10:31:00+09:00",
         "show": true,
         "change_pct": 5.48
@@ -1710,6 +1706,11 @@
         "change_pct": -4.31
       },
       {
+        "time": "2026-04-02T10:54:00+09:00",
+        "show": true,
+        "change_pct": -4.05
+      },
+      {
         "time": "2026-04-02T11:07:00+09:00",
         "show": true,
         "change_pct": -4.13
@@ -1727,34 +1728,34 @@
         "change_pct": -0.41
       },
       {
-        "time": "2026-04-02T10:39:00+09:00",
+        "time": "2026-04-02T10:30:00+09:00",
         "show": true,
-        "change_pct": -0.49
+        "change_pct": -0.52
       }
     ],
     "gold": [
-      {
-        "time": "2026-04-02T10:03:00+09:00",
-        "show": true,
-        "change_pct": -0.46
-      },
       {
         "time": "2026-04-02T10:25:00+09:00",
         "show": true,
         "change_pct": -1.46
       },
       {
-        "time": "2026-04-02T10:34:00+09:00",
+        "time": "2026-04-02T10:31:00+09:00",
         "show": true,
-        "change_pct": -1.85
+        "change_pct": -2.05
+      },
+      {
+        "time": "2026-04-02T11:11:00+09:00",
+        "show": true,
+        "change_pct": -1.89
+      },
+      {
+        "time": "2026-04-02T11:40:00+09:00",
+        "show": true,
+        "change_pct": -2.06
       }
     ],
     "nasdaq": [
-      {
-        "time": "2026-04-02T10:03:00+09:00",
-        "show": true,
-        "change_pct": -0.27
-      },
       {
         "time": "2026-04-02T10:17:00+09:00",
         "show": true,
