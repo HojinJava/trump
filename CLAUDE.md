@@ -141,6 +141,31 @@ python collect.py --build <event_id>       # build → data/{id}/event.json + in
 
 - `speech_summary.trump_risk_score` (0-100): 트럼프 외 이벤트는 이 값을 직접 지정. 파이프라인이 `rage * 0.4 + trade_war * 0.3 + chaos * 0.3` 공식 대신 이 값을 사용.
 
+### Claude CLI 분석 시 analysis.json 필수 포함 항목 (어닝콜 전용 추가 필드)
+
+`corporate_earnings` 이벤트는 실적 발표 정보를 별도로 포함한다.
+
+```json
+"earnings_release": {
+  "release_time_utc": "YYYY-MM-DDTHH:MM:00+00:00",  // 보도자료 배포 시각 (UTC)
+  "eps": {
+    "actual": 0.89,
+    "estimate": 0.84,
+    "surprise_pct": 5.95
+  },
+  "revenue": {
+    "actual": 39.3,
+    "estimate": 38.1,
+    "unit": "B USD",
+    "surprise_pct": 3.15
+  },
+  "guidance_text": "다음 분기 가이던스 설명 (한국어)"
+}
+```
+
+- 프론트엔드는 corporate_earnings 이벤트에서 indices 카드 대신 이 표를 렌더링한다.
+- 차트에 수직선 3개 표시: 실적 발표(황색), 어닝콜 시작(적색), 어닝콜 종료(보라)
+
 ### Claude CLI 분석 시 analysis.json 필수 포함 항목 (YouTube 연설)
 - `speech_end_kst`: 연설 실제 종료 시각 (KST HH:MM) — raw.json의 segment real_time 마지막 값으로 확인
 - `segment_translations`: 연설 내 모든 고유 zone의 transcript_segment 전체 원문 → 한국어 번역 맵

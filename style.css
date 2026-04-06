@@ -222,6 +222,85 @@ header .subtitle {
   white-space: nowrap;
 }
 
+/* ── Earnings Release Table ───────────────── */
+.earnings-release-table {
+  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+
+.er-header {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.er-time {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-left: 6px;
+}
+
+.er-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.er-table th {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-align: right;
+  padding: 2px 8px 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.er-table th:first-child { text-align: left; }
+
+.er-table td {
+  padding: 6px 8px;
+  text-align: right;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.er-label {
+  text-align: left !important;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.er-actual {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.er-est {
+  color: var(--muted);
+}
+
+.surprise-pct {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.surprise-pct.pos { color: #16a34a; }
+.surprise-pct.neg { color: #dc2626; }
+
+.er-guidance {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+}
+
 /* ── Chart ────────────────────────────────── */
 .chart-wrap {
   position: relative;

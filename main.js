@@ -156,7 +156,7 @@ function renderEventDetail(id, event) {
   const tabs = ['전체', ...orderedAssets];
 
   detailEl.innerHTML = `
-    ${renderIndices(event.indices, event.category)}
+    ${renderIndices(event.indices, event.category, event.earnings_release)}
     ${renderSummary(event)}
     <div class="chart-wrap">
       <canvas id="chart-${escHtml(id)}"></canvas>
@@ -196,8 +196,45 @@ function bindVolTabs(id, event) {
   });
 }
 
-function renderIndices(indices, category) {
+function renderEarningsRelease(er) {
+  if (!er) return '';
+  const fmt = (v, unit) => v != null ? `${v}${unit ? ' ' + unit : ''}` : '-';
+  const surpFmt = v => v != null
+    ? `<span class="surprise-pct ${v >= 0 ? 'pos' : 'neg'}">${v >= 0 ? '+' : ''}${v}%</span>`
+    : '';
+  const releaseKst = er.release_time_kst ? er.release_time_kst.slice(11, 16) : '-';
+  const eps = er.eps || {};
+  const rev = er.revenue || {};
+  return `<div class="earnings-release-table">
+    <div class="er-header">실적 발표 <span class="er-time">${releaseKst} KST</span></div>
+    <table class="er-table">
+      <thead><tr><th></th><th>실제</th><th>예상</th><th>서프라이즈</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="er-label">EPS</td>
+          <td class="er-actual">${fmt(eps.actual, '')}</td>
+          <td class="er-est">${fmt(eps.estimate, '')}</td>
+          <td>${surpFmt(eps.surprise_pct)}</td>
+        </tr>
+        <tr>
+          <td class="er-label">매출</td>
+          <td class="er-actual">${fmt(rev.actual, rev.unit || '')}</td>
+          <td class="er-est">${fmt(rev.estimate, rev.unit || '')}</td>
+          <td>${surpFmt(rev.surprise_pct)}</td>
+        </tr>
+      </tbody>
+    </table>
+    ${er.guidance_text ? `<div class="er-guidance">📌 ${escHtml(er.guidance_text)}</div>` : ''}
+  </div>`;
+}
+
+function renderIndices(indices, category, earningsRelease) {
   if (!indices) return '';
+
+  // corporate_earnings: 실적발표 표로 대체
+  if (category === 'corporate_earnings') {
+    return renderEarningsRelease(earningsRelease);
+  }
 
   const keywords = indices.keywords || [];
   const keywordHtml = keywords.length
@@ -205,13 +242,12 @@ function renderIndices(indices, category) {
     : '<span class="index-value">-</span>';
 
   // 카테고리별 레이블
-  const isFomc    = category === 'economic_indicator' || category === 'employment';
-  const isEarning = category === 'corporate_earnings';
+  const isFomc = category === 'economic_indicator' || category === 'employment';
   const labels = {
-    rage:    isFomc ? '매파 강도' : isEarning ? '확신도'      : '감정 온도',
-    trade:   isFomc ? '정책 충격' : isEarning ? '가이던스 강도' : '무역 공격성',
-    brag:    isFomc ? '경제 낙관' : isEarning ? '성과 자신감'  : '시장 자랑',
-    target:  isFomc ? '정책 포커스' : isEarning ? '핵심 사업'  : '주요 타깃',
+    rage:   isFomc ? '매파 강도'   : '감정 온도',
+    trade:  isFomc ? '정책 충격'   : '무역 공격성',
+    brag:   isFomc ? '경제 낙관'   : '시장 자랑',
+    target: isFomc ? '정책 포커스' : '주요 타깃',
   };
 
   const items = [
@@ -449,13 +485,35 @@ function initChart(eventId, event) {
     },
   };
 
-  // 연설 시작/종료 (또는 발표 시점) 실선
-  const isEconomicRelease = event.source === 'economic_release';
-  const broadcastHHMM = event.broadcast_at?.slice(11, 16);
-  const pc = event.speech_summary?.price_changes || {};
-  const speechEndHHMM = event.speech_summary?.speech_end_kst;
-  const speechStartIdx = allTimes.findIndex(t => t.slice(11, 16) === broadcastHHMM);
-  const speechEndIdx   = allTimes.findIndex(t => t.slice(11, 16) === speechEndHHMM);
+  // 이벤트 시각 수직선 마커
+  const isEconomicRelease  = event.source === 'economic_release';
+  const isEarnings         = event.category === 'corporate_earnings';
+  const broadcastHHMM      = event.broadcast_at?.slice(11, 16);
+  const speechEndHHMM      = event.speech_summary?.speech_end_kst;
+  const er                 = event.earnings_release;
+  const erHHMM             = er?.release_time_kst?.slice(11, 16);
+
+  const _findIdx = hhmm => hhmm ? allTimes.findIndex(t => t.slice(11, 16) === hhmm) : -1;
+  const speechStartIdx = _findIdx(broadcastHHMM);
+  const speechEndIdx   = _findIdx(speechEndHHMM);
+  const erIdx          = _findIdx(erHHMM);
+
+  // markers: [idx, label, color]
+  let eventMarkers;
+  if (isEconomicRelease) {
+    eventMarkers = [[speechStartIdx, '발표', '#ef4444']];
+  } else if (isEarnings) {
+    eventMarkers = [
+      [erIdx,          '실적 발표',   '#f59e0b'],
+      [speechStartIdx, '어닝콜 시작', '#ef4444'],
+      [speechEndIdx,   '어닝콜 종료', '#6366f1'],
+    ];
+  } else {
+    eventMarkers = [
+      [speechStartIdx, '연설 시작', '#ef4444'],
+      [speechEndIdx,   '연설 종료', '#6366f1'],
+    ];
+  }
 
   const speechLinesPlugin = {
     id: 'speechLines',
@@ -464,30 +522,28 @@ function initChart(eventId, event) {
       const top    = chart.chartArea.top;
       const bottom = chart.chartArea.bottom;
       ctx.save();
-      ctx.strokeStyle = 'rgba(239, 68, 68, 0.7)';
-      ctx.lineWidth = 1.5;
-      ctx.setLineDash([5, 4]);
       ctx.font = '10px -apple-system, sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      const markers = isEconomicRelease
-        ? [[speechStartIdx, '이벤트 게시']]
-        : [[speechStartIdx, '이벤트 게시'], [speechEndIdx, '이벤트 종료']];
-      markers.forEach(([idx, label]) => {
+      // 라벨 y위치를 겹치지 않게 교대로 배치
+      const labelYList = [top + 14, top + 34, top + 14];
+      eventMarkers.forEach(([idx, label, color], i) => {
         if (idx < 0) return;
-        const x = chart.scales.x.getPixelForValue(idx);
+        const x      = chart.scales.x.getPixelForValue(idx);
+        const labelY = labelYList[i] ?? top + 14;
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([5, 4]);
         ctx.beginPath();
         ctx.moveTo(x, top);
         ctx.lineTo(x, bottom);
         ctx.stroke();
-        // 라벨 배경 박스 (차트 내부 상단)
-        const labelY = top + 14;
         const tw = ctx.measureText(label).width;
         const pw = 6, ph = 5;
         ctx.setLineDash([]);
         ctx.fillStyle = 'rgba(255,255,255,0.88)';
         ctx.fillRect(x - tw / 2 - pw, labelY - ph - 1, tw + pw * 2, ph * 2 + 2);
-        ctx.fillStyle = 'rgba(239, 68, 68, 0.9)';
+        ctx.fillStyle = color;
         ctx.fillText(label, x, labelY);
       });
       ctx.restore();

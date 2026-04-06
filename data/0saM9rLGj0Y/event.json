@@ -8,6 +8,22 @@
   "broadcast_at": "2026-02-27T06:51:00+09:00",
   "duration_seconds": 4607,
   "transcript": "Heat. Hey, Heat. Heat. Heat. N. Heat. Heat. >> [music] >> Heat. Heat. Happy birthday. Heat. Heat. [music] Heat. Heat. By daddy gy. [music] I'm doo. Heat. Heat. >> [music] [music] >> Hey everybody. Heat. Heat. Little heat. >> [music] >> Heat. Hey, Heat. Heat. Heat. Heat. Heat. Heat. Heat. Good afternoon. My name is Sarah and I will be your conference operator today. At this time, I would like to welcome everyone to Nvidia's fourth quarter earnings call. All lines have been placed on mute to prevent any background noise. After the speaker's remarks, there will be a question and answer session. If you would like to ask a question during this time, simply press star followed by the number one on your telephone keypad. If you would like to withdraw your question, press star one again. Thank you. So, you may begin your conference. >> Thank you. Good afternoon everyone and welcome to Nvidia's conference call for the fourth quarter of fiscal 2026. With me today from Nvidia are Jensen Wong, president and chief executive officer, and Colette Crest, executive vice president and chief financial officer. Our call is being webcast live on Nvidia's investor relations website. The webcast will be available for replay until the conference call to discuss our financial results for the first quarter of fiscal 2027. The content of today's call is Nvidia's property. It can't be reproduced or transcribed without our prior written consent. During this call, we may make forward-looking statements based on current expectations. These are subject to a number of significant risks and uncertainties, and our actual results may differ materially. For a discussion of factors that could affect our future financial results in business, please refer to the disclosure in today's earnings release, our most recent forms 10K and 10Q, and the reports that we may file on form 8K with the Securities and Exchange Commission. All our statements are m made as as of today, February 25th, 2026 based on informat",
+  "earnings_release": {
+    "release_time_utc": "2026-02-26T21:05:00+00:00",
+    "eps": {
+      "actual": 0.89,
+      "estimate": 0.84,
+      "surprise_pct": 5.95
+    },
+    "revenue": {
+      "actual": 39.3,
+      "estimate": 38.1,
+      "unit": "B USD",
+      "surprise_pct": 3.15
+    },
+    "guidance_text": "Q1 FY27 매출 가이던스 $430억 (±2%), 컨센서스 $420억 상회",
+    "release_time_kst": "2026-02-27T06:05:00+09:00"
+  },
   "indices": {
     "rage": 82,
     "primary_target": "데이터센터 AI 인프라",
