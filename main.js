@@ -28,6 +28,17 @@ async function init() {
     allEvents = index.events || [];
     renderCategoryTabs();
     renderEventList(allEvents);
+    // 초기 렌더 후 모든 event.json 백그라운드 프리패치 (클릭 시 즉시 표시)
+    setTimeout(() => {
+      allEvents.forEach(({ id }) => {
+        if (!eventCache[id]) {
+          fetch(`./data/${id}/event.json`)
+            .then(r => r.json())
+            .then(data => { eventCache[id] = data; })
+            .catch(() => {});
+        }
+      });
+    }, 300);
   } catch (e) {
     document.getElementById('app').innerHTML = `<p class="loading">오류: ${e.message}</p>`;
   }
