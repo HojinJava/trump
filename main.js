@@ -398,8 +398,8 @@ function initChart(eventId, event) {
     borderColor: TICKERS[asset]?.color || '#6b7280',
     backgroundColor: TICKERS[asset]?.color || '#6b7280',
     borderWidth: 2,
-    pointRadius: isEcon ? 3 : 0,
-    pointHoverRadius: isEcon ? 5 : 0,
+    pointRadius: 0,
+    pointHoverRadius: 0,
     tension: 0.1,
     spanGaps: true,
   }));
