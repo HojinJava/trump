@@ -460,11 +460,21 @@ header .subtitle {
   border-bottom: 1px solid var(--border);
 }
 
-.summary-price-section {
+.summary-price-row {
+  display: flex;
+  gap: 12px;
   margin: 10px 0 12px;
-  padding: 10px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+}
+.summary-price-section {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 0;
+}
+.summary-price-section + .summary-price-section {
+  border-left: 1px solid var(--border);
+  padding-left: 12px;
 }
 
 .summary-price-title {

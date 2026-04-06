@@ -723,12 +723,19 @@ function renderSummary(event) {
   const points = (s.key_points || [])
     .map(p => `<li>${escHtml(p)}</li>`).join('');
 
+  const isEarnings = event.category === 'corporate_earnings';
   const pc = s.price_changes || {};
   const pcEntries = Object.entries(pc);
-  const chartTimes = event.chart_data?.times || [];
-  const chartStart = chartTimes.length ? chartTimes[0].slice(11, 16) : '';
-  const chartEnd   = chartTimes.length ? chartTimes[chartTimes.length - 1].slice(11, 16) : '';
-  const priceTimeLabel = chartStart && chartEnd ? ` (${escHtml(chartStart)} ~ ${escHtml(chartEnd)} KST)` : '';
+
+  // 어닝콜: broadcast_at ~ speech_end_kst / 그 외: 차트 범위
+  const callPreTime  = event.broadcast_at?.slice(11, 16) || '';
+  const callPostTime = s.speech_end_kst || '';
+  const chartTimes   = event.chart_data?.times || [];
+  const chartStart   = chartTimes.length ? chartTimes[0].slice(11, 16) : '';
+  const chartEnd     = chartTimes.length ? chartTimes[chartTimes.length - 1].slice(11, 16) : '';
+  const callTimeLabel  = callPreTime && callPostTime
+    ? ` (${escHtml(callPreTime)} ~ ${escHtml(callPostTime)} KST)`
+    : (chartStart && chartEnd ? ` (${escHtml(chartStart)} ~ ${escHtml(chartEnd)} KST)` : '');
 
   const priceRows = pcEntries.map(([asset, v]) => {
     const cls = v.change_pct > 0 ? 'vol-change-pos' : v.change_pct < 0 ? 'vol-change-neg' : 'vol-change-neu';
@@ -743,7 +750,11 @@ function renderSummary(event) {
   // 어닝콜 전용: 실발 ±20분 가격변동
   const pcRelease = event.price_changes_release || {};
   const pcReleaseEntries = Object.entries(pcRelease);
-  const erKST = event.earnings_release?.release_time_kst?.slice(11, 16) || '';
+  // 실발 시각 범위: 첫 번째 항목의 pre/post time 사용 (모든 자산 동일)
+  const firstRelEntry = pcReleaseEntries[0]?.[1];
+  const relPreTime  = firstRelEntry?.pre_time_kst || '';
+  const relPostTime = firstRelEntry?.post_time_kst || '';
+  const relTimeLabel = relPreTime && relPostTime ? ` (${escHtml(relPreTime)} ~ ${escHtml(relPostTime)} KST)` : '';
   const priceReleaseRows = pcReleaseEntries.map(([asset, v]) => {
     const cls = v.change_pct > 0 ? 'vol-change-pos' : v.change_pct < 0 ? 'vol-change-neg' : 'vol-change-neu';
     const sign = v.change_pct > 0 ? '+' : '';
@@ -774,8 +785,11 @@ function renderSummary(event) {
       </div>
       ${s.full_summary ? `<p class="summary-full">${escHtml(s.full_summary)}</p>` : ''}
       <ul class="summary-points">${points}</ul>
-      ${priceRows ? `<div class="summary-price-section"><div class="summary-price-title">발언 전후 주가 변동${priceTimeLabel}</div>${priceRows}</div>` : ''}
-      ${priceReleaseRows ? `<div class="summary-price-section"><div class="summary-price-title">실적 발표 전후 주가 변동 (±20분${erKST ? ` · 기준 ${escHtml(erKST)} KST` : ''})</div>${priceReleaseRows}</div>` : ''}
+      ${(priceRows || priceReleaseRows) ? `
+      <div class="summary-price-row">
+        ${priceRows ? `<div class="summary-price-section"><div class="summary-price-title">${isEarnings ? '어닝콜' : '발언'} 전후 주가 변동${callTimeLabel}</div>${priceRows}</div>` : ''}
+        ${priceReleaseRows ? `<div class="summary-price-section"><div class="summary-price-title">실적 발표 전후 주가 변동${relTimeLabel}</div>${priceReleaseRows}</div>` : ''}
+      </div>` : ''}
       ${s.market_impact_summary ? `<div class="summary-impact">${escHtml(s.market_impact_summary)}</div>` : ''}
     </div>`;
 }
