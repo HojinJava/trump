@@ -7,7 +7,7 @@ const CATEGORIES = {
   trump_speech:       { label: '<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/flags/4x3/us.svg" width="18" height="13" style="vertical-align:-2px;border-radius:2px"> 트럼프' },
   economic_indicator: { label: '<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/flags/4x3/us.svg" width="18" height="13" style="vertical-align:-2px;border-radius:2px"> FOMC' },
   employment:         { label: '<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/flags/4x3/us.svg" width="18" height="13" style="vertical-align:-2px;border-radius:2px"> 고용지표' },
-  corporate_earnings: { label: '어닝콜' },
+  corporate_earnings: { label: '<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/flags/4x3/us.svg" width="18" height="13" style="vertical-align:-2px;border-radius:2px"> 어닝콜' },
 };
 
 // 티커 설정 (tickers.json에서 로드 — REST /tickers 엔드포인트 역할)
