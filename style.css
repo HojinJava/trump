@@ -233,7 +233,7 @@ header .subtitle {
   padding: 12px;
 }
 .chart-wrap--compact {
-  max-width: 480px;
+  height: 200px;
 }
 
 /* ── Volatility tabs ──────────────────────── */
