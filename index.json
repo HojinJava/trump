@@ -6,9 +6,17 @@
       "title_ko": "LIVE: 트럼프, 이란 전쟁 관련 국민 담화 발표 | NBC 뉴스",
       "broadcast_at": "2026-04-02T10:01:58.399000+09:00",
       "source": "youtube_live",
-      "category": "trump_speech",
       "trump_risk_score": 34,
       "primary_target": "Iran"
+    },
+    {
+      "id": "fomc-20260318",
+      "title": "LIVE: Federal Reserve Chair Powell holds press conference after FOMC rate decision | NBC News",
+      "title_ko": "LIVE: 연준 파월 의장, FOMC 금리 결정 이후 기자회견 | NBC 뉴스",
+      "broadcast_at": "2026-03-19T03:00:00+09:00",
+      "source": "youtube_live",
+      "trump_risk_score": 14,
+      "primary_target": null
     }
   ]
 }

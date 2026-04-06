@@ -257,13 +257,13 @@ function renderVolItem(item, eventId) {
   const ko = item.transcript_segment_ko;
   const en = item.transcript_segment;
   let textHtml = '';
-  if (ko) {
+  if (item.is_post_speech) {
+    textHtml = `<div class="vol-post-speech">📊 ${escHtml(ko)}</div>`;
+  } else if (ko) {
     textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
     if (en) textHtml += `<details class="vol-original"><summary>원문 보기</summary><div class="vol-text-en">${escHtml(en)}</div></details>`;
   } else if (en) {
     textHtml = `<details class="vol-original" open><summary>원문 보기</summary><div class="vol-text-en">"${escHtml(en)}"</div></details>`;
-  } else {
-    textHtml = `<div class="vol-post-speech">📊 연설 종료 후 시장 반응 구간</div>`;
   }
 
   const zoneStart = (item.time || '').slice(11, 16);
@@ -316,13 +316,13 @@ function renderVolItemGlobal(group, rank, eventId, eventTickers = null) {
   const ko = rep.transcript_segment_ko;
   const en = rep.transcript_segment;
   let textHtml = '';
-  if (ko) {
+  if (rep.is_post_speech) {
+    textHtml = `<div class="vol-post-speech">📊 ${escHtml(ko)}</div>`;
+  } else if (ko) {
     textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
     if (en) textHtml += `<details class="vol-original"><summary>원문 보기</summary><div class="vol-text-en">${escHtml(en)}</div></details>`;
   } else if (en) {
     textHtml = `<details class="vol-original" open><summary>원문 보기</summary><div class="vol-text-en">"${escHtml(en)}"</div></details>`;
-  } else {
-    textHtml = `<div class="vol-post-speech">📊 연설 종료 후 시장 반응 구간</div>`;
   }
 
   const zoneStart = (rep.time || '').slice(11, 16);

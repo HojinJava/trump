@@ -63,6 +63,13 @@
   - ✅ 허용: CME 선물 (NQ, CL, GC, ZB, BTC, ETH 등), 국내 지수 (코스피 등)
   - ❌ 금지: 미국 ETF (IBIT, ETHA, TLT 등), 미국 주식
   - 티커 기준: `tickers.json`의 `desc_ko` 참조
+- **KIS API 미제공 시 Yahoo Finance로 우회**: KIS API가 과거 분봉을 지원하지 않는 자산(예: 코스피 지수 — `inquire-time-indexchartprice`는 당일만 지원)은 **Yahoo Finance REST API**로 수집한다.
+  - 엔드포인트: `https://query1.finance.yahoo.com/v8/finance/chart/{symbol}?interval=1m&period1={unix}&period2={unix}`
+  - 코스피 심볼: `%5EKS11` (`^KS11`)
+  - curl 또는 `requests` 라이브러리로 직접 호출 (인증 불필요, `User-Agent` 헤더 필수)
+  - 응답의 `chart.result[0].timestamp` + `indicators.quote[0]` 필드를 파싱하여 표준 캔들 포맷으로 변환 후 `market.json`에 저장
+  - TradingView `data.tradingview.com`은 서버 환경에서 IP 차단되므로 사용하지 않는다.
+
 - **장 마감 후 이벤트의 분봉 데이터 대체**: 이벤트 시간대에 거래가 없는 자산(예: 코스피 지수 — KRX 정규장 09:00~15:45 KST 외 시간 방송)은 분봉 대신 **직전 거래일 종가(closing price)**를 단일 데이터포인트로 사용한다.
   - `step_fetch`에서 분봉 조회 결과가 0건이면 해당 자산의 직전 종가를 별도 조회하여 저장한다.
   - `step_build`에서 분봉 없는 자산은 차트·변동성 분석 대상에서 제외하고, `price_changes`의 `pre_price` / `post_price` 모두 종가로 채워 등락률 0%로 표시한다.
@@ -88,8 +95,9 @@ YouTube 자동 자막은 슬라이딩 윈도우 방식으로 생성되어 세그
 
 ### segment_translations 커버리지 규칙
 - **연설 내 모든 고유 zone**에 대응하는 `transcript_segment` 원문→한국어 번역이 포함되어야 한다.
-- Claude CLI 분석 단계에서 top_volatility 후보 zone 각각의 발언 내용을 한국어로 번역하여 `segment_translations`에 추가한다.
-- 단순 스니펫 키가 아닌 전체 원문 텍스트를 키로 사용한다.
+- Claude CLI 분석 전 `archiving/{id}/zone_segments.json`을 읽어 각 zone의 `transcript_segment` 병합 원문을 확인한다.
+- `segment_translations`의 키는 `zone_segments.json`의 `transcript_segment` 값과 **완전히 동일한 문자열**이어야 한다 (exact match).
+- 한국어 값은 해당 구간의 요약·번역 (요약본 권장, 전체 번역 불필요).
 
 ## 다국어 규칙
 
@@ -104,10 +112,13 @@ YouTube 자동 자막은 슬라이딩 윈도우 방식으로 생성되어 세그
 ## 수집 실행 순서
 
 ```
-python collect.py                          # parse → plan → fetch
+python collect.py                          # parse → plan → fetch → segments
 Claude CLI: archiving/{id}/raw.json 분석   # analysis.json 생성 (speech_end_kst 포함 필수)
 python collect.py --build <event_id>       # build → data/{id}/event.json + index.json
 ```
+
+- `python collect.py` 실행 시 `archiving/{id}/zone_segments.json`이 자동 생성된다.
+- Claude CLI 분석 전에 이 파일을 참고하여 각 zone의 `transcript_segment`를 번역 키로 사용한다.
 
 ### Claude CLI 분석 시 analysis.json 필수 포함 항목
 - `speech_end_kst`: 연설 실제 종료 시각 (KST HH:MM) — raw.json의 segment real_time 마지막 값으로 확인
