@@ -106,6 +106,76 @@
       "color": "#76b900",
       "desc_ko": "엔비디아 — AI GPU/데이터센터 (NASDAQ: NVDA, 애프터마켓 포함)",
       "fetcher": "polygon"
+    },
+    "nke": {
+      "label": "NKE",
+      "label_ko": "나이키",
+      "color": "#111827",
+      "desc_ko": "나이키 주식 (NYSE: NKE, 애프터마켓 포함)",
+      "fetcher": "polygon"
+    },
+    "deck": {
+      "label": "DECK",
+      "label_ko": "데커스",
+      "color": "#92400e",
+      "desc_ko": "데커스 아웃도어 — HOKA·UGG (NYSE: DECK, 애프터마켓 포함)",
+      "fetcher": "polygon"
+    },
+    "lulu": {
+      "label": "LULU",
+      "label_ko": "룰루레몬",
+      "color": "#7c3aed",
+      "desc_ko": "룰루레몬 애슬레티카 (NASDAQ: LULU, 애프터마켓 포함)",
+      "fetcher": "polygon"
+    },
+    "addyy": {
+      "label": "ADDYY",
+      "label_ko": "아디다스",
+      "color": "#374151",
+      "desc_ko": "아디다스 ADR (OTC: ADDYY, 애프터마켓 포함)",
+      "fetcher": "polygon"
+    },
+    "ua": {
+      "label": "UA",
+      "label_ko": "언더아머",
+      "color": "#1e40af",
+      "desc_ko": "언더아머 (NYSE: UA, 애프터마켓 포함)",
+      "fetcher": "polygon"
+    },
+    "tsla": {
+      "label": "TSLA",
+      "label_ko": "테슬라",
+      "color": "#cc0000",
+      "desc_ko": "테슬라 주식 (NASDAQ: TSLA, 애프터마켓 포함)",
+      "fetcher": "polygon"
+    },
+    "rivn": {
+      "label": "RIVN",
+      "label_ko": "리비안",
+      "color": "#059669",
+      "desc_ko": "리비안 오토모티브 (NASDAQ: RIVN, 애프터마켓 포함)",
+      "fetcher": "polygon"
+    },
+    "f": {
+      "label": "F",
+      "label_ko": "포드",
+      "color": "#1d4ed8",
+      "desc_ko": "포드 모터 (NYSE: F, 애프터마켓 포함)",
+      "fetcher": "polygon"
+    },
+    "gm": {
+      "label": "GM",
+      "label_ko": "GM",
+      "color": "#2563eb",
+      "desc_ko": "제너럴 모터스 (NYSE: GM, 애프터마켓 포함)",
+      "fetcher": "polygon"
+    },
+    "nio": {
+      "label": "NIO",
+      "label_ko": "니오",
+      "color": "#0284c7",
+      "desc_ko": "니오 ADR — 중국 EV (NYSE: NIO, 애프터마켓 포함)",
+      "fetcher": "polygon"
     }
   }
 }
