@@ -6,6 +6,12 @@
       "color": "#1d4ed8",
       "desc_ko": "미국 나스닥100 선물 (CME: NQ)"
     },
+    "sp500": {
+      "label": "S&P500",
+      "label_ko": "S&P500",
+      "color": "#6366f1",
+      "desc_ko": "미국 S&P500 선물 (CME: ES)"
+    },
     "oil": {
       "label": "OIL",
       "label_ko": "WTI 원유",
@@ -23,6 +29,12 @@
       "label_ko": "비트코인",
       "color": "#f59e0b",
       "desc_ko": "비트코인 선물 (CME: BTC)"
+    },
+    "eth": {
+      "label": "ETH",
+      "label_ko": "이더리움",
+      "color": "#8b5cf6",
+      "desc_ko": "이더리움 선물 (CME: ETH)"
     },
     "short_bond": {
       "label": "2Y",
