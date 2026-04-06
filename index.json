@@ -1,6 +1,16 @@
 {
   "events": [
     {
+      "id": "nfp-20260403",
+      "title": "NFP April 2026: Actual +178K / Forecast +65K",
+      "title_ko": "3월 미국 고용보고서 (NFP +178K, 예상 대폭 상회)",
+      "broadcast_at": "2026-04-03T21:30:00+09:00",
+      "source": "economic_release",
+      "trump_risk_score": 0,
+      "primary_target": null,
+      "category": "economic_indicator"
+    },
+    {
       "id": "qT5Rf6HIp-0",
       "title": "LIVE: Trump addresses the nation on the Iran war | NBC News",
       "title_ko": "LIVE: 트럼프, 이란 전쟁 관련 국민 담화 발표 | NBC 뉴스",
