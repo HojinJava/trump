@@ -4,73 +4,108 @@
       "label": "NASDAQ",
       "label_ko": "나스닥",
       "color": "#1d4ed8",
-      "desc_ko": "미국 나스닥100 선물 (CME: NQ)"
+      "desc_ko": "미국 나스닥100 선물 (CME: NQ)",
+      "fetcher": "futures",
+      "symbol": "NQ",
+      "exch_cd": "CME"
     },
     "sp500": {
       "label": "S&P500",
       "label_ko": "S&P500",
       "color": "#6366f1",
-      "desc_ko": "미국 S&P500 선물 (CME: ES)"
+      "desc_ko": "미국 S&P500 선물 (CME: ES)",
+      "fetcher": "futures",
+      "symbol": "ES",
+      "exch_cd": "CME"
     },
     "oil": {
       "label": "OIL",
       "label_ko": "WTI 원유",
       "color": "#d97706",
-      "desc_ko": "서부텍사스 원유 선물 (CME: CL)"
+      "desc_ko": "서부텍사스 원유 선물 (CME: CL)",
+      "fetcher": "futures",
+      "symbol": "CL",
+      "exch_cd": "CME"
     },
     "gold": {
       "label": "GOLD",
       "label_ko": "금",
       "color": "#16a34a",
-      "desc_ko": "금 선물 (CME: GC)"
+      "desc_ko": "금 선물 (CME: GC)",
+      "fetcher": "futures",
+      "symbol": "GC",
+      "exch_cd": "CME"
     },
     "btc": {
       "label": "BTC",
       "label_ko": "비트코인",
       "color": "#f59e0b",
-      "desc_ko": "비트코인 선물 (CME: BTC)"
+      "desc_ko": "비트코인 선물 (CME: BTC)",
+      "fetcher": "futures",
+      "symbol": "BTC",
+      "exch_cd": "CME"
     },
     "eth": {
       "label": "ETH",
       "label_ko": "이더리움",
       "color": "#8b5cf6",
-      "desc_ko": "이더리움 선물 (CME: ETH)"
+      "desc_ko": "이더리움 선물 (CME: ETH)",
+      "fetcher": "futures",
+      "symbol": "ETH",
+      "exch_cd": "CME"
     },
     "short_bond": {
       "label": "2Y",
       "label_ko": "미국 2년 국채",
       "color": "#0891b2",
-      "desc_ko": "미국 2년 국채 선물 (CME: ZT)"
+      "desc_ko": "미국 2년 국채 선물 (CME: ZT)",
+      "fetcher": "futures",
+      "symbol": "ZT",
+      "exch_cd": "CME"
     },
     "bonds": {
       "label": "30Y",
       "label_ko": "미국 30년 국채",
       "color": "#64748b",
-      "desc_ko": "미국 30년 국채 선물 (CME: ZB)"
+      "desc_ko": "미국 30년 국채 선물 (CME: ZB)",
+      "fetcher": "futures",
+      "symbol": "ZB",
+      "exch_cd": "CME"
     },
     "googl": {
       "label": "GOOGL",
       "label_ko": "구글",
       "color": "#4285f4",
-      "desc_ko": "알파벳(구글) 주식 — 반도체/AI 수요 (NASDAQ: GOOGL, 애프터마켓 포함)"
+      "desc_ko": "알파벳(구글) 주식 — 반도체/AI 수요 (NASDAQ: GOOGL, 애프터마켓 포함)",
+      "fetcher": "polygon"
     },
     "mu": {
       "label": "MU",
       "label_ko": "마이크론",
       "color": "#0e76bd",
-      "desc_ko": "마이크론 테크놀로지 — HBM/DRAM (NASDAQ: MU, 애프터마켓 포함)"
+      "desc_ko": "마이크론 테크놀로지 — HBM/DRAM (NASDAQ: MU, 애프터마켓 포함)",
+      "fetcher": "polygon"
     },
     "amd": {
       "label": "AMD",
       "label_ko": "AMD",
       "color": "#ed1c24",
-      "desc_ko": "어드밴스드 마이크로 디바이시스 — GPU/CPU (NASDAQ: AMD, 애프터마켓 포함)"
+      "desc_ko": "어드밴스드 마이크로 디바이시스 — GPU/CPU (NASDAQ: AMD, 애프터마켓 포함)",
+      "fetcher": "polygon"
     },
     "avgo": {
       "label": "AVGO",
       "label_ko": "브로드컴",
       "color": "#dc6b19",
-      "desc_ko": "브로드컴 — AI 반도체/네트워크칩 (NASDAQ: AVGO, 애프터마켓 포함)"
+      "desc_ko": "브로드컴 — AI 반도체/네트워크칩 (NASDAQ: AVGO, 애프터마켓 포함)",
+      "fetcher": "polygon"
+    },
+    "nvda": {
+      "label": "NVDA",
+      "label_ko": "엔비디아",
+      "color": "#76b900",
+      "desc_ko": "엔비디아 — AI GPU/데이터센터 (NASDAQ: NVDA, 애프터마켓 포함)",
+      "fetcher": "polygon"
     }
   }
 }

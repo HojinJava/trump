@@ -19,6 +19,7 @@
 - 각 단계(parse → plan → fetch → analyze → build)는 파일을 읽고 쓰는 것만 한다. 메모리로 데이터를 단계 간에 넘기지 않는다.
 - **중간 파일 경로**: `archiving/{event_id}/` 하위에 이벤트별로 모아서 저장
   - `archiving/{id}/raw.json` — 파서 출력 (트랜스크립트, 세그먼트)
+  - `archiving/{id}/tickers.json` — 이 이벤트에서 수집할 티커 목록 (키 배열, 예: `["nasdaq","btc","googl"]`)
   - `archiving/{id}/fetch_plan.json` — 시장 수집 계획 (start_utc, end_utc, broadcast_at)
   - `archiving/{id}/market.json` — KIS API 분봉 데이터
   - `archiving/{id}/analysis.json` — Claude 분석 결과 (title_ko, segment_translations, speech_summary 포함)
@@ -119,13 +120,32 @@ Claude CLI: archiving/{id}/zone_segments.json 분석   # analysis.json 생성
 python collect.py --build <event_id>       # build → data/{id}/event.json + index.json
 ```
 
-- `python collect.py` 실행 시 `archiving/{id}/zone_segments.json`이 자동 생성된다.
-- Claude CLI 분석 전에 이 파일을 참고하여 각 zone의 `transcript_segment`를 번역 키로 사용한다.
+- `python collect.py` 실행 시 티커 목록을 선택하면 `archiving/{id}/tickers.json`이 자동 생성된다.
+- `archiving/{id}/tickers.json`이 없으면 기본 티커(`nasdaq/sp500/oil/gold/btc/eth/short_bond/bonds`)를 사용한다.
+- 티커를 변경하려면 `archiving/{id}/tickers.json`을 직접 수정 후 `--force fetch_plan <id>` → `--force market <id>` → `--build <id>` 재실행.
+- Claude CLI 분석 전에 `archiving/{id}/zone_segments.json`을 참고하여 각 zone의 `transcript_segment`를 번역 키로 사용한다.
+
+### Claude CLI 분석 시 analysis.json 필수 포함 항목 (공통 — 모든 YouTube 이벤트)
+
+다음 필드는 **이벤트 유형 무관하게 항상 포함**해야 한다. 이벤트 유형별로 의미가 달라질 뿐 필드 이름은 동일하다.
+
+| 필드 | 트럼프 연설 | FOMC | 어닝콜/기업 발표 |
+|------|------------|------|-----------------|
+| `rage` (0-100) | 분노·공격 수위 | 매파 강도 (금리 인상 압력) | CEO 확신도·강경함 |
+| `trade_war_signal` (0-100) | 무역전쟁 발언 강도 | 금리·통화정책 충격 신호 | 실적·가이던스 서프라이즈 강도 |
+| `market_brag` (0-100) | 시장 자랑 수위 | 경제 낙관 수위 | 성과·가이던스 자신감 |
+| `keywords` (string[]) | 핵심 위협어/공격어 | 핵심 정책어 | 핵심 제품·기술·사업 키워드 |
+| `primary_target` (string) | 주요 공격 대상 | 주요 정책 포커스 지표 | 핵심 사업 영역 |
+| `targets` (string[]) | 공격 대상 목록 | 관련 정책 지표·기관 목록 | 주요 파트너·고객·제품 목록 |
+| `minute_summaries` (array) | 분당 발언 요약 | 분당 발언 요약 | 분당 발언 요약 |
+
+- `speech_summary.trump_risk_score` (0-100): 트럼프 외 이벤트는 이 값을 직접 지정. 파이프라인이 `rage * 0.4 + trade_war * 0.3 + chaos * 0.3` 공식 대신 이 값을 사용.
 
 ### Claude CLI 분석 시 analysis.json 필수 포함 항목 (YouTube 연설)
 - `speech_end_kst`: 연설 실제 종료 시각 (KST HH:MM) — raw.json의 segment real_time 마지막 값으로 확인
 - `segment_translations`: 연설 내 모든 고유 zone의 transcript_segment 전체 원문 → 한국어 번역 맵
-- `title_ko`, `speech_summary` (key_points, full_summary, market_impact_summary, price_changes 등)
+- `title_ko`, `speech_summary` (key_points, full_summary, market_impact_summary 등)
+- 공통 필드: `rage`, `trade_war_signal`, `market_brag`, `keywords`, `primary_target`, `targets`, `minute_summaries`
 
 ### Claude CLI 분석 시 analysis.json 필수 포함 항목 (경제 지표 발표)
 - `speech_end_kst`: 발표 시각 KST (zone_segments.json의 `release_kst` 값과 동일)
@@ -135,6 +155,7 @@ python collect.py --build <event_id>       # build → data/{id}/event.json + in
 - `title_ko`: 한국어 제목 (예: "3월 미국 고용보고서 (NFP +178K)")
 - `segment_translations` **불필요** — 트랜스크립트 없음
 - `speech_summary`: 발표 수치 해석 + 시장 반응 분석
+- 공통 필드: `rage`, `trade_war_signal`, `market_brag`, `keywords`, `primary_target`, `targets` (경제지표는 `minute_summaries` 불필요)
 
 ## 소스 타입별 파이프라인 차이
 
@@ -147,3 +168,33 @@ python collect.py --build <event_id>       # build → data/{id}/event.json + in
 
 - `economic_release` 수집: `collect.py` 옵션 4 선택 → 지표명, 발표 시각, 실제값, 예상값 입력
 - extra 형식: `"NFP|2026-04-03 08:30 ET|178000|65000|151000"` (previous 선택)
+
+## 과거 오류 및 재발 방지 규칙
+
+### 1. Windows 인코딩 오류 (UnicodeEncodeError)
+- **원인**: Windows 기본 인코딩은 cp949. Python 표준 출력이 한국어를 처리하지 못함.
+- **규칙**: `collect.py` 실행 시 반드시 `python -X utf8 collect.py` 사용. `-X utf8` 없이 실행하면 인코딩 오류 발생.
+
+### 2. ET 시간대 파싱 오류 (방송 시각 1시간 오차)
+- **원인**: ET는 EST(UTC-5)와 EDT(UTC-4) 두 가지. 파서가 EDT(UTC-4)로 파싱하면 실제보다 1시간 늦어짐.
+- **규칙**: `youtube_video` 소스 등록 시 입력한 방송 시각(ET)은 파싱 후 반드시 `archiving/{id}/raw.json`의 `broadcast_at`을 열어 UTC 시각이 올바른지 검증한다. 오류 발생 시 `raw.json`의 `broadcast_at`을 직접 수정 후 `--force fetch_plan` → `--force market` → `--build` 재실행.
+
+### 3. YouTube 자막 API 빈 응답 (segments 0개)
+- **원인**: 일부 채널(Benzinga 등)은 YouTube timedtext API에 200 OK를 반환하지만 본문이 비어 있음.
+- **규칙**: `raw.json`의 `segments` 배열이 0이면 `zone_segments.json`도 비어 파이프라인 전체가 무의미해짐. 파서는 timedtext API 실패 시 `youtube_transcript_api` 라이브러리로 자동 폴백. 폴백도 실패하면 세그먼트를 수동으로 `raw.json`에 채워야 한다.
+
+### 4. 분석 공통 필드 누락 (rage=0, market_brag=0 등)
+- **원인**: 비-트럼프 이벤트 분석 시 트럼프 전용 필드로 오인해 `analysis.json`에 포함하지 않음.
+- **규칙**: `rage`, `trade_war_signal`, `market_brag`, `keywords`, `primary_target`, `targets`, `minute_summaries`는 **모든 이벤트에 필수**. 트럼프 연설/FOMC/어닝콜 모두 포함. 의미가 다를 뿐 필드명은 동일. (위 공통 필드 테이블 참고)
+
+### 5. 30일 이상 과거 분봉 데이터 없음 (Yahoo Finance 제한)
+- **원인**: Yahoo Finance 1분봉은 최근 30일만 제공. KIS API도 당일~수일치만 지원.
+- **규칙**: 이벤트 발생 후 30일 이상 경과한 경우 Yahoo Finance로 분봉 수집 불가. **Polygon.io**를 사용해야 하며, `kis_fetcher.py`의 fetcher 분기가 이를 처리함. 이벤트 등록은 가능한 한 발생 직후 30일 이내에 진행한다.
+
+### 6. market_brag가 analysis.json 값을 무시하는 문제
+- **원인**: `pipeline.py`가 `market_brag`를 NASDAQ 시장 등락으로만 계산했고, `analysis.json` 값을 읽지 않았음.
+- **규칙**: `rage`·`trade_war_signal`처럼 `market_brag`도 `analysis.json` 값이 있으면 우선 적용하도록 파이프라인이 수정됨. 동일 패턴이 생기면 pipeline.py의 오버라이드 블록을 참고할 것.
+
+### 7. 이벤트별 티커 하드코딩 문제
+- **원인**: 티커 프로필을 코드(`pipeline.py`) 또는 지침서(`CLAUDE.md`)에 하드코딩 → 이벤트마다 코드를 수정해야 했음.
+- **규칙**: 티커 목록은 `archiving/{id}/tickers.json`에만 저장. 코드/지침서 수정 없이 파일만 수정하면 다음 수집에 자동 반영. 새 이벤트 등록 시 `collect.py`가 자동 생성함.

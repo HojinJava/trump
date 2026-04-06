@@ -156,7 +156,7 @@ function renderEventDetail(id, event) {
   const tabs = ['전체', ...orderedAssets];
 
   detailEl.innerHTML = `
-    ${renderIndices(event.indices)}
+    ${renderIndices(event.indices, event.category)}
     ${renderSummary(event)}
     <div class="chart-wrap">
       <canvas id="chart-${escHtml(id)}"></canvas>
@@ -196,7 +196,7 @@ function bindVolTabs(id, event) {
   });
 }
 
-function renderIndices(indices) {
+function renderIndices(indices, category) {
   if (!indices) return '';
 
   const keywords = indices.keywords || [];
@@ -204,12 +204,22 @@ function renderIndices(indices) {
     ? `<div class="index-keywords">${keywords.map(k => `<span class="keyword-tag">${escHtml(k)}</span>`).join('')}</div>`
     : '<span class="index-value">-</span>';
 
+  // 카테고리별 레이블
+  const isFomc    = category === 'economic_indicator' || category === 'employment';
+  const isEarning = category === 'corporate_earnings';
+  const labels = {
+    rage:    isFomc ? '매파 강도' : isEarning ? '확신도'      : '감정 온도',
+    trade:   isFomc ? '정책 충격' : isEarning ? '가이던스 강도' : '무역 공격성',
+    brag:    isFomc ? '경제 낙관' : isEarning ? '성과 자신감'  : '시장 자랑',
+    target:  isFomc ? '정책 포커스' : isEarning ? '핵심 사업'  : '주요 타깃',
+  };
+
   const items = [
-    { label: '감정 온도',    value: `<span class="index-value">${indices.rage ?? '-'}</span>` },
-    { label: '무역 공격성',  value: `<span class="index-value">${indices.trade_war ?? '-'}</span>` },
+    { label: labels.rage,   value: `<span class="index-value">${indices.rage ?? '-'}</span>` },
+    { label: labels.trade,  value: `<span class="index-value">${indices.trade_war ?? '-'}</span>` },
     { label: '혼돈 지수',   value: `<span class="index-value">${indices.chaos ?? '-'}</span>` },
-    { label: '시장 자랑',   value: `<span class="index-value">${indices.market_brag ?? '-'}</span>` },
-    { label: '주요 타깃',   value: `<span class="index-value" style="font-size:1rem">${escHtml(indices.primary_target || 'N/A')}</span>` },
+    { label: labels.brag,   value: `<span class="index-value">${indices.market_brag ?? '-'}</span>` },
+    { label: labels.target, value: `<span class="index-value" style="font-size:1rem">${escHtml(indices.primary_target || 'N/A')}</span>` },
     { label: '키워드',      value: keywordHtml },
   ];
 
