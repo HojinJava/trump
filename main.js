@@ -787,8 +787,8 @@ function renderSummary(event) {
       <ul class="summary-points">${points}</ul>
       ${(priceRows || priceReleaseRows) ? `
       <div class="summary-price-row">
-        ${priceRows ? `<div class="summary-price-section"><div class="summary-price-title">${isEarnings ? '어닝콜' : '발언'} 전후 주가 변동${callTimeLabel}</div>${priceRows}</div>` : ''}
         ${priceReleaseRows ? `<div class="summary-price-section"><div class="summary-price-title">실적 발표 전후 주가 변동${relTimeLabel}</div>${priceReleaseRows}</div>` : ''}
+        ${priceRows ? `<div class="summary-price-section"><div class="summary-price-title">${isEarnings ? '어닝콜' : '발언'} 전후 주가 변동${callTimeLabel}</div>${priceRows}</div>` : ''}
       </div>` : ''}
       ${s.market_impact_summary ? `<div class="summary-impact">${escHtml(s.market_impact_summary)}</div>` : ''}
     </div>`;
