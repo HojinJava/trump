@@ -317,8 +317,6 @@ function renderVolItem(item, eventId) {
   } else if (ko) {
     textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
     if (en) textHtml += `<details class="vol-original"><summary>원문 보기</summary><div class="vol-text-en">${escHtml(en)}</div></details>`;
-  } else if (en) {
-    textHtml = `<details class="vol-original" open><summary>원문 보기</summary><div class="vol-text-en">"${escHtml(en)}"</div></details>`;
   }
 
   const zoneStart = (item.time || '').slice(11, 16);
@@ -376,8 +374,6 @@ function renderVolItemGlobal(group, rank, eventId, eventTickers = null) {
   } else if (ko) {
     textHtml = `<div class="vol-text-ko">"${escHtml(ko)}"</div>`;
     if (en) textHtml += `<details class="vol-original"><summary>원문 보기</summary><div class="vol-text-en">${escHtml(en)}</div></details>`;
-  } else if (en) {
-    textHtml = `<details class="vol-original" open><summary>원문 보기</summary><div class="vol-text-en">"${escHtml(en)}"</div></details>`;
   }
 
   const zoneStart = (rep.time || '').slice(11, 16);
