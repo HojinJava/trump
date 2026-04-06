@@ -1,6 +1,15 @@
 {
   "id": "qT5Rf6HIp-0",
   "source": "youtube_live",
+  "tickers": [
+    "nasdaq",
+    "oil",
+    "gold",
+    "btc",
+    "eth",
+    "bonds",
+    "kospi"
+  ],
   "url": "https://www.youtube.com/watch?v=qT5Rf6HIp-0",
   "title": "LIVE: Trump addresses the nation on the Iran war | NBC News",
   "title_ko": "LIVE: 트럼프, 이란 전쟁 관련 국민 담화 발표 | NBC 뉴스",
@@ -8,6 +17,7 @@
   "broadcast_at": "2026-04-02T10:01:58.399000+09:00",
   "duration_seconds": 3065,
   "transcript": ">> Thank you very much, my fellow >> Thank you very much, my fellow Americans. Good evening. Let me begin by Americans. Good evening. Let me begin by Americans. Good evening. Let me begin by congratulating the team at NASA and our congratulating the team at NASA and our congratulating the team at NASA and our brave astronauts on the successful brave astronauts on the successful brave astronauts on the successful launch of Artemis 2. It was quite launch of Artemis 2. It was quite launch of Artemis 2. It was quite something. It will be traveling further something. It will be traveling further something. It will be traveling further than any manned rocket has ever flown than any manned rocket has ever flown than any manned rocket has ever flown and will very substantially pass the and will very substantially pass the and will very substantially pass the moon, go around it and come back home moon, go around it and come back home moon, go around it and come back home from a distance that has never been done from a distance that has never been done from a distance that has never been done before. It's amazing. before. It's amazing. before. It's amazing. They are on the way and God bless them. They are on the way and God bless them. They are on the way and God bless them. These are brave people. We want to God These are brave people. We want to God These are brave people. We want to God bless those four unbelievable bless those four unbelievable bless those four unbelievable astronauts. astronauts. astronauts. As we speak this evening, it's been just As we speak this evening, it's been just As we speak this evening, it's been just one month since the United States one month since the United States one month since the United States military began operation military began operation military began operation epic fury targeting the world's number epic fury targeting the world's number epic fury targeting the world's number one state sponsor of terror, Iran. In one state sponso",
+  "earnings_release": null,
   "indices": {
     "rage": 72,
     "primary_target": "Iran",
@@ -536,98 +546,6 @@
         "eth": 0.0,
         "bonds": -0.03,
         "kospi": -0.04
-      }
-    },
-    {
-      "rank": 17,
-      "time": "2026-04-02T11:38:00+09:00",
-      "peak_time": "2026-04-02T11:40:00+09:00",
-      "end_time": "2026-04-02T11:40:00+09:00",
-      "candle_count": 3,
-      "asset": "gold",
-      "window_vol": 9.5167,
-      "video_offset_seconds": 1720,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
-      "transcript_segment": null,
-      "transcript_segment_ko": "연설 종료 후 시장 반응 구간",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": 0.03,
-        "oil": -0.03,
-        "gold": 0.25,
-        "btc": 0.0,
-        "eth": 0.0,
-        "bonds": 0.0,
-        "kospi": 0.24
-      }
-    },
-    {
-      "rank": 18,
-      "time": "2026-04-02T11:11:00+09:00",
-      "peak_time": "2026-04-02T11:11:00+09:00",
-      "end_time": "2026-04-02T11:12:00+09:00",
-      "candle_count": 2,
-      "asset": "gold",
-      "window_vol": 9.4315,
-      "video_offset_seconds": 1720,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
-      "transcript_segment": null,
-      "transcript_segment_ko": "연설 종료 후 시장 반응 구간",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": -0.07,
-        "oil": 0.14,
-        "gold": -0.31,
-        "btc": 0.0,
-        "eth": 0.0,
-        "bonds": -0.03,
-        "kospi": -0.11
-      }
-    },
-    {
-      "rank": 19,
-      "time": "2026-04-02T10:29:00+09:00",
-      "peak_time": "2026-04-02T10:30:00+09:00",
-      "end_time": "2026-04-02T10:30:00+09:00",
-      "candle_count": 2,
-      "asset": "bonds",
-      "window_vol": 8.7946,
-      "video_offset_seconds": 1720,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
-      "transcript_segment": null,
-      "transcript_segment_ko": "연설 종료 후 시장 반응 구간",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": -0.14,
-        "oil": 0.38,
-        "gold": -0.24,
-        "btc": 0.0,
-        "eth": 0.0,
-        "bonds": -0.06,
-        "kospi": -0.82
-      }
-    },
-    {
-      "rank": 20,
-      "time": "2026-04-02T10:54:00+09:00",
-      "peak_time": "2026-04-02T10:54:00+09:00",
-      "end_time": "2026-04-02T10:55:00+09:00",
-      "candle_count": 2,
-      "asset": "kospi",
-      "window_vol": 7.6815,
-      "video_offset_seconds": 1720,
-      "youtube_url": "https://youtube.com/watch?v=qT5Rf6HIp-0&t=1720",
-      "transcript_segment": null,
-      "transcript_segment_ko": "연설 종료 후 시장 반응 구간",
-      "is_post_speech": true,
-      "market_moves": {
-        "nasdaq": -0.01,
-        "oil": 0.03,
-        "gold": 0.0,
-        "btc": 0.0,
-        "eth": -0.06,
-        "bonds": 0.03,
-        "kospi": -0.28
       }
     }
   ],
@@ -1706,11 +1624,6 @@
         "change_pct": -4.31
       },
       {
-        "time": "2026-04-02T10:54:00+09:00",
-        "show": true,
-        "change_pct": -4.05
-      },
-      {
         "time": "2026-04-02T11:07:00+09:00",
         "show": true,
         "change_pct": -4.13
@@ -1726,11 +1639,6 @@
         "time": "2026-04-02T10:17:00+09:00",
         "show": true,
         "change_pct": -0.41
-      },
-      {
-        "time": "2026-04-02T10:30:00+09:00",
-        "show": true,
-        "change_pct": -0.52
       }
     ],
     "gold": [
@@ -1743,16 +1651,6 @@
         "time": "2026-04-02T10:31:00+09:00",
         "show": true,
         "change_pct": -2.05
-      },
-      {
-        "time": "2026-04-02T11:11:00+09:00",
-        "show": true,
-        "change_pct": -1.89
-      },
-      {
-        "time": "2026-04-02T11:40:00+09:00",
-        "show": true,
-        "change_pct": -2.06
       }
     ],
     "nasdaq": [

@@ -61,6 +61,9 @@
 - **차트 자산 필터링**: 방송 기간(broadcast_at ~ end_utc) 중 고유 타임스탬프가 **5개 이상**이고, 방송 시작 30분 이내에 첫 데이터가 존재하는 자산만 차트에 포함.
 - **economic_release top_volatility 필터**: `step_build`에서 `economic_release` 이벤트의 `top_volatility`는 차트 윈도우(broadcast_at ~ broadcast_at+10분) 내 zone만 포함한다. 필터 후 rank를 1부터 재번호한다. 차트에 보이지 않는 구간의 랭킹은 삭제한다.
 - **차트 시간 범위 트림**: `step_build`에서 chart_data를 구성할 때, 뒤쪽에 변동성이 없는(flat) 구간은 제거한다. 기준: 마지막 `top_volatility` zone의 `end_time` 이후로 모든 자산의 가격 변동이 미미한 구간은 여유 30분만 남기고 잘라낸다.
+- **top_volatility zone 품질 필터**: `step_build`에서 다음 조건을 만족하지 않는 zone은 랭킹에서 제거하고 rank를 1부터 재번호한다.
+  - `candle_count` ≤ 10 (구간 최대 10분 — 10분 초과 zone은 단일 이벤트가 아닌 배경 노이즈로 간주)
+  - `window_vol` ≥ 10.0 (변동폭 최소 임계값 — 미만은 통계적으로 유의하지 않은 노이즈)
 - **기본 티커는 24시간 거래 가능한 선물(Futures) 종목으로 수집한다.** ETF·주식 종목은 미국 장중에만 데이터가 있어 KST 오전 발언 시 데이터 공백이 발생하므로 기본 프로필에서는 사용하지 않는다.
   - ✅ 허용 (기본): CME 선물 (NQ, CL, GC, ZB, BTC, ETH 등), 국내 지수 (코스피 등)
   - ❌ 금지 (기본): 미국 ETF (IBIT, ETHA, TLT 등), 일반 미국 주식

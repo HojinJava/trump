@@ -496,15 +496,22 @@ function initChart(eventId, event) {
   const _findIdx = hhmm => hhmm ? allTimes.findIndex(t => t.slice(11, 16) === hhmm) : -1;
   const speechStartIdx = _findIdx(broadcastHHMM);
   const speechEndIdx   = _findIdx(speechEndHHMM);
-  const erIdx          = _findIdx(erHHMM);
+  let erIdx            = _findIdx(erHHMM);
+  // 실적 발표 시각이 차트 시작 전이면 왼쪽 끝(index 0)에 고정
+  if (erIdx < 0 && erHHMM && allTimes.length > 0 && er?.release_time_kst < allTimes[0]) {
+    erIdx = 0;
+  }
 
   // markers: [idx, label, color]
   let eventMarkers;
   if (isEconomicRelease) {
     eventMarkers = [[speechStartIdx, '발표', '#ef4444']];
   } else if (isEarnings) {
+    const erLabel = (erIdx === 0 && er?.release_time_kst < allTimes[0])
+      ? `실적 발표 ${erHHMM}`
+      : '실적 발표';
     eventMarkers = [
-      [erIdx,          '실적 발표',   '#f59e0b'],
+      [erIdx,          erLabel,       '#f59e0b'],
       [speechStartIdx, '어닝콜 시작', '#ef4444'],
       [speechEndIdx,   '어닝콜 종료', '#6366f1'],
     ];
