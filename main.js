@@ -18,11 +18,19 @@ let activeCategory = 'all';
 // Cache for lazily loaded event data
 const eventCache = {};
 
+function fetchWithTimeout(url, ms = 10000) {
+  const ctrl = new AbortController();
+  const id = setTimeout(() => ctrl.abort(), ms);
+  return fetch(url, { signal: ctrl.signal })
+    .then(r => { clearTimeout(id); return r.json(); })
+    .catch(e => { clearTimeout(id); throw new Error(`${url} 로드 실패: ${e.message}`); });
+}
+
 async function init() {
   try {
     const [index, tickerData] = await Promise.all([
-      fetch(INDEX_URL).then(r => r.json()),
-      fetch(TICKERS_URL).then(r => r.json()),
+      fetchWithTimeout(INDEX_URL),
+      fetchWithTimeout(TICKERS_URL),
     ]);
     TICKERS = tickerData.tickers || {};
     allEvents = index.events || [];
