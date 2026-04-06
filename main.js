@@ -458,8 +458,8 @@ function initChart(eventId, event) {
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       const markers = isEconomicRelease
-        ? [[speechStartIdx, '발표']]
-        : [[speechStartIdx, '연설 시작'], [speechEndIdx, '연설 종료']];
+        ? [[speechStartIdx, '이벤트 게시']]
+        : [[speechStartIdx, '이벤트 게시'], [speechEndIdx, '이벤트 종료']];
       markers.forEach(([idx, label]) => {
         if (idx < 0) return;
         const x = chart.scales.x.getPixelForValue(idx);
