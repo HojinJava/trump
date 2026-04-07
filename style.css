@@ -80,6 +80,49 @@ header .subtitle {
   color: #fff;
 }
 
+/* ── Company sub-tabs ─────────────────────── */
+.company-subtabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  padding-left: 4px;
+  border-left: 3px solid var(--border);
+}
+
+.company-subtabs:empty { display: none; }
+
+.sub-tab.active {
+  background: var(--text);
+  border-color: var(--text);
+  color: #fff;
+}
+
+.company-logo-sm {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 2px;
+  filter: brightness(0) invert(1);
+}
+
+.sub-tab.active .company-logo-sm {
+  filter: brightness(0) invert(1);
+}
+
+.sub-tab:not(.active) .company-logo-sm {
+  filter: none;
+}
+
+/* ── Company logo in event header ──────────── */
+.company-logo-header {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
 /* ── Date groups ──────────────────────────── */
 .date-group { margin-bottom: 12px; }
 

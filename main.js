@@ -10,10 +10,18 @@ const CATEGORIES = {
   corporate_earnings: { label: '<img src="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/flags/4x3/us.svg" width="18" height="13" style="vertical-align:-2px;border-radius:2px"> 어닝콜' },
 };
 
+const COMPANY_CI = {
+  nvda: { name: 'NVIDIA', logoUrl: 'https://cdn.simpleicons.org/nvidia/76b900', color: '#76b900' },
+  nke:  { name: 'Nike',   logoUrl: 'https://cdn.simpleicons.org/nike/111827',   color: '#111827' },
+  tsla: { name: 'Tesla',  logoUrl: 'https://cdn.simpleicons.org/tesla/cc0000',  color: '#cc0000' },
+  googl:{ name: 'Google', logoUrl: 'https://cdn.simpleicons.org/google/4285f4', color: '#4285f4' },
+};
+
 // 티커 설정 (tickers.json에서 로드 — REST /tickers 엔드포인트 역할)
 let TICKERS = {};
 let allEvents = [];
 let activeCategory = 'all';
+let activeCompany = 'all';
 
 // Cache for lazily loaded event data
 const eventCache = {};
@@ -35,6 +43,7 @@ async function init() {
     TICKERS = tickerData.tickers || {};
     allEvents = index.events || [];
     renderCategoryTabs();
+    renderCompanySubTabs();
     renderEventList(allEvents);
     // 초기 렌더 후 모든 event.json 백그라운드 프리패치 (클릭 시 즉시 표시)
     setTimeout(() => {
@@ -68,10 +77,54 @@ function renderCategoryTabs() {
     const btn = e.target.closest('.cat-tab');
     if (!btn) return;
     activeCategory = btn.dataset.cat;
+    activeCompany = 'all';
     container.querySelectorAll('.cat-tab').forEach(b => b.classList.toggle('active', b.dataset.cat === activeCategory));
-    const filtered = activeCategory === 'all' ? allEvents : allEvents.filter(ev => ev.category === activeCategory);
-    renderEventList(filtered);
+    renderCompanySubTabs();
+    applyFilter();
   });
+}
+
+function renderCompanySubTabs() {
+  const subContainer = document.getElementById('company-subtabs');
+  if (!subContainer) return;
+
+  if (activeCategory !== 'corporate_earnings') {
+    subContainer.innerHTML = '';
+    return;
+  }
+
+  // 이 카테고리에 존재하는 company 목록 수집
+  const companies = [...new Set(
+    allEvents
+      .filter(e => e.category === 'corporate_earnings' && e.company)
+      .map(e => e.company)
+  )];
+
+  subContainer.innerHTML = [
+    `<button class="cat-tab sub-tab${activeCompany === 'all' ? ' active' : ''}" data-company="all">전체</button>`,
+    ...companies.map(c => {
+      const ci = COMPANY_CI[c];
+      const logo = ci ? `<img src="${ci.logoUrl}" width="14" height="14" class="company-logo-sm">` : '';
+      const name = ci ? ci.name : c.toUpperCase();
+      return `<button class="cat-tab sub-tab${activeCompany === c ? ' active' : ''}" data-company="${c}">${logo} ${name}</button>`;
+    }),
+  ].join('');
+
+  subContainer.addEventListener('click', e => {
+    const btn = e.target.closest('.sub-tab');
+    if (!btn) return;
+    activeCompany = btn.dataset.company;
+    subContainer.querySelectorAll('.sub-tab').forEach(b => b.classList.toggle('active', b.dataset.company === activeCompany));
+    applyFilter();
+  });
+}
+
+function applyFilter() {
+  let filtered = activeCategory === 'all' ? allEvents : allEvents.filter(ev => ev.category === activeCategory);
+  if (activeCategory === 'corporate_earnings' && activeCompany !== 'all') {
+    filtered = filtered.filter(ev => ev.company === activeCompany);
+  }
+  renderEventList(filtered);
 }
 
 function renderEventList(events) {
@@ -149,10 +202,16 @@ function renderEventSummary(event) {
   const riskClass = score >= 70 ? 'risk-high' : score >= 40 ? 'risk-mid' : 'risk-low';
   const riskLabel = score >= 70 ? 'HIGH' : score >= 40 ? 'MID' : 'LOW';
 
+  const ci = event.company ? COMPANY_CI[event.company] : null;
+  const logoHtml = ci
+    ? `<img src="${ci.logoUrl}" width="20" height="20" class="company-logo-header" alt="${ci.name}">`
+    : '';
+
   return `
     <div class="event-toggle">
       <div class="toggle-header" data-id="${escHtml(event.id)}">
         <span class="toggle-arrow">▶</span>
+        ${logoHtml}
         <span class="toggle-title">${escHtml(event.title_ko || event.title)}</span>
         <span class="risk-badge ${riskClass}">${riskLabel} ${score}</span>
       </div>
