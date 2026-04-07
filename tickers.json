@@ -114,32 +114,11 @@
       "desc_ko": "나이키 주식 (NYSE: NKE, 애프터마켓 포함)",
       "fetcher": "polygon"
     },
-    "deck": {
-      "label": "DECK",
-      "label_ko": "데커스",
-      "color": "#92400e",
-      "desc_ko": "데커스 아웃도어 — HOKA·UGG (NYSE: DECK, 애프터마켓 포함)",
-      "fetcher": "polygon"
-    },
     "lulu": {
       "label": "LULU",
       "label_ko": "룰루레몬",
       "color": "#7c3aed",
       "desc_ko": "룰루레몬 애슬레티카 (NASDAQ: LULU, 애프터마켓 포함)",
-      "fetcher": "polygon"
-    },
-    "addyy": {
-      "label": "ADDYY",
-      "label_ko": "아디다스",
-      "color": "#374151",
-      "desc_ko": "아디다스 ADR (OTC: ADDYY, 애프터마켓 포함)",
-      "fetcher": "polygon"
-    },
-    "ua": {
-      "label": "UA",
-      "label_ko": "언더아머",
-      "color": "#1e40af",
-      "desc_ko": "언더아머 (NYSE: UA, 애프터마켓 포함)",
       "fetcher": "polygon"
     },
     "tsla": {

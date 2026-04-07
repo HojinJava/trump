@@ -5,10 +5,7 @@
     "nasdaq",
     "sp500",
     "nke",
-    "deck",
-    "lulu",
-    "addyy",
-    "ua"
+    "lulu"
   ],
   "url": "https://www.youtube.com/watch?v=DZozIvKlxLQ",
   "title": "$NKE NIKE Q3 2026 Earnings Conference Call",
@@ -131,10 +128,7 @@
         "nasdaq": 0.04,
         "sp500": 0.04,
         "nke": -0.72,
-        "deck": 0.0,
-        "lulu": 0.0,
-        "addyy": 0.0,
-        "ua": 0.0
+        "lulu": 0.0
       },
       "window": "release"
     },
@@ -155,10 +149,7 @@
         "nasdaq": -0.01,
         "sp500": -0.01,
         "nke": -0.6,
-        "deck": 0.0,
-        "lulu": 0.0,
-        "addyy": 0.0,
-        "ua": 0.0
+        "lulu": 0.0
       },
       "window": "release"
     },
@@ -179,10 +170,7 @@
         "nasdaq": 0.04,
         "sp500": 0.02,
         "nke": 0.42,
-        "deck": 0.0,
-        "lulu": 0.0,
-        "addyy": 0.0,
-        "ua": 0.0
+        "lulu": 0.0
       },
       "window": "release"
     },
