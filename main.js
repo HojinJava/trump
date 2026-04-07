@@ -192,7 +192,7 @@ function renderEventDetail(id, event) {
     <ul class="volatility-list" id="vol-list-${escHtml(id)}">
       ${renderVolItems(volItems, '전체', id, event.tickers)}
     </ul>
-``;
+`;
   // vol-item hover → chart highlight (차트 초기화 후 바인딩)
   requestAnimationFrame(() => bindVolItemHovers(id));
 }
